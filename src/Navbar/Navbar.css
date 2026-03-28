@@ -1,0 +1,122 @@
+.Navbar-container {
+  display: flex;
+  /* Ativa Flexbox */
+
+  justify-content: space-between;
+  /* Espaça logo e menu */
+
+  align-items: center;
+  /* Centraliza verticalmente */
+
+  padding: 0 5%;
+  /* Espaço lateral */
+
+  width: 100%;
+  /* Ocupa toda largura */
+
+  height: 100px;
+  /* Altura da navbar */
+
+  position: fixed;
+  /* Agora fica fixa ao rolar (melhor UX) */
+
+  top: 0;
+  left: 0;
+
+  z-index: 1001;
+  /* Fica acima de tudo */
+
+  box-sizing: border-box;
+
+  background: rgba(0, 0, 0, 0.3);
+  /* Fundo semi-transparente */
+
+  backdrop-filter: blur(10px);
+  /* Efeito vidro (glassmorphism) */
+}
+
+.Logo-img {
+  height: 150px;
+  width: auto;
+}
+
+.Nav-links {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- LINKS --- */
+.Nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.Nav-links a:hover {
+  background-color: rgba(0, 198, 255, 0.2);
+  color: #00c6ff;
+  transform: translateY(-2px);
+}
+
+/* --- MENU HAMBÚRGUER --- */
+.menu-hamburger {
+  display: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+/* --- MOBILE --- */
+@media (max-width: 768px) {
+  .Logo-img {
+    height: 100px;
+  }
+  .menu-hamburger {
+    display: block;
+  }
+
+  .Nav-links {
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    background: #040b1a;
+
+    width: 70%;
+    height: 100vh;
+
+    padding-top: 100px;
+    gap: 30px;
+
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+
+    transform: translateX(100%);
+    /* Começa escondido fora da tela */
+
+    transition: transform 0.3s ease;
+    /* Animação suave */
+  }
+
+  .Nav-links.ativo {
+    transform: translateX(0);
+    /* Entra deslizando */
+  }
+
+  .Nav-links a {
+    font-size: 1.5rem;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  /* Remove a margem padrão do navegador */
+
+  padding: 0;
+  /* Remove o espaçamento interno padrão */
+
+  min-height: 100vh;
+  /* Garante que o body tenha pelo menos a altura total da tela */
+
+  background-color: #040b1a;
+  /* Cor base do fundo (azul bem escuro) */
+
+  background-image:
+    linear-gradient(135deg, #040b1a 0%, #081a3d 40%, #0f3073 100%),
+    /* Gradiente diagonal criando profundidade */
+
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.02) 2px,
+      rgba(255, 255, 255, 0.02) 4px
+    );
+    /* Linhas repetidas bem leves (efeito textura/tech) */
+
+  background-attachment: fixed;
+  /* Mantém o fundo fixo ao rolar (efeito parallax leve) */
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* Define a fonte padrão da aplicação */
+
+  overflow-x: hidden;
+  /* Evita scroll horizontal indesejado */
+
+  scroll-behavior: smooth;
+  /* Deixa a rolagem suave ao clicar em links (#ancoras) */
+}

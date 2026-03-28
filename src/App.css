@@ -1,0 +1,136 @@
+.App {
+  background: transparent;
+  /* Deixa o fundo transparente (usa o background do body) */
+
+  min-height: 100vh;
+  /* Garante altura mínima de 100% da tela */
+}
+
+.hero-section {
+  height: 100vh;
+  /* Ocupa toda a altura da tela */
+
+  display: flex;
+  /* Ativa Flexbox */
+
+  flex-direction: column;
+  /* Organiza os elementos em coluna */
+
+  align-items: center;
+  /* Centraliza horizontalmente */
+
+  justify-content: center;
+  /* Centraliza verticalmente */
+
+  text-align: center;
+  /* Centraliza o texto */
+
+  color: white;
+  /* Define cor do texto */
+
+  padding: 0 20px;
+  /* Espaço lateral */
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  /* Tamanho grande do título */
+
+  margin: 0;
+  /* Remove margem padrão */
+
+  background: linear-gradient(to right, #fff, #00c6ff);
+  /* Gradiente no texto */
+
+  background-clip: text;
+  /* Aplica gradiente só no texto */
+
+  -webkit-background-clip: text;
+  /* Compatibilidade com navegadores */
+
+  -webkit-text-fill-color: transparent;
+  /* Deixa o texto transparente para mostrar o gradiente */
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  /* Tamanho do parágrafo */
+
+  max-width: 700px;
+  /* Limita largura para leitura melhor */
+
+  margin: 20px 0 40px;
+  /* Espaçamento em cima e embaixo */
+
+  opacity: 0.8;
+  /* Leve transparência */
+}
+
+.hero-buttons {
+  display: flex;
+  /* Flexbox para alinhar botão + ícones */
+
+  align-items: center;
+  /* Alinha verticalmente */
+
+  gap: 25px;
+  /* Espaço entre os elementos */
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  /* Gradiente do botão */
+
+  color: white;
+  /* Cor do texto */
+
+  padding: 18px 40px;
+  /* Tamanho do botão */
+
+  border-radius: 50px;
+  /* Bordas arredondadas */
+
+  text-decoration: none;
+  /* Remove sublinhado */
+
+  font-weight: bold;
+  /* Texto em negrito */
+
+  box-shadow: 0 10px 20px rgba(0, 114, 255, 0.3);
+  /* Sombra para efeito de profundidade */
+
+  transition: 0.3s;
+  /* Animação suave */
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  /* Efeito de subir ao passar o mouse */
+}
+
+.social-links {
+  display: flex;
+  /* Coloca ícones lado a lado */
+
+  gap: 20px;
+  /* Espaço entre ícones */
+}
+
+.social-links a {
+  color: white;
+  /* Cor padrão dos ícones */
+
+  font-size: 2.2rem;
+  /* Tamanho dos ícones */
+
+  transition: 0.3s;
+  /* Suaviza animação */
+}
+
+.social-links a:hover {
+  color: #25d366;
+  /* Cor verde (WhatsApp) */
+
+  transform: scale(1.1);
+  /* Aumenta levemente */
+}
