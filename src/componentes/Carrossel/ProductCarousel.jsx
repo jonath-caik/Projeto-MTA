@@ -14,7 +14,7 @@ const ProductCarousel = () => {
     { id: 2, title: 'Sandalia ortopedica "couro"', img: '/sandalia ce couro.jpg' },
     { id: 3, title: 'Sandalia ortopedica "vazada"', img: '/sandalia2.jpg' },
     { id: 4, title: 'Água mais saúdavel', img: '/filtro sendo ultilizado.jpg' },
-    { id: 5, title: 'Kit Bem-Estar', img: '/oleo2.jpg' },
+    { id: 5, title: 'sandalia rasteira ortopedica', img: '/sandalia preta.jpg' },
   ];
 
   return (
