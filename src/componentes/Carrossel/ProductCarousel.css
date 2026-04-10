@@ -1,0 +1,75 @@
+.carousel-section {
+  padding: 100px 10%;
+  background-color: #fcfcfc;
+  text-align: center;
+}
+
+.carousel-title {
+  font-size: 2.5rem;
+  color: #0b1a31;
+  margin-bottom: 50px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.product-card-carousel {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+  margin-bottom: 50px; /* Espaço para a paginação não colar */
+  transition: 0.4s;
+  border: 1px solid #eee;
+}
+
+.product-card-carousel:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.product-img-container {
+  width: 100%;
+  height: 350px;
+}
+
+.product-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-info-carousel {
+  padding: 25px;
+}
+
+.product-info-carousel h3 {
+  color: #0b1a31;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.btn-buy {
+  background: #0b1a31;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-buy:hover {
+  background: #0072ff;
+}
+
+/* Customização das setas e pontos do Swiper */
+.swiper-button-next, .swiper-button-prev {
+  color: #0b1a31 !important;
+  transform: scale(0.7);
+}
+
+.swiper-pagination-bullet-active {
+  background: #0072ff !important;
+}

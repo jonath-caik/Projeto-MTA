@@ -1,0 +1,105 @@
+/* --- ESTILO GLOBAL E PC (DESKTOP) --- */
+.Navbar {
+  background-color: #0b1a31;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2000;
+  height: 100px; 
+  display: flex;
+  align-items: center;
+}
+
+.Navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.Logo-img {
+  height: 85px;
+  width: auto;
+  cursor: pointer;
+}
+
+.Nav-links {
+  display: flex;
+  list-style: none;
+  gap: 50px;
+}
+
+.Nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.Nav-links li a:hover {
+  color: #00c6ff; /* Azul no PC */
+}
+
+.menu-hamburger {
+  display: none; /* Escondido no PC */
+}
+
+/* --- ESTILO EXCLUSIVO PARA MOBILE (CELULAR) --- */
+@media (max-width: 768px) {
+  .Navbar {
+    height: 90px;
+  }
+
+  .Navbar-container {
+    padding: 0 20px;
+  }
+
+  .Logo-img {
+    height: 65px !important;
+  }
+
+  .menu-hamburger {
+    display: block !important; /* Aparece só no celular */
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 3001;
+  }
+
+  .Nav-links {
+    /* Transforma o menu em uma gaveta lateral */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #040b1a; 
+    width: 75%;
+    height: 100vh;
+    gap: 40px;
+    transform: translateX(100%); /* Esconde para a direita */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .Nav-links.ativo {
+    transform: translateX(0); /* Desliza para dentro da tela */
+  }
+
+  .Nav-links li a {
+    font-size: 1.5rem;
+    color: white !important;
+  }
+
+  /* Azul quando clica no celular */
+  .Nav-links li a:active,
+  .Nav-links li a:hover {
+    color: #00c6ff !important;
+  }
+}
