@@ -1,26 +1,34 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 // Estilos essenciais do Swiper
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import './ProductCarousel.css';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "./ProductCarousel.css";
 
 const ProductCarousel = () => {
   const products = [
-    { id: 1, title: 'Filtro de água "Purifc"', img: '/filtro de agua.jpg' },
-    { id: 2, title: 'Sandalia ortopedica "couro"', img: '/sandalia ce couro.jpg' },
-    { id: 3, title: 'Sandalia ortopedica "vazada"', img: '/sandalia2.jpg' },
-    { id: 4, title: 'Água mais saúdavel', img: '/filtro sendo ultilizado.jpg' },
-    { id: 5, title: 'Kit Bem-Estar', img: '/oleo2.jpg' },
+    { id: 1, title: 'Filtro de água "Purifc"', img: "/filtro de agua.jpg" },
+    {
+      id: 2,
+      title: 'Sandalia ortopedica "couro"',
+      img: "/sandalia ce couro.jpg",
+    },
+    { id: 3, title: 'Sandalia ortopedica "vazada"', img: "/sandalia2.jpg" },
+    { id: 4, title: "Água mais saúdavel", img: "/filtro sendo ultilizado.jpg" },
+    {
+      id: 5,
+      title: "sandalia rasteira ortopedica",
+      img: "/sandalia preta.jpg",
+    },
   ];
 
   return (
     <section className="carousel-section" id="produtos">
       <h2 className="carousel-title">Nossos Destaques</h2>
-      
+
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={30}
