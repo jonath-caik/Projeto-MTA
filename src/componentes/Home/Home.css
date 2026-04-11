@@ -26,7 +26,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1300px;
+  max-width: 1500px;
   width: 100%;
   padding: 0 50px;
   gap: 40px;
@@ -41,7 +41,7 @@
 }
 
 .hero-person-img {
-  max-width: 450px; /* Tamanho da foto na Web */
+  max-width: 460px; /* Tamanho da foto na Web */
   width: 100%;
   height: auto;
   filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));

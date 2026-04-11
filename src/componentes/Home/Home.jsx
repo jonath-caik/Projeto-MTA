@@ -14,7 +14,7 @@ function Home() {
           {/* LADO 1: IMAGEM (Pode ser sua foto ou de uma pessoa) */}
           <div className="hero-image-container">
             <img 
-              src="/foto-homejpeg.svg" 
+              src="NEABEMESTAR.png" 
               alt="Destaque NeaBemEstar" 
               className="hero-person-img" 
             />
