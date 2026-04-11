@@ -1,0 +1,329 @@
+/* ===== HERO ===== */
+.sandalias-page {
+  min-height: 100vh;
+}
+
+.sandalias-hero {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  padding-top: 100px;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: white;
+  position: relative;
+}
+
+/* overlay escuro por cima da imagem */
+.sandalias-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(11, 26, 49, 0.85), rgba(11, 26, 49, 0.75));
+  z-index: 0;
+}
+
+.sandalias-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.sandalias-hero-content .subtitle-tag {
+  color: #00c6ff;
+  font-weight: 600;
+  letter-spacing: 3px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.sandalias-hero-content h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0 0 15px;
+  background: linear-gradient(to right, #fff, #00c6ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sandalias-hero-desc {
+  font-size: 1.1rem;
+  color: #e2e8f0;
+  opacity: 0.85;
+  margin: 0 0 25px;
+}
+
+.btn-voltar {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: inherit;
+}
+
+.btn-voltar:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #00c6ff;
+  color: #00c6ff;
+}
+
+/* ===== MAIN ===== */
+.sandalias-main {
+  background-color: #fcfcfc;
+  padding: 60px 8% 80px;
+}
+
+/* ===== ABAS ===== */
+.sandalias-abas {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+.aba-btn {
+  padding: 14px 40px;
+  border-radius: 50px;
+  border: 2px solid #0b1a31;
+  background: transparent;
+  color: #0b1a31;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: inherit;
+}
+
+.aba-btn:hover {
+  background: #0b1a31;
+  color: white;
+}
+
+.aba-btn.ativa {
+  background: #0b1a31;
+  color: white;
+  box-shadow: 0 6px 20px rgba(11, 26, 49, 0.3);
+}
+
+/* ===== DESCRIÇÃO ===== */
+.aba-descricao {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 50px;
+}
+
+.aba-descricao h2 {
+  font-size: 1.8rem;
+  color: #0b1a31;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.aba-descricao p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ===== GRID ===== */
+.sandalias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 30px;
+}
+
+/* ===== CARD ===== */
+.sandalia-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #eee;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: 0.35s;
+  display: flex;
+  flex-direction: column;
+}
+
+.sandalia-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.sandalia-card-img {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+
+.sandalia-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.sandalia-card:hover .sandalia-card-img img {
+  transform: scale(1.05);
+}
+
+.sandalia-card-info {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.sandalia-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.sandalia-tag {
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 50px;
+  background: #e8f4ff;
+  color: #0072ff;
+  font-weight: 600;
+}
+
+.sandalia-card-info h3 {
+  font-size: 1.2rem;
+  color: #0b1a31;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.sandalia-card-info p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  flex: 1;
+  margin: 0 0 20px;
+}
+
+.sandalia-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sandalia-preco {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0b1a31;
+}
+
+.btn-sandalia {
+  background: #0b1a31;
+  color: white;
+  border: none;
+  padding: 11px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: inherit;
+}
+
+.btn-sandalia:hover {
+  background: #0072ff;
+}
+
+.btn-sandalia.adicionado {
+  background: #00a651;
+}
+
+/* ===== BENEFÍCIOS ===== */
+.sandalias-beneficios {
+  background: #0b1a31;
+  padding: 70px 8%;
+  text-align: center;
+}
+
+.sandalias-beneficios h2 {
+  font-size: 2rem;
+  color: white;
+  font-weight: 800;
+  margin-bottom: 50px;
+}
+
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.beneficio-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.beneficio-icone {
+  font-size: 1.5rem;
+  color: #00c6ff;
+}
+
+.beneficio-item h4 {
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.beneficio-item p {
+  color: #a0b0c8;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .sandalias-hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .sandalias-main {
+    padding: 40px 5% 60px;
+  }
+
+  .aba-btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+
+  .sandalias-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sandalia-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-sandalia {
+    width: 100%;
+    text-align: center;
+  }
+}

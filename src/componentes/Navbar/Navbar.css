@@ -6,7 +6,7 @@
   left: 0;
   width: 100%;
   z-index: 2000;
-  height: 100px; 
+  height: 100px;
   display: flex;
   align-items: center;
 }
@@ -22,9 +22,11 @@
 }
 
 .Logo-img {
-  height: 85px;
+  height: 150px;
   width: auto;
   cursor: pointer;
+  margin-left: -35px;
+  margin-top: 10px;
 }
 
 .Nav-links {
@@ -39,14 +41,31 @@
   font-size: 1.1rem;
   font-weight: 600;
   transition: 0.3s;
+  position: relative;
+  padding-bottom: 4px;
 }
 
 .Nav-links li a:hover {
-  color: #00c6ff; /* Azul no PC */
+  color: #00c6ff;
+}
+
+.Nav-links li a.ativo {
+  color: #00c6ff;
+}
+
+.Nav-links li a.ativo::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #00c6ff;
+  border-radius: 2px;
 }
 
 .menu-hamburger {
-  display: none; /* Escondido no PC */
+  display: none;
 }
 
 /* --- ESTILO EXCLUSIVO PARA MOBILE (CELULAR) --- */
@@ -64,7 +83,7 @@
   }
 
   .menu-hamburger {
-    display: block !important; /* Aparece só no celular */
+    display: block !important;
     color: white;
     font-size: 2rem;
     cursor: pointer;
@@ -72,7 +91,6 @@
   }
 
   .Nav-links {
-    /* Transforma o menu em uma gaveta lateral */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -80,16 +98,16 @@
     position: fixed;
     top: 0;
     right: 0;
-    background: #040b1a; 
+    background: #040b1a;
     width: 75%;
     height: 100vh;
     gap: 40px;
-    transform: translateX(100%); /* Esconde para a direita */
+    transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
   }
 
   .Nav-links.ativo {
-    transform: translateX(0); /* Desliza para dentro da tela */
+    transform: translateX(0);
   }
 
   .Nav-links li a {
@@ -97,9 +115,9 @@
     color: white !important;
   }
 
-  /* Azul quando clica no celular */
   .Nav-links li a:active,
-  .Nav-links li a:hover {
+  .Nav-links li a:hover,
+  .Nav-links li a.ativo {
     color: #00c6ff !important;
   }
 }
