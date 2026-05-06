@@ -1,27 +1,23 @@
 /* =========================================================
    --- ESTILO PARA WEB (DESKTOP) ---
-   Baseado no estilo que funcionou no Mobile
    ========================================================= */
 
 .hero-section {
   min-height: 100vh;
   display: flex;
-  align-items: center; /* Centraliza o conteúdo verticalmente na Web */
+  align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
   color: white;
-
-  /* Mesma imagem e gradiente do Mobile */
-  background: 
-    linear-gradient(rgba(11, 26, 49, 0.8), rgba(11, 26, 49, 0.7)), 
-    url('/oleo2.jpg') no-repeat; 
+  background:
+    linear-gradient(rgba(11, 26, 49, 0.8), rgba(11, 26, 49, 0.7)),
+    url("/oleo2.jpg") no-repeat;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Parallax chique para Web */
+  background-attachment: fixed;
 }
 
-/* Container que separa Foto e Texto */
 .hero-container-flex {
   display: flex;
   align-items: center;
@@ -31,20 +27,22 @@
   padding: 0 50px;
   gap: 40px;
   z-index: 2;
-  margin-top: 50px; /* Compensa a altura da Navbar */
+  margin-top: 50px;
 }
 
-.hero-image-container {
-  flex: 1;
+/* --- AJUSTE DA IMAGEM AO LADO DA FRASE --- */
+.subtitle-wrapper {
   display: flex;
-  justify-content: center;
+  align-items: center; /* Centraliza a imagem verticalmente com o texto */
+  gap: 12px; /* Espaço entre o ícone e a palavra */
+  margin-bottom: 15px; /* Espaçamento para o H1 abaixo */
 }
 
 .hero-person-img {
   max-width: 460px; /* Tamanho da foto na Web */
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
 }
 
 .hero-content {
@@ -52,17 +50,36 @@
   text-align: left; /* Texto alinhado à esquerda na Web fica mais elegante */
 }
 
-.subtitle-tag { 
+.subtitle-tag {
   color: #00c6ff;
   font-weight: 600;
   letter-spacing: 3px;
   font-size: 1rem;
-  margin-bottom: 15px;
+  margin-bottom: 0; /* Removido para o wrapper controlar o espaço */
   text-transform: uppercase;
 }
 
+.hero-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.hero-person-img {
+  max-width: 450px;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+}
+
+.hero-content {
+  flex: 1;
+  text-align: left;
+}
+
 .hero-content h1 {
-  font-size: 3.5rem; /* Grande e imponente na Web */
+  font-size: 3.5rem;
   line-height: 1.1;
   font-weight: 800;
   margin-bottom: 20px;
@@ -71,7 +88,7 @@
 
 .description {
   font-size: 1.2rem;
-  color: #e2e8f0;
+  color: #bac6cd;
   margin-bottom: 35px;
   line-height: 1.5;
 }
@@ -95,48 +112,39 @@
 
 /* =========================================================
    --- AJUSTE PARA CELULAR (MOBILE) ---
-   Exatamente o código que você me mandou
    ========================================================= */
 
 @media (max-width: 768px) {
   .hero-section {
     display: block !important;
-    padding-top: 0 !important;
     min-height: 100vh !important;
-    position: relative !important;
-    background-attachment: scroll !important; 
+    background-attachment: scroll !important;
   }
 
-  /* Escondemos a imagem da pessoa no mobile para o texto subir, 
-     ou deixamos ela abaixo do texto se você preferir */
   .hero-container-flex {
     flex-direction: column;
     padding: 0;
     margin-top: 0;
   }
 
+  .subtitle-wrapper {
+    justify-content: center; /* Centraliza a imagem e texto no Mobile */
+  }
+
   .hero-content {
     position: absolute !important;
-    top: 110px !important; 
+    top: 110px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     width: 90% !important;
-    max-width: 100% !important;
     text-align: center !important;
-    margin: 0 !important;
   }
 
   .hero-image-container {
-    display: none; /* Opcional: esconde a foto no mobile para focar no texto */
+    display: none;
   }
 
   .hero-content h1 {
     font-size: 1.8rem !important;
-    margin-bottom: 10px !important;
-  }
-
-  .description {
-    font-size: 0.95rem !important;
-    line-height: 1.4 !important;
   }
 }
