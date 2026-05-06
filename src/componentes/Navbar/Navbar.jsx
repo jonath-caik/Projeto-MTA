@@ -22,6 +22,18 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // NOVA FUNÇÃO: Garante que vai pra Home e desliza até o Óleo
+  const irParaOleo = () => {
+    setPagina("home");
+    setLinkAtivo("oleo");
+    setMenuAberto(false);
+    setTimeout(() => {
+      document
+        .getElementById("oleo")
+        ?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
+
   return (
     <nav className="Navbar">
       <div className="Navbar-container">
@@ -51,11 +63,21 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
               Início
             </a>
           </li>
+          
+          {/* BOTÃO DO ÓLEO ATUALIZADO */}
           <li>
-            <a href="#sobre" onClick={() => setMenuAberto(false)}>
-                   óleo
+            <a 
+              href="#oleo" 
+              className={linkAtivo === "oleo" ? "ativo" : ""}
+              onClick={(e) => {
+                e.preventDefault();
+                irParaOleo();
+              }}
+            >
+              Óleo
             </a>
           </li>
+
           <li>
             <a
               href="#"
@@ -64,10 +86,11 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
                 e.preventDefault();
                 irParaProdutos();
               }}
-            >Sandalia
-        
+            >
+              Sandália
             </a>
           </li>
+          
           <li>
             <a href="#contato" onClick={() => setMenuAberto(false)}>
               Purificadores

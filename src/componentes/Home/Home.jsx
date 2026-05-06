@@ -23,7 +23,6 @@ function Home({ setPagina }) {
               Descubra a essência do bem-estar com nossos produtos naturais e exclusivos.
             </p>
             <div className="hero-buttons">
-             
               <a href="#produtos" className="btn-primary">Ver Produtos</a>
             </div>
           </div>
@@ -31,8 +30,19 @@ function Home({ setPagina }) {
         </div>
       </section>
 
-      
+      {/* O Carrossel que já estava aqui */}
       <ProductCarousel setPagina={setPagina} />
+
+      {/* ========================================= */}
+      {/* NOVA SEÇÃO DE ÓLEO EMBAIXO DO CARROSSEL   */}
+      {/* ========================================= */}
+      <section id="oleo" className="oleo-section">
+        <h2>Nossos Óleos Essenciais</h2>
+        <p>
+          Aqui você pode colocar toda a descrição sobre os óleos, os benefícios, 
+          imagens dos frascos e o que mais achar legal para apresentar o produto.
+        </p>
+      </section>
 
     </div>
   );

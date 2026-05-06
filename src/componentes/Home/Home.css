@@ -146,5 +146,52 @@
 
   .hero-content h1 {
     font-size: 1.8rem !important;
+
+  }
+  
+}
+/* =========================================================
+   --- SEÇÃO DO ÓLEO (Abaixo do Carrossel) ---
+   ========================================================= */
+
+/* Ativa a rolagem suave quando clicar no link do Navbar */
+html {
+  scroll-behavior: smooth;
+}
+
+.oleo-section {
+  padding: 80px 20px; /* Dá um respiro em cima e embaixo */
+  text-align: center; /* Centraliza o texto */
+  background-color: #f4f7f6; /* Um fundo cinza bem clarinho para destacar do carrossel */
+  color: #0b1a31; /* Cor do texto combinando com o azul escuro do seu Hero */
+  min-height: 50vh; /* Garante que a seção tenha uma altura legal */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.oleo-section h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #0072ff; /* Aquele azul bacana dos seus botões */
+}
+
+.oleo-section p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 800px; /* Impede que o texto fique comprido demais em telas grandes */
+  margin: 0 auto;
+}
+
+/* Ajuste do Óleo para Celular */
+@media (max-width: 768px) {
+  .oleo-section {
+    padding: 50px 15px;
+  }
+  
+  .oleo-section h2 {
+    font-size: 2rem;
   }
 }
