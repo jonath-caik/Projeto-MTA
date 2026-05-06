@@ -10,8 +10,10 @@ import App from "./App.jsx";
 import "./index.css";
 // Importa o CSS global (aplicado em todo o projeto)
 
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   // Cria a raiz da aplicação React dentro da div com id="root" no HTML
+
 
   <React.StrictMode>
     {/* Modo estrito:

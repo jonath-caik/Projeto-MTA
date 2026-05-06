@@ -9,7 +9,9 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
     setLinkAtivo("produtos");
     setMenuAberto(false);
     setTimeout(() => {
-      document.getElementById("produtos")?.scrollIntoView({ behavior: "smooth" });
+      document
+        .getElementById("produtos")
+        ?.scrollIntoView({ behavior: "smooth" });
     }, 100);
   };
 
@@ -23,24 +25,53 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
   return (
     <nav className="Navbar">
       <div className="Navbar-container">
-        <img src="/logo interna do portifólio.svg" alt="Logo" className="Logo-img" />
+        <img
+          src="/logo interna do portifólio.svg"
+          alt="Logo"
+          className="Logo-img"
+        />
 
-        <div className="menu-hamburger" onClick={() => setMenuAberto(!menuAberto)}>
+        <div
+          className="menu-hamburger"
+          onClick={() => setMenuAberto(!menuAberto)}
+        >
           {menuAberto ? "✕" : "☰"}
         </div>
 
         <ul className={`Nav-links ${menuAberto ? "ativo" : ""}`}>
           <li>
-            <a href="#" className={linkAtivo === "home" ? "ativo" : ""} onClick={(e) => { e.preventDefault(); irParaInicio(); }}>Início</a>
+            <a
+              href="#"
+              className={linkAtivo === "home" ? "ativo" : ""}
+              onClick={(e) => {
+                e.preventDefault();
+                irParaInicio();
+              }}
+            >
+              Início
+            </a>
           </li>
           <li>
-            <a href="#sobre" onClick={() => setMenuAberto(false)}>Sobre</a>
+            <a href="#sobre" onClick={() => setMenuAberto(false)}>
+                   óleo
+            </a>
           </li>
           <li>
-            <a href="#" className={linkAtivo === "produtos" ? "ativo" : ""} onClick={(e) => { e.preventDefault(); irParaProdutos(); }}>Produtos</a>
+            <a
+              href="#"
+              className={linkAtivo === "produtos" ? "ativo" : ""}
+              onClick={(e) => {
+                e.preventDefault();
+                irParaProdutos();
+              }}
+            >Sandalia
+        
+            </a>
           </li>
           <li>
-            <a href="#contato" onClick={() => setMenuAberto(false)}>Contato</a>
+            <a href="#contato" onClick={() => setMenuAberto(false)}>
+              Purificadores
+            </a>
           </li>
         </ul>
       </div>
