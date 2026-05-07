@@ -90,8 +90,11 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
               }}
             >
               Óleo
+              
             </a>
-        
+          </li>
+          
+          <li>
             <a href="#contato" onClick={() => setMenuAberto(false)}>
               Purificadores
             </a>
