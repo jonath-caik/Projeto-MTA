@@ -14,8 +14,8 @@ const oleos = [
   }, 
   { 
     id: 2, 
-    title: 'Óleo Essencial Pimenta Preta', 
-    img: '/fotos/oleos/aromas_naturais/black_pepper.png' 
+    title: 'kit Óleo-DOTERRA', 
+    img: '/fotos/oleos/kits_Colecoes/colecoes/emotional_Aromatherapy_Touch.png' 
   }, 
   { 
     id: 3, 
@@ -25,8 +25,14 @@ const oleos = [
   { 
     id: 4, 
     title: 'Óleo Essencial Cardamomo', 
-    img: '/fotos/oleos/aromas_naturais/cardamom.png' 
+    img: '/fotos/oleos/mix_oleo_essencial/clarycalm.png' 
   },
+
+  {
+    id: 5,
+    title: 'kit completo do óleo essencial para o lar',
+    img: 'fotos/oleos/kits_colecoes/colecoes/doTERRA_Essencial_Para_o_Lar.png'
+  }
 ];
 const OleoCarousel = () => {
   return (

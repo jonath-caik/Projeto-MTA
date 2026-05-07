@@ -33,10 +33,7 @@ function Home({ setPagina }) {
 
       {/* O Carrossel de produtos variados */}
       <ProductCarousel setPagina={setPagina} />
-
-      {/* ========================================= */}
-      {/* NOVO CARROSSEL EXCLUSIVO DE ÓLEO          */}
-      {/* ========================================= */}
+      {/* O novo Carrossel de Óleos Essenciais */}
       <OleoCarousel />
 
     </div>

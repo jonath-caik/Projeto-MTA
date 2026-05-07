@@ -65,20 +65,9 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
           </li>
           
           {/* BOTÃO DO ÓLEO ATUALIZADO */}
-          <li>
-            <a 
-              href="#oleo" 
-              className={linkAtivo === "oleo" ? "ativo" : ""}
-              onClick={(e) => {
-                e.preventDefault();
-                irParaOleo();
-              }}
-            >
-              Óleo
-            </a>
-          </li>
 
-          <li>
+
+           <li>
             <a
               href="#"
               className={linkAtivo === "produtos" ? "ativo" : ""}
@@ -92,6 +81,17 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
           </li>
           
           <li>
+            <a 
+              href="#oleo" 
+              className={linkAtivo === "oleo" ? "ativo" : ""}
+              onClick={(e) => {
+                e.preventDefault();
+                irParaOleo();
+              }}
+            >
+              Óleo
+            </a>
+        
             <a href="#contato" onClick={() => setMenuAberto(false)}>
               Purificadores
             </a>
