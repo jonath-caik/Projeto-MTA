@@ -36,7 +36,7 @@ function Home({ setPagina }) {
       <ProductCarousel setPagina={setPagina} />
       {/* O novo Carrossel de Óleos Essenciais */}
       <OleoCarousel />
-
+<FiltroCarousel />
     </div>
   );
 }
