@@ -69,7 +69,7 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
 
            <li>
             <a
-              href="#"
+              href="sandalias"
               className={linkAtivo === "produtos" ? "ativo" : ""}
               onClick={(e) => {
                 e.preventDefault();
@@ -95,8 +95,26 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
           </li>
           
           <li>
-            <a href="#contato" onClick={() => setMenuAberto(false)}>
-              Purificadores
+            <a  href="#oleo" 
+              className={linkAtivo === "oleo" ? "ativo" : ""}
+              onClick={(e) => {
+                e.preventDefault();
+                irParaOleo();
+              }}
+            >
+              Óleo
+            </a>
+          </li>
+          
+          <li>
+            <a  href="#filtro" 
+              className={linkAtivo === "filtro" ? "ativo" : ""}
+              onClick={(e) => {
+                e.preventDefault();
+                irParaFiltro();
+              }}
+            >
+              Filtros 
             </a>
           </li>
         </ul>
