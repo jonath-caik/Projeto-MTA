@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css';
 import ProductCarousel from '../Carrossel/ProductCarousel';
 import OleoCarousel from '../Carrossel/OleoCarousel'; // <-- Importação do novo carrossel
+import FiltroCarousel from '../Carrossel/FiltroCarrossel'; // <-- Importação do novo carrossel
 
 function Home({ setPagina }) {
   return (
