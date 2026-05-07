@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.css';
 import ProductCarousel from '../Carrossel/ProductCarousel';
+import OleoCarousel from '../Carrossel/OleoCarousel'; // <-- Importação do novo carrossel
 
 function Home({ setPagina }) {
   return (
@@ -30,19 +31,13 @@ function Home({ setPagina }) {
         </div>
       </section>
 
-      {/* O Carrossel que já estava aqui */}
+      {/* O Carrossel de produtos variados */}
       <ProductCarousel setPagina={setPagina} />
 
       {/* ========================================= */}
-      {/* NOVA SEÇÃO DE ÓLEO EMBAIXO DO CARROSSEL   */}
+      {/* NOVO CARROSSEL EXCLUSIVO DE ÓLEO          */}
       {/* ========================================= */}
-      <section id="oleo" className="oleo-section">
-        <h2>Nossos Óleos Essenciais</h2>
-        <p>
-          Aqui você pode colocar toda a descrição sobre os óleos, os benefícios, 
-          imagens dos frascos e o que mais achar legal para apresentar o produto.
-        </p>
-      </section>
+      <OleoCarousel />
 
     </div>
   );
