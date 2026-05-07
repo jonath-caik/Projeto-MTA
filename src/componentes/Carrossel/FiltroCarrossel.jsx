@@ -75,4 +75,4 @@ const FiltroCarousel = () => {
   );
 };
 
-export default FiltroCarrossel;
+export default FiltroCarousel;
