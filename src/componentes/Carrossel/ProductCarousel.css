@@ -1,21 +1,20 @@
 .carousel-section {
-  padding: 60px 5%;
+  padding: 30px 5%; /* Reduzido o espaço em branco para enquadrar na tela */
   background-color: #fcfcfc;
   text-align: center;
   width: 100%;
-  /* 1. Ajustado para parar exatamente abaixo da sua Navbar */
-  scroll-margin-top: 100px; 
+  /* Aumentei para 120px para garantir que o Navbar não cubra nada */
+  scroll-margin-top: 120px; 
   box-sizing: border-box;
 }
 
 .carousel-title {
   font-size: 2.2rem;
   color: #0b1a31;
-  margin-bottom: 30px;
+  margin-bottom: 20px; /* Reduzido o espaço entre o título e os cards */
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 2px;
-  
 }
 
 .product-card-carousel {
@@ -35,7 +34,7 @@
 
 .product-img-container {
   width: 100%;
-  height: 350px; /* Altura padrão para PC */
+  height: 260px; /* Altura da foto reduzida para caber na tela do PC */
 }
 
 .product-img-container img {
@@ -84,24 +83,22 @@
    ========================================================= */
 @media (max-width: 768px) {
   .carousel-section {
-    /* 2. Diminuí o padding para o título subir mais */
     padding: 30px 5% 50px 5%; 
-    scroll-margin-top: 90px;
+    /* Margem de segurança para o Navbar no celular */
+    scroll-margin-top: 100px;
   }
 
   .carousel-title {
-    /* 3. Título menor para não ocupar a tela toda */
     font-size: 1.6rem; 
     margin-bottom: 20px;
   }
 
   .product-img-container {
-    /* 4. REDUÇÃO CRUCIAL: A imagem no mobile não pode ter 350px */
     height: 240px; 
   }
 
   .product-info-carousel {
-    padding: 15px; /* Reduzi o espaço interno do card */
+    padding: 15px; 
   }
 
   .product-info-carousel h3 {
@@ -110,6 +107,6 @@
   }
 
   .product-card-carousel {
-    margin-bottom: 40px; /* Menos espaço para a paginação */
+    margin-bottom: 40px; 
   }
 }

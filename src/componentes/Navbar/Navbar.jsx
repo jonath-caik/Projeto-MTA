@@ -22,7 +22,7 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // NOVA FUNÇÃO: Garante que vai pra Home e desliza até o Óleo
+  // FUNÇÃO DO ÓLEO
   const irParaOleo = () => {
     setPagina("home");
     setLinkAtivo("oleo");
@@ -30,6 +30,18 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
     setTimeout(() => {
       document
         .getElementById("oleo")
+        ?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
+
+  // NOVA FUNÇÃO DO FILTRO (Agora com o "s" no final para bater com a Home)
+  const irParaFiltros = () => {
+    setPagina("home");
+    setLinkAtivo("filtros");
+    setMenuAberto(false);
+    setTimeout(() => {
+      document
+        .getElementById("filtros") // <-- Aqui estava o bug! Agora está plural.
         ?.scrollIntoView({ behavior: "smooth" });
     }, 100);
   };
@@ -63,13 +75,10 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
               Início
             </a>
           </li>
-          
-          {/* BOTÃO DO ÓLEO ATUALIZADO */}
 
-
-           <li>
+          <li>
             <a
-              href="sandalias"
+              href="#produtos"
               className={linkAtivo === "produtos" ? "ativo" : ""}
               onClick={(e) => {
                 e.preventDefault();
@@ -79,23 +88,10 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
               Sandália
             </a>
           </li>
-          
+
           <li>
-            <a 
-              href="#oleo" 
-              className={linkAtivo === "oleo" ? "ativo" : ""}
-              onClick={(e) => {
-                e.preventDefault();
-                irParaOleo();
-              }}
-            >
-              Óleo
-              
-            </a>
-          </li>
-          
-          <li>
-            <a  href="#oleo" 
+            <a
+              href="#oleo"
               className={linkAtivo === "oleo" ? "ativo" : ""}
               onClick={(e) => {
                 e.preventDefault();
@@ -105,16 +101,17 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
               Óleo
             </a>
           </li>
-          
+
           <li>
-            <a  href="#filtro" 
-              className={linkAtivo === "filtro" ? "ativo" : ""}
+            <a
+              href="#filtros"
+              className={linkAtivo === "filtros" ? "ativo" : ""}
               onClick={(e) => {
                 e.preventDefault();
-                irParaFiltro();
+                irParaFiltros();
               }}
             >
-              Filtros 
+              Purificadores
             </a>
           </li>
         </ul>

@@ -32,12 +32,14 @@ function Home({ setPagina }) {
         </div>
       </section>
 
-      {/* O Carrossel de produtos variados */}
+   {/* O Carrossel de produtos variados */}
       <ProductCarousel setPagina={setPagina} />
+      
       {/* O novo Carrossel de Óleos Essenciais */}
-      <OleoCarousel />
+      <OleoCarousel setPagina={setPagina} />
+      
       {/* O novo Carrossel de Filtros Purificadores de Água */}
-<FiltroCarousel />
+      <FiltroCarousel setPagina={setPagina} />
     </div>
   );
 }

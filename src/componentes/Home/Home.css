@@ -30,44 +30,15 @@
   margin-top: 50px;
 }
 
-/* --- AJUSTE DA IMAGEM AO LADO DA FRASE --- */
 .subtitle-wrapper {
   display: flex;
-  align-items: center; /* Centraliza a imagem verticalmente com o texto */
-  gap: 12px; /* Espaço entre o ícone e a palavra */
-  margin-bottom: 15px; /* Espaçamento para o H1 abaixo */
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
 }
 
 .hero-person-img {
-  max-width: 460px; /* Tamanho da foto na Web */
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
-}
-
-.hero-content {
-  flex: 1;
-  text-align: left; /* Texto alinhado à esquerda na Web fica mais elegante */
-}
-
-.subtitle-tag {
-  color: #00c6ff;
-  font-weight: 600;
-  letter-spacing: 3px;
-  font-size: 1rem;
-  margin-bottom: 0; /* Removido para o wrapper controlar o espaço */
-  text-transform: uppercase;
-}
-
-.hero-image-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.hero-person-img {
-  max-width: 450px;
+  max-width: 460px;
   width: 100%;
   height: auto;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
@@ -76,6 +47,22 @@
 .hero-content {
   flex: 1;
   text-align: left;
+}
+
+.subtitle-tag {
+  color: #00c6ff;
+  font-weight: 600;
+  letter-spacing: 3px;
+  font-size: 1rem;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.hero-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .hero-content h1 {
@@ -128,7 +115,7 @@
   }
 
   .subtitle-wrapper {
-    justify-content: center; /* Centraliza a imagem e texto no Mobile */
+    justify-content: center;
   }
 
   .hero-content {
@@ -146,52 +133,12 @@
 
   .hero-content h1 {
     font-size: 1.8rem !important;
-
   }
-  
 }
-/* =========================================================
-   --- SEÇÃO DO ÓLEO (Abaixo do Carrossel) ---
-   ========================================================= */
 
-/* Ativa a rolagem suave quando clicar no link do Navbar */
+/* =========================================================
+   --- ROLAGEM SUAVE DO NAVBAR ---
+   ========================================================= */
 html {
   scroll-behavior: smooth;
-}
-
-.oleo-section {
-  padding: 80px 20px; /* Dá um respiro em cima e embaixo */
-  text-align: center; /* Centraliza o texto */
-  background-color: #f4f7f6; /* Um fundo cinza bem clarinho para destacar do carrossel */
-  color: #0b1a31; /* Cor do texto combinando com o azul escuro do seu Hero */
-  min-height: 50vh; /* Garante que a seção tenha uma altura legal */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.oleo-section h2 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 20px;
-  color: #0072ff; /* Aquele azul bacana dos seus botões */
-}
-
-.oleo-section p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  max-width: 800px; /* Impede que o texto fique comprido demais em telas grandes */
-  margin: 0 auto;
-}
-
-/* Ajuste do Óleo para Celular */
-@media (max-width: 768px) {
-  .oleo-section {
-    padding: 50px 15px;
-  }
-  
-  .oleo-section h2 {
-    font-size: 2rem;
-  }
 }

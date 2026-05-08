@@ -6,38 +6,19 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './ProductCarousel.css'; 
 
-const filtros = [
-  {
-    id: 1,
-    title: 'Purificador de Água Natural',
-    img: '/fotos/purificador/purificador_agua_natural/purificador1.png'
-  },
-  {
-    id: 2,
-    title: 'Purificador de Água Natural 2',
-    img: '/fotos/purificador/purificador_agua_natural/purificador2.png'
-  },
-  {
-    id: 3,
-    title: 'Purificador de Água Natural 3',
-    img: '/fotos/purificador/purificador_agua_natural/purificador5.png'
-  },
-  {
-    id: 4,
-    title: 'Purificador de Água Natural 4',
-    img: '/fotos/purificador/purificador_bebedouro/purificador4.png'
-  },
-  {
-    id: 5,
-    title: 'Purificador de Água Natural 5',
-    img: '/fotos/purificador/purificador_bebedouro/purificador3.png'
-  }
+const purificadores = [
+  { id: 1, title: 'Purificador de Água Natural 3', img: '/fotos/purificador/purificador_agua_natural/purificador3.png', pagina: null },
+  { id: 2, title: 'Purificador de Água Natural 4', img: '/fotos/purificador/purificador_bebedouro/purificador4.png', pagina: null },
+  { id: 3, title: 'Purificador de Água Natural 5', img: '/fotos/purificador/purificador_agua_natural/purificador5.png', pagina: null },
+  { id: 4, title: 'Purificador de Água Natural 4', img: '/fotos/purificador/purificador_agua_natural/purificador4.png', pagina: null },
+  { id: 5, title: 'Purificador de Água Natural 5', img: '/fotos/purificador/purificador_agua_natural/purificador5.png', pagina: null },
 
 ];
-const FiltroCarousel = () => {
+
+const FiltroCarousel = ({ setPagina }) => {
   return (
-    <section className="carousel-section" id="filtro" style={{ backgroundColor: '#f4f7f6' }}>
-      <h2 className="carousel-title">Nossos Filtros Purificadores de água</h2>
+    <section className="carousel-section" id="filtros">
+      <h2 className="carousel-title">Nossos Purificadores</h2>
 
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
@@ -45,14 +26,14 @@ const FiltroCarousel = () => {
         slidesPerView={1}
         navigation={true}
         pagination={{ clickable: true }}
-        autoplay={{ delay: 4000, disableOnInteraction: false }}
+        autoplay={{ delay: 4500, disableOnInteraction: false }}
         breakpoints={{
           768:  { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
         }}
         className="mySwiper"
       >
-        {filtros.map((filtro) => (
+        {purificadores.map((filtro) => (
           <SwiperSlide key={filtro.id}>
             <div className="product-card-carousel">
               <div className="product-img-container">
@@ -61,8 +42,11 @@ const FiltroCarousel = () => {
               <div className="product-info-carousel">
                 <h3>{filtro.title}</h3>
                 
-                {/* Botão adicionado para manter o padrão do seu CSS */}
-                <button className="btn-buy">
+                <button 
+                  className="btn-buy" 
+                  onClick={() => filtro.pagina && setPagina(filtro.pagina)}
+                  style={{ opacity: filtro.pagina ? 1 : 0.4, cursor: filtro.pagina ? 'pointer' : 'default' }}
+                >
                   Ver Detalhes
                 </button>
                 
