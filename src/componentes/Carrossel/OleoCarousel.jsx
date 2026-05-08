@@ -12,7 +12,7 @@ const oleos = [
   { id: 2, title: 'Óleo Essencial Pimenta Preta', img: '/fotos/oleos/aromas_naturais/black_pepper.png', pagina: 'pagina-do-oleo' },
   { id: 3, title: 'Óleo Essencial Brasil', img: '/fotos/oleos/aromas_naturais/brasil.png', pagina: 'pagina-do-oleo' },
   { id: 4, title: 'Óleo Essencial Cardamomo', img: '/fotos/oleos/aromas_naturais/cardamom.png', pagina: 'pagina-do-oleo' },
- { id: 5, title: 'Óleo Essencial Cardamomo', img: '/fotos/oleos/aromas_naturais/cardamom.png', pagina: 'pagina-do-oleo' },
+ { id: 5, title: 'Óleo Essencial Cassia', img: '/fotos/oleos/aromas_naturais/cassia.png', pagina: 'pagina-do-oleo' },
 ];
 
 

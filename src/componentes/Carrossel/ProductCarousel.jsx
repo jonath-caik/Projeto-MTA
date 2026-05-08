@@ -29,7 +29,7 @@ const ProductCarousel = ({ setPagina }) => {
         breakpoints={{
           768:  { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
-        }}
+        }} 
         className="mySwiper"
       >
         {products.map((product) => (
