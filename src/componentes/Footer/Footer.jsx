@@ -31,7 +31,7 @@ const Footer = () => {
         {/* COLUNA 3 (DIREITA): Contato */}
         <div className="footer-section contact">
           <h3>Fale Conosco</h3>
-          <p><span>📍</span> Salvador, Bahia - Brasil</p>
+          <p><span>📍</span> Salvador | Dias`Dávilas,Bahia - Brasil</p>
           <p><span>📞</span> (71) 99999-9999</p>
           <p><span>✉️</span> @NeaBemestar.com.br</p>
         </div>
