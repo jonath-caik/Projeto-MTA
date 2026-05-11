@@ -9,7 +9,7 @@ import './ProductCarousel.css';
 const products = [
   { id: 1, title: 'Filtro de água "Purific"',       img: '/filtro de agua.jpg',          pagina: null },
   { id: 2, title: 'Sandália Ortopédica "couro"',    img: '/sandalia ce couro.jpg',        pagina: 'sandalias' },
-  { id: 3, title: 'Sandália Ortopédica "vazada"',   img: '/sandalia2.jpg',               pagina: 'sandalias' },
+  { id: 3, title: 'Sandália Ortopédica "vazada"',   img: '/sandaliavazada.jpeg',               pagina: 'sandalias' },
   { id: 4, title: 'Filtro Purific - Preto',              img: '/purificador3.png', pagina: null },
   { id: 5, title: 'Kit Bem-Estar doTERRA',                   img: '/doTERRA_Essencial_Para_o_Lar.png',                   pagina: null },
 ];

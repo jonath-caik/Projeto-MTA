@@ -7,11 +7,11 @@ import 'swiper/css/pagination';
 import './ProductCarousel.css'; 
 
 const purificadores = [
-  { id: 1, title: 'Purificador de Água Natural 3', img: '/fotos/purificador/purificador_agua_natural/purificador3.png', pagina: null },
-  { id: 2, title: 'Purificador de Água Natural 4', img: '/fotos/purificador/purificador_bebedouro/purificador4.png', pagina: null },
-  { id: 3, title: 'Purificador de Água Natural 5', img: '/fotos/purificador/purificador_agua_natural/purificador5.png', pagina: null },
-  { id: 4, title: 'Purificador de Água Natural 4', img: '/fotos/purificador/purificador_agua_natural/purificador4.png', pagina: null },
-  { id: 5, title: 'Purificador de Água Natural 5', img: '/fotos/purificador/purificador_agua_natural/purificador5.png', pagina: null },
+  { id: 1, title: 'Purificador de Água Natural /Azul com  um filtro', img: '/fotos/purificador/purificador_agua_natural/purificador3.png', pagina: null },
+  { id: 2, title: 'Purificador de Água Natural /Preto com dois filtros', img: '/fotos/purificador/purificador_bebedouro/purificador4.png', pagina: null },
+  { id: 3, title: 'Purificador de Água Natural /Branco com dois filtros', img: '/fotos/purificador/purificador_agua_natural/purificador5.png', pagina: null },
+  { id: 4, title: 'Purificador de Água Natural /Preto com um filtro', img: '/fotos/purificador/purificador_agua_natural/purificador4.png', pagina: null },
+  { id: 5, title: 'Purificador de Água Natural /Branco com um filtro', img: '/fotos/purificador/purificador_agua_natural/purificador2.png', pagina: null },
 
 ];
 
