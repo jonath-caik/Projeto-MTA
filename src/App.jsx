@@ -2,22 +2,20 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./componentes/Navbar/Navbar.jsx";
 import Home from "./componentes/Home/Home.jsx";
 import SandaliasPage from "./componentes/Sandalias/SandaliasPage.jsx";
-import Footer from "./componentes/Footer/Footer.jsx"; // <-- 1. Importamos o Footer aqui
+import Footer from "./componentes/Footer/Footer.jsx";
 import "./App.css";
 
 function App() {
   const [pagina, setPagina] = useState("home");
   const [linkAtivo, setLinkAtivo] = useState("home");
 
-  // CÓDIGO PARA FORÇAR O TOPO SEMPRE QUE ATUALIZAR
+  // Ajuste: O scroll agora acontece sempre que você trocar de página
   useEffect(() => {
-    // 1. Desliga a memória de scroll do navegador
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
-    // 2. Joga a tela pro topo absoluto (eixo X: 0, eixo Y: 0)
     window.scrollTo(0, 0);
-  }, []);
+  }, [pagina]); // <-- Adicionamos [pagina] aqui como dependência
 
   return (
     <div className="App">
@@ -27,13 +25,15 @@ function App() {
         linkAtivo={linkAtivo}
         setLinkAtivo={setLinkAtivo}
       />
-      {pagina === "home" ? (
-        <Home setPagina={setPagina} setLinkAtivo={setLinkAtivo} />
-      ) : (
-        <SandaliasPage setPagina={setPagina} setLinkAtivo={setLinkAtivo} />
-      )}
+
+      <main>
+        {pagina === "home" ? (
+          <Home setPagina={setPagina} setLinkAtivo={setLinkAtivo} />
+        ) : (
+          <SandaliasPage setPagina={setPagina} setLinkAtivo={setLinkAtivo} />
+        )}
+      </main>
       
-      {/* 2. Colocamos o Footer aqui no final! */}
       <Footer /> 
     </div>
   );

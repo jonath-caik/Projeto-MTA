@@ -1,8 +1,9 @@
 import React from 'react';
 import './Home.css';
-import ProductCarousel from '../Carrossel/ProductCarousel';
-import OleoCarousel from '../Carrossel/OleoCarousel'; // <-- Importação do novo carrossel
-import FiltroCarousel from '../Carrossel/FiltroCarrossel'; // <-- Importação do novo carrossel
+import ProductCarousel from '../Carrossel/ProductCarousel'; // Ajustado para um 's'
+import OleoCarousel from '../Carrossel/OleoCarousel'; 
+import FiltroCarousel from '../Carrossel/FiltroCarrossel'; 
+import SandaliasCarrossel from '../Carrossel/SandaliasCarrossel'; // Ajustado para dois 's'
 
 function Home({ setPagina }) {
   return (
@@ -32,14 +33,18 @@ function Home({ setPagina }) {
         </div>
       </section>
 
-   {/* O Carrossel de produtos variados */}
+      {/* O Carrossel de produtos variados */}
       <ProductCarousel setPagina={setPagina} />
       
       {/* O novo Carrossel de Óleos Essenciais */}
       <OleoCarousel setPagina={setPagina} />
       
-      {/* O novo Carrossel de Filtros Purificadores de Água */}
+      {/* O Carrossel de Filtros Purificadores de Água */}
       <FiltroCarousel setPagina={setPagina} />
+
+      {/* O Carrossel de Sandálias */}
+      <SandaliasCarrossel />
+      
     </div>
   );
 }

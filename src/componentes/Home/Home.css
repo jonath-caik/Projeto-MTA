@@ -12,7 +12,7 @@
   color: white;
   background:
     linear-gradient(rgba(11, 26, 49, 0.8), rgba(11, 26, 49, 0.7)),
-    url("/oleo2.jpg") no-repeat;
+    url("/image.png") no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

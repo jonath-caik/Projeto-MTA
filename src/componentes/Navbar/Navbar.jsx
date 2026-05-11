@@ -4,22 +4,23 @@ import "./Navbar.css";
 function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
   const [menuAberto, setMenuAberto] = useState(false);
 
-  const irParaProdutos = () => {
-    setPagina("home");
-    setLinkAtivo("produtos");
-    setMenuAberto(false);
-    setTimeout(() => {
-      document
-        .getElementById("produtos")
-        ?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
-  };
-
   const irParaInicio = () => {
     setPagina("home");
     setLinkAtivo("home");
     setMenuAberto(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // NOVA FUNÇÃO DA SANDÁLIA: Rolando a tela até o novo carrossel
+  const irParaSandalias = () => {
+    setPagina("home");
+    setLinkAtivo("sandalias"); // Deixa a cor do link ativa
+    setMenuAberto(false);
+    setTimeout(() => {
+      document
+        .getElementById("sandalias") // ID da nova seção de sandálias
+        ?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
   };
 
   // FUNÇÃO DO ÓLEO
@@ -34,14 +35,14 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
     }, 100);
   };
 
-  // NOVA FUNÇÃO DO FILTRO (Agora com o "s" no final para bater com a Home)
+  // FUNÇÃO DO FILTRO
   const irParaFiltros = () => {
     setPagina("home");
     setLinkAtivo("filtros");
     setMenuAberto(false);
     setTimeout(() => {
       document
-        .getElementById("filtros") // <-- Aqui estava o bug! Agora está plural.
+        .getElementById("filtros") 
         ?.scrollIntoView({ behavior: "smooth" });
     }, 100);
   };
@@ -76,18 +77,7 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
             </a>
           </li>
 
-          <li>
-            <a
-              href="#produtos"
-              className={linkAtivo === "produtos" ? "ativo" : ""}
-              onClick={(e) => {
-                e.preventDefault();
-                irParaProdutos();
-              }}
-            >
-              Sandália
-            </a>
-          </li>
+         
 
           <li>
             <a
@@ -112,6 +102,21 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
               }}
             >
               Purificadores
+            </a>
+          </li>
+
+
+
+           <li>
+            <a
+              href="#sandalias"
+              className={linkAtivo === "sandalias" ? "ativo" : ""}
+              onClick={(e) => {
+                e.preventDefault();
+                irParaSandalias();
+              }}
+            >
+              Sandália
             </a>
           </li>
         </ul>
