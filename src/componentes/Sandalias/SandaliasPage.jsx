@@ -1,61 +1,11 @@
 import React, { useState } from "react";
 import "./SandaliasPage.css";
+import { sandalias } from "../../dados/produtos";
 
-const produtosOrtopedicos = [
-  {
-    id: 1,
-    nome: "Sandália Ortopédica Couro",
-    preco: "R$ 189,90",
-    descricao: "Couro legítimo com palmilha anatômica para suporte total do arco plantar.",
-    img: "/sandalia ce couro.jpg",
-    tags: ["Couro legítimo", "Arco plantar", "Unissex"],
-  },
-  {
-    id: 2,
-    nome: "Sandália Ortopédica Vazada",
-    preco: "R$ 159,90",
-    descricao: "Design vazado com solado ortopédico para máxima ventilação e conforto.",
-    img: "/sandalia2.jpg",
-    tags: ["Ventilada", "Leve", "Feminino"],
-  },
-  {
-    id: 3,
-    nome: "Sandália Ortopédica Premium",
-    preco: "R$ 219,90",
-    descricao: "Linha premium com amortecimento extra e correção postural avançada.",
-    img: "/sandalia ce couro.jpg",
-    tags: ["Premium", "Amortecimento", "Postura"],
-  },
-];
+const produtosOrtopedicos = sandalias.filter((s) => s.categoria === "Sandalia Ortopedica");
+const produtosMagneticos  = sandalias.filter((s) => s.categoria === "Sandalia Magnetica");
 
-const produtosMagneticos = [
-  {
-    id: 4,
-    nome: "Sandália Magnética Classic",
-    preco: "R$ 229,90",
-    descricao: "Imãs estrategicamente posicionados para estimular a circulação e aliviar dores.",
-    img: "/sandalia2.jpg",
-    tags: ["Circulação", "Terapêutica", "Unissex"],
-  },
-  {
-    id: 5,
-    nome: "Sandália Magnética Bio",
-    preco: "R$ 249,90",
-    descricao: "Combina tecnologia magnética com materiais bioativos para bem-estar total.",
-    img: "/sandalia ce couro.jpg",
-    tags: ["Bioativo", "Alta tecnologia", "Feminino"],
-  },
-  {
-    id: 6,
-    nome: "Sandália Magnética Sport",
-    preco: "R$ 269,90",
-    descricao: "Para quem tem rotina ativa. Magnetos de alta intensidade com solado antiderrapante.",
-    img: "/sandalia2.jpg",
-    tags: ["Esportivo", "Antiderrapante", "Unissex"],
-  },
-];
-
-function ProdutoCard({ produto }) {
+function ProdutoCard({ produto, navegarParaProduto }) {
   const [adicionado, setAdicionado] = useState(false);
 
   const handleClick = () => {
@@ -78,19 +28,27 @@ function ProdutoCard({ produto }) {
         <p>{produto.descricao}</p>
         <div className="sandalia-card-footer">
           <span className="sandalia-preco">{produto.preco}</span>
-          <button
-            className={`btn-sandalia ${adicionado ? "adicionado" : ""}`}
-            onClick={handleClick}
-          >
-            {adicionado ? "✓ Adicionado!" : "Adicionar ao carrinho"}
-          </button>
+          <div className="sandalia-card-btns">
+            <button
+              className="btn-sandalia btn-detalhes"
+              onClick={() => navegarParaProduto(produto)}
+            >
+              Ver Detalhes
+            </button>
+            <button
+              className={`btn-sandalia ${adicionado ? "adicionado" : ""}`}
+              onClick={handleClick}
+            >
+              {adicionado ? "✓ Adicionado!" : "Adicionar ao carrinho"}
+            </button>
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-function SandaliasPage({ setPagina }) {
+function SandaliasPage({ setPagina, navegarParaProduto }) {
   const [abaAtiva, setAbaAtiva] = useState("ortopedica");
 
   return (
@@ -155,7 +113,7 @@ function SandaliasPage({ setPagina }) {
         {/* GRID */}
         <div className="sandalias-grid">
           {(abaAtiva === "ortopedica" ? produtosOrtopedicos : produtosMagneticos).map(
-            (produto) => <ProdutoCard key={produto.id} produto={produto} />
+            (produto) => <ProdutoCard key={produto.id} produto={produto} navegarParaProduto={navegarParaProduto} />
           )}
         </div>
       </section>

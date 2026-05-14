@@ -223,6 +223,12 @@
   flex-wrap: wrap;
 }
 
+.sandalia-card-btns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 .sandalia-preco {
   font-size: 1.3rem;
   font-weight: 800;
@@ -248,6 +254,17 @@
 
 .btn-sandalia.adicionado {
   background: #00a651;
+}
+
+.btn-sandalia.btn-detalhes {
+  background: transparent;
+  border: 2px solid #0b1a31;
+  color: #0b1a31;
+}
+
+.btn-sandalia.btn-detalhes:hover {
+  background: #0b1a31;
+  color: white;
 }
 
 /* ===== BENEFÍCIOS ===== */

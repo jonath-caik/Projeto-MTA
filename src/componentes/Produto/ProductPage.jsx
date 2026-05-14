@@ -4,8 +4,10 @@ import './ProductPage.css';
 function ProductPage({ product, setPagina }) {
   const [quantidade, setQuantidade] = useState(1);
   const [adicionado, setAdicionado] = useState(false);
+  const [tamanhoSelecionado, setTamanhoSelecionado] = useState(null);
 
   const handleAdicionar = () => {
+    if (product.tamanhos && !tamanhoSelecionado) return;
     setAdicionado(true);
     setTimeout(() => setAdicionado(false), 2000);
   };
@@ -76,6 +78,27 @@ function ProductPage({ product, setPagina }) {
               </ul>
             </div>
 
+            {/* Seletor de tamanho — só aparece para sandálias */}
+            {product.tamanhos && (
+              <div className="pp-tamanhos">
+                <h4>Tamanho:</h4>
+                <div className="pp-tamanhos-grid">
+                  {product.tamanhos.map((tam) => (
+                    <button
+                      key={tam}
+                      className={`pp-tam-btn ${tamanhoSelecionado === tam ? 'selecionado' : ''}`}
+                      onClick={() => setTamanhoSelecionado(tam)}
+                    >
+                      {tam}
+                    </button>
+                  ))}
+                </div>
+                {!tamanhoSelecionado && (
+                  <p className="pp-tam-aviso">Selecione um tamanho para continuar</p>
+                )}
+              </div>
+            )}
+
             {/* Seletor de quantidade */}
             <div className="pp-quantidade">
               <span>Quantidade:</span>
@@ -91,6 +114,8 @@ function ProductPage({ product, setPagina }) {
               <button
                 className={`pp-btn-carrinho ${adicionado ? 'adicionado' : ''}`}
                 onClick={handleAdicionar}
+                disabled={product.tamanhos && !tamanhoSelecionado}
+                style={{ opacity: product.tamanhos && !tamanhoSelecionado ? 0.5 : 1 }}
               >
                 {adicionado ? '✓ Adicionado!' : 'Adicionar ao Carrinho'}
               </button>

@@ -36,7 +36,7 @@ function App() {
     if (pagina === "produto") {
       return <ProductPage product={produtoAtual} setPagina={setPagina} />;
     }
-    return <SandaliasPage setPagina={setPagina} setLinkAtivo={setLinkAtivo} />;
+    return <SandaliasPage setPagina={setPagina} setLinkAtivo={setLinkAtivo} navegarParaProduto={navegarParaProduto} />;
   };
 
   return (
