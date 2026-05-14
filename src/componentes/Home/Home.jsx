@@ -40,7 +40,7 @@ function Home({ setPagina, setLinkAtivo, navegarParaProduto }) {
       <OleoCarousel navegarParaProduto={navegarParaProduto} />
 
       {/* O Carrossel de Filtros Purificadores de Água */}
-      <FiltroCarousel setPagina={setPagina} />
+      <FiltroCarousel navegarParaProduto={navegarParaProduto} />
 
       {/* O Carrossel de Sandálias */}
       <SandaliasCarrossel />

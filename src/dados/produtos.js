@@ -96,6 +96,104 @@ export const oleos = [
   },
 ];
 
+export const purificadores = [
+  {
+    id: 8,
+    slug: 'purificador-azul-um-filtro',
+    nome: 'Purificador de Água Natural Azul',
+    categoria: 'Purificador de Água',
+    descricao:
+      'O Purificador Purific Azul é compacto e elegante, com um filtro de alta eficiência que remove impurezas, cloro e sedimentos. Ideal para famílias que buscam água limpa com design moderno e instalação simples.',
+    preco: 'R$ 249,90',
+    parcelamento: '10x de R$ 24,99 sem juros',
+    img: '/fotos/purificador/purificador_agua_natural/purificador3.png',
+    beneficios: [
+      'Remove cloro, sedimentos e impurezas',
+      'Design compacto e moderno na cor azul',
+      'Instalação simples sem necessidade de técnico',
+      'Filtro de longa duração e fácil reposição',
+      'Certificado pela ANVISA',
+    ],
+    tags: ['Purificação', 'Compacto', 'Azul', 'Família'],
+  },
+  {
+    id: 9,
+    slug: 'purificador-preto-dois-filtros',
+    nome: 'Purificador de Água Natural Preto',
+    categoria: 'Purificador de Água',
+    descricao:
+      'O Purificador Purific Preto conta com dois filtros de purificação para máxima eficiência. Remove cloro, metais pesados, bactérias e impurezas em dupla etapa. Design sofisticado na cor preta, ideal para cozinhas modernas.',
+    preco: 'R$ 319,90',
+    parcelamento: '12x de R$ 26,66 sem juros',
+    img: '/fotos/purificador/purificador_bebedouro/purificador4.png',
+    beneficios: [
+      'Dupla filtração para máxima pureza',
+      'Remove cloro, metais pesados e bactérias',
+      'Design sofisticado na cor preta',
+      'Maior capacidade de filtragem',
+      'Certificado pela ANVISA',
+    ],
+    tags: ['Duplo Filtro', 'Preto', 'Premium', 'Alta Eficiência'],
+  },
+  {
+    id: 10,
+    slug: 'purificador-branco-dois-filtros',
+    nome: 'Purificador de Água Natural Branco',
+    categoria: 'Purificador de Água',
+    descricao:
+      'O Purificador Purific Branco com dois filtros oferece purificação em dupla etapa com visual clean e sofisticado. Combina alta performance de filtragem com um design neutro que se adapta a qualquer ambiente.',
+    preco: 'R$ 309,90',
+    parcelamento: '12x de R$ 25,82 sem juros',
+    img: '/fotos/purificador/purificador_agua_natural/purificador5.png',
+    beneficios: [
+      'Dupla filtração para água mais pura',
+      'Design clean e neutro na cor branca',
+      'Fácil manutenção e troca de filtros',
+      'Remove impurezas, cloro e metais pesados',
+      'Certificado pela ANVISA',
+    ],
+    tags: ['Duplo Filtro', 'Branco', 'Clean', 'Alta Eficiência'],
+  },
+  {
+    id: 11,
+    slug: 'purificador-preto-um-filtro',
+    nome: 'Purificador Purific Preto Compacto',
+    categoria: 'Purificador de Água',
+    descricao:
+      'Versão compacta do Purificador Purific na cor preta, com um filtro eficiente para purificação do dia a dia. Perfeito para espaços menores sem abrir mão da qualidade e do estilo.',
+    preco: 'R$ 269,90',
+    parcelamento: '10x de R$ 26,99 sem juros',
+    img: '/fotos/purificador/purificador_agua_natural/purificador4.png',
+    beneficios: [
+      'Compacto e perfeito para espaços menores',
+      'Remove cloro, sedimentos e impurezas',
+      'Design elegante na cor preta',
+      'Fácil instalação e manutenção',
+      'Certificado pela ANVISA',
+    ],
+    tags: ['Compacto', 'Preto', 'Purificação', 'Prático'],
+  },
+  {
+    id: 12,
+    slug: 'purificador-branco-um-filtro',
+    nome: 'Purificador Purific Branco Compacto',
+    categoria: 'Purificador de Água',
+    descricao:
+      'O Purificador Purific Branco Compacto é a escolha ideal para quem busca praticidade e qualidade. Com design minimalista e filtro de alta eficiência, entrega água pura e saborosa no dia a dia.',
+    preco: 'R$ 259,90',
+    parcelamento: '10x de R$ 25,99 sem juros',
+    img: '/fotos/purificador/purificador_agua_natural/purificador2.png',
+    beneficios: [
+      'Design minimalista e versátil',
+      'Remove cloro, sedimentos e impurezas',
+      'Ideal para cozinhas de qualquer tamanho',
+      'Fácil instalação e manutenção',
+      'Certificado pela ANVISA',
+    ],
+    tags: ['Compacto', 'Branco', 'Minimalista', 'Prático'],
+  },
+];
+
 export const outrosProdutos = [
   {
     id: 6,
@@ -139,4 +237,4 @@ export const outrosProdutos = [
   },
 ];
 
-export const todosProdutos = [...oleos, ...outrosProdutos];
+export const todosProdutos = [...oleos, ...purificadores, ...outrosProdutos];

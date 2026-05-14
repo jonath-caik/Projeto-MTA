@@ -1,0 +1,91 @@
+.filtro-page { min-height: 100vh; background-color: #f7f9fc; }
+
+.filtro-hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  padding-top: 100px;
+  background: linear-gradient(135deg, #0b1a31 0%, #0c2545 50%, #083060 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.filtro-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 30%, rgba(0,198,255,0.10) 0%, transparent 55%),
+              radial-gradient(ellipse at 10% 80%, rgba(0,114,255,0.08) 0%, transparent 50%);
+}
+
+.filtro-hero-content { position: relative; z-index: 1; max-width: 720px; }
+
+.filtro-hero-content .subtitle-tag { color: #00c6ff; font-weight: 700; letter-spacing: 4px; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 16px; display: block; }
+
+.filtro-hero-content h1 { font-size: 2.8rem; font-weight: 800; margin: 0 0 16px; background: linear-gradient(to right, #fff, #00c6ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.2; }
+
+.filtro-hero-desc { font-size: 1.05rem; color: rgba(255,255,255,0.75); margin: 0 0 28px; line-height: 1.6; }
+
+.btn-voltar { background: transparent; border: 2px solid rgba(255,255,255,0.35); color: white; padding: 10px 26px; border-radius: 50px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: 0.3s; font-family: inherit; }
+.btn-voltar:hover { background: rgba(255,255,255,0.08); border-color: #00c6ff; color: #00c6ff; }
+
+.filtro-main { padding: 60px 8% 80px; max-width: 1200px; margin: 0 auto; }
+
+.filtro-detalhe { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; margin-bottom: 60px; }
+
+.filtro-imagem-wrapper { background: white; border-radius: 24px; border: 1px solid #e8ecf0; box-shadow: 0 20px 50px rgba(11,26,49,0.08); aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; padding: 30px; overflow: hidden; }
+.filtro-imagem-wrapper img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.5s ease; }
+.filtro-imagem-wrapper:hover img { transform: scale(1.04); }
+
+.filtro-info { display: flex; flex-direction: column; gap: 20px; padding-top: 10px; }
+.filtro-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.filtro-tag { font-size: 0.72rem; padding: 5px 12px; border-radius: 50px; background: #e8f4ff; color: #0072ff; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+.filtro-info h2 { font-size: 1.9rem; color: #0b1a31; font-weight: 800; margin: 0; line-height: 1.25; }
+.filtro-info .filtro-subtitulo { font-size: 1rem; color: #666; margin: 0; line-height: 1.6; }
+
+.filtro-preco-bloco { display: flex; align-items: baseline; gap: 12px; }
+.filtro-preco { font-size: 2.2rem; font-weight: 900; color: #0b1a31; }
+.filtro-preco-parcelado { font-size: 0.9rem; color: #888; }
+.filtro-divider { height: 1px; background: #eee; margin: 4px 0; }
+
+.filtro-specs { display: flex; flex-direction: column; gap: 8px; }
+.filtro-specs h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #0072ff; margin: 0 0 4px; }
+.filtro-spec-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: #f7f9fc; border-radius: 10px; font-size: 0.9rem; }
+.filtro-spec-item span:first-child { color: #555; font-weight: 500; }
+.filtro-spec-item span:last-child { color: #0b1a31; font-weight: 700; }
+
+.filtro-quantidade { display: flex; align-items: center; gap: 16px; }
+.filtro-quantidade label { font-size: 0.85rem; font-weight: 700; color: #0b1a31; text-transform: uppercase; letter-spacing: 1px; }
+
+.qty-controle { display: flex; align-items: center; border: 2px solid #e0e6ed; border-radius: 50px; overflow: hidden; }
+.qty-btn { background: none; border: none; width: 36px; height: 36px; font-size: 1.2rem; cursor: pointer; color: #0b1a31; font-weight: 700; transition: background 0.2s; display: flex; align-items: center; justify-content: center; }
+.qty-btn:hover { background: #f0f4f8; }
+.qty-num { min-width: 32px; text-align: center; font-size: 1rem; font-weight: 700; color: #0b1a31; }
+
+.filtro-acoes { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-carrinho { flex: 1; background: #0b1a31; color: white; border: none; padding: 16px 28px; border-radius: 50px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: 0.3s; font-family: inherit; min-width: 180px; }
+.btn-carrinho:hover { background: #0072ff; transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,114,255,0.3); }
+.btn-carrinho.adicionado { background: #00a651; }
+.btn-comprar { flex: 1; background: transparent; color: #0b1a31; border: 2px solid #0b1a31; padding: 16px 28px; border-radius: 50px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: 0.3s; font-family: inherit; min-width: 180px; }
+.btn-comprar:hover { background: #0b1a31; color: white; transform: translateY(-2px); }
+
+.filtro-diferenciais { background: white; border-radius: 24px; padding: 50px; border: 1px solid #e8ecf0; box-shadow: 0 10px 30px rgba(11,26,49,0.05); }
+.filtro-diferenciais h3 { font-size: 1.6rem; font-weight: 800; color: #0b1a31; margin: 0 0 30px; text-align: center; text-transform: uppercase; letter-spacing: 1px; }
+.diferenciais-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+.diferencial-card { text-align: center; padding: 28px 20px; border-radius: 16px; background: #f7f9fc; border: 1px solid #edf0f4; transition: 0.3s; }
+.diferencial-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(11,26,49,0.08); border-color: #00c6ff; }
+.diferencial-icon { font-size: 2.2rem; margin-bottom: 12px; display: block; }
+.diferencial-card h4 { font-size: 1rem; font-weight: 700; color: #0b1a31; margin: 0 0 8px; }
+.diferencial-card p { font-size: 0.85rem; color: #777; line-height: 1.5; margin: 0; }
+
+@media (max-width: 768px) {
+  .filtro-hero-content h1 { font-size: 1.9rem; }
+  .filtro-main { padding: 40px 5% 60px; }
+  .filtro-detalhe { grid-template-columns: 1fr; gap: 30px; }
+  .filtro-acoes { flex-direction: column; }
+  .filtro-diferenciais { padding: 30px 20px; }
+  .filtro-info h2 { font-size: 1.5rem; }
+}
