@@ -1,0 +1,358 @@
+/* ===== PAGE WRAPPER ===== */
+.product-page {
+  min-height: 100vh;
+}
+
+/* ===== HERO ===== */
+.pp-hero {
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 20px 60px;
+  background: linear-gradient(135deg, #0b1a31 0%, #0a2a5e 50%, #0b1a31 100%);
+  color: white;
+}
+
+.pp-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.pp-subtitle-tag {
+  color: #00c6ff;
+  font-weight: 600;
+  letter-spacing: 3px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.pp-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0 0 20px;
+  background: linear-gradient(to right, #fff, #00c6ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* btn-voltar já definido em SandaliasPage.css — redefinido aqui para autonomia */
+.pp-hero .btn-voltar {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: inherit;
+}
+
+.pp-hero .btn-voltar:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #00c6ff;
+  color: #00c6ff;
+}
+
+/* ===== MAIN SECTION ===== */
+.pp-main {
+  background-color: #fcfcfc;
+  padding: 70px 8% 80px;
+}
+
+.pp-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== PRODUCT IMAGE ===== */
+.pp-image-wrapper {
+  position: sticky;
+  top: 120px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  background: white;
+  border: 1px solid #eee;
+}
+
+.pp-image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  max-height: 520px;
+}
+
+/* ===== PRODUCT INFO ===== */
+.pp-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Tags */
+.pp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pp-tag {
+  font-size: 0.72rem;
+  padding: 5px 12px;
+  border-radius: 50px;
+  background: #e8f4ff;
+  color: #0072ff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Category label */
+.pp-categoria {
+  font-size: 0.85rem;
+  color: #00c6ff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+/* Product name */
+.pp-nome {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0b1a31;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Description */
+.pp-descricao {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ===== PRICE BLOCK ===== */
+.pp-preco-bloco {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 16px 0;
+}
+
+.pp-preco {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0b1a31;
+}
+
+.pp-parcelamento {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* ===== BENEFITS ===== */
+.pp-beneficios h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0b1a31;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.pp-beneficios ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pp-beneficios li {
+  font-size: 0.95rem;
+  color: #444;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.pp-check {
+  color: #00a651;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ===== QUANTITY SELECTOR ===== */
+.pp-quantidade {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pp-quantidade > span {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0b1a31;
+}
+
+.pp-qty-controls {
+  display: flex;
+  align-items: center;
+  border: 2px solid #0b1a31;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.pp-qty-btn {
+  background: transparent;
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0b1a31;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  line-height: 1;
+}
+
+.pp-qty-btn:hover {
+  background: #0b1a31;
+  color: white;
+}
+
+.pp-qty-num {
+  min-width: 42px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0b1a31;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.pp-acoes {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.pp-btn-carrinho {
+  flex: 1;
+  background: transparent;
+  color: #0b1a31;
+  border: 2px solid #0b1a31;
+  padding: 14px 24px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: inherit;
+  min-width: 160px;
+}
+
+.pp-btn-carrinho:hover {
+  background: #0b1a31;
+  color: white;
+}
+
+.pp-btn-carrinho.adicionado {
+  background: #00a651;
+  border-color: #00a651;
+  color: white;
+}
+
+.pp-btn-comprar {
+  flex: 1;
+  background: #0b1a31;
+  color: white;
+  border: 2px solid #0b1a31;
+  padding: 14px 24px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: inherit;
+  min-width: 160px;
+}
+
+.pp-btn-comprar:hover {
+  background: #0072ff;
+  border-color: #0072ff;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .pp-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .pp-main {
+    padding: 40px 5% 60px;
+  }
+
+  .pp-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .pp-image-wrapper {
+    position: static;
+  }
+
+  .pp-nome {
+    font-size: 1.6rem;
+  }
+
+  .pp-preco {
+    font-size: 1.8rem;
+  }
+
+  .pp-acoes {
+    flex-direction: column;
+  }
+
+  .pp-btn-carrinho,
+  .pp-btn-comprar {
+    width: 100%;
+    text-align: center;
+    min-width: unset;
+  }
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .pp-main {
+    padding: 50px 5% 70px;
+  }
+
+  .pp-container {
+    gap: 40px;
+  }
+
+  .pp-nome {
+    font-size: 1.7rem;
+  }
+}
