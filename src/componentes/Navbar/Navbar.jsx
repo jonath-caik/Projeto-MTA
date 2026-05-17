@@ -4,15 +4,20 @@ import "./Navbar.css";
 function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
   const [menuAberto, setMenuAberto] = useState(false);
   
-  // 1. NOVO: Estado para controlar o Modo Escuro
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  // 1. CORRIGIDO: O estado agora começa verificando se existe algo salvo no localStorage
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const temaSalvo = localStorage.getItem("theme");
+    return temaSalvo === "dark"; // Se for 'dark', começa como true
+  });
 
-  // 2. NOVO: Efeito que adiciona ou tira a classe 'dark-theme' do site todo
+  // 2. CORRIGIDO: Efeito que aplica a classe e SALVA a preferência
   useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add("dark-theme");
+      localStorage.setItem("theme", "dark"); // Salva no navegador
     } else {
       document.body.classList.remove("dark-theme");
+      localStorage.setItem("theme", "light"); // Salva no navegador
     }
   }, [isDarkMode]);
 
@@ -128,12 +133,13 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
             </a>
           </li>
 
-          {/* 3. NOVO: Botão de Modo Escuro adicionado na Navbar */}
+          {/* 3. Botão de Alternar Tema */}
           <li>
             <button
               className="btn-modo-escuro"
               onClick={() => setIsDarkMode(!isDarkMode)}
               title="Alternar Modo Escuro"
+              style={{ background: 'transparent', border: 'none', cursor: 'pointer', fontSize: '1.2rem' }}
             >
               {isDarkMode ? "☀️" : "🌙"}
             </button>

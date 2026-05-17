@@ -46,7 +46,6 @@ body {
 /* ========================================= */
 
 body.dark-theme {
-  /* Imagem com película presa no fundo do site */
   background-image: 
     linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
     url('/CapaDoSite.jpg') !important; 
@@ -65,7 +64,6 @@ body.dark-theme .container {
   background-image: none !important;
 }
 
-/* 2. Deixa APENAS a primeira seção (topo) transparente para a imagem aparecer */
 body.dark-theme section:first-of-type {
   background-color: transparent !important;
 }
@@ -92,9 +90,9 @@ body.dark-theme .Navbar {
 body.dark-theme .card,
 body.dark-theme .produto-item,
 body.dark-theme .swiper-slide,
-body.dark-theme .swiper-slide > div, /* Força a div interna do carrossel a ficar escura */
+body.dark-theme .swiper-slide > div,
 body.dark-theme .card > div {
-  background-color: #141414 !important; /* Cinza escuro */
+  background-color: #141414 !important;
   border-color: #222 !important;
   border-radius: 8px; 
 }
@@ -117,7 +115,6 @@ body.dark-theme .btn-modo-escuro:hover {
 /* 7. RESGATANDO OS TEXTOS APAGADOS NO CARROSSEL            */
 /* ======================================================== */
 
-/* Força o texto dos produtos a ficar branco e visível */
 body.dark-theme .swiper-slide *,
 body.dark-theme .card *,
 body.dark-theme .produto-item * {
@@ -125,38 +122,51 @@ body.dark-theme .produto-item * {
   opacity: 1 !important; 
 }
 
-/* Protege os botões "Ver Detalhes" */
 body.dark-theme .swiper-slide button,
 body.dark-theme .card button {
-  background-color: #0b1a30 !important; /* Azul bonito */
+  background-color: #0b1a30 !important;
   color: #ffffff !important;
   border: 1px solid #1a3a6a !important;
 }
 
 /* -------------------------------------------------------- */
-/* A CORREÇÃO DAS SETINHAS: SEM QUADRADO BRANCO!            */
+/* SETAS PERSONALIZADAS E GROSSAS (PARA TODOS OS MODOS)     */
 /* -------------------------------------------------------- */
 
-/* Força o ícone da seta a ser branco */
-body.dark-theme .swiper-button-next,
+/* 1. Remove o ícone fino padrão do Swiper em qualquer modo */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none !important;
+}
+
+/* 2. Seta da DIREITA (Geral) */
+.swiper-button-next {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'%3E%3Cpath d='M27,22L5,44l-2.1-2.1L22.8,22L2.9,2.1L5,0L27,22L27,22z' fill='%230b1a31' stroke='%230b1a31' stroke-width='2.5'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+  width: 32px !important;
+  height: 42px !important;
+}
+
+/* 3. Seta da ESQUERDA (Geral) */
+.swiper-button-prev {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'%3E%3Cpath d='M0,22L22,0l2.1,2.1L4.2,22l19.9,19.9L22,44L0,22L0,22z' fill='%230b1a31' stroke='%230b1a31' stroke-width='2.5'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+  width: 32px !important;
+  height: 42px !important;
+}
+
+/* -------------------------------------------------------- */
+/* AJUSTE ESPECÍFICO PARA O MODO DARK (SETAS PRETAS)        */
+/* -------------------------------------------------------- */
+
+body.dark-theme .swiper-button-next {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'%3E%3Cpath d='M27,22L5,44l-2.1-2.1L22.8,22L2.9,2.1L5,0L27,22L27,22z' fill='%23000000' stroke='%23000000' stroke-width='3'/%3E%3C/svg%3E") !important;
+}
+
 body.dark-theme .swiper-button-prev {
-  color: #ffffff !important;
-  background-color: transparent !important; /* Remove o fundo quadrado branco */
-}
-
-/* Garante que o pseudo-elemento da seta também fique branco */
-body.dark-theme .swiper-button-next::after,
-body.dark-theme .swiper-button-prev::after {
-  color: #ffffff !important;
-}
-
-/* Bolinhas de paginação brancas (mas mantendo o fundo delas) */
-body.dark-theme .swiper-pagination-bullet {
-  background-color: #ffffff !important;
-  opacity: 0.5; /* Opacidade pras inativas */
-}
-
-/* Bolinha de paginação ativa 100% visível */
-body.dark-theme .swiper-pagination-bullet-active {
-  opacity: 1 !important;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27 44'%3E%3Cpath d='M0,22L22,0l2.1,2.1L4.2,22l19.9,19.9L22,44L0,22L0,22z' fill='%23000000' stroke='%23000000' stroke-width='3'/%3E%3C/svg%3E") !important;
 }

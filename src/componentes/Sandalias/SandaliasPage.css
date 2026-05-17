@@ -19,7 +19,6 @@
   position: relative;
 }
 
-/* overlay escuro por cima da imagem */
 .sandalias-hero::before {
   content: "";
   position: absolute;
@@ -82,6 +81,7 @@
 .sandalias-main {
   background-color: #fcfcfc;
   padding: 60px 8% 80px;
+  transition: background-color 0.4s ease;
 }
 
 /* ===== ABAS ===== */
@@ -136,14 +136,13 @@
   line-height: 1.6;
 }
 
-/* ===== GRID ===== */
+/* ===== GRID E CARDS ===== */
 .sandalias-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: 30px;
 }
 
-/* ===== CARD ===== */
 .sandalia-card {
   background: white;
   border-radius: 20px;
@@ -173,22 +172,11 @@
   transition: transform 0.4s;
 }
 
-.sandalia-card:hover .sandalia-card-img img {
-  transform: scale(1.05);
-}
-
 .sandalia-card-info {
   padding: 24px;
   display: flex;
   flex-direction: column;
   flex: 1;
-}
-
-.sandalia-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 12px;
 }
 
 .sandalia-tag {
@@ -215,20 +203,6 @@
   margin: 0 0 20px;
 }
 
-.sandalia-card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.sandalia-card-btns {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
 .sandalia-preco {
   font-size: 1.3rem;
   font-weight: 800;
@@ -245,26 +219,12 @@
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
-  font-family: inherit;
-}
-
-.btn-sandalia:hover {
-  background: #0072ff;
-}
-
-.btn-sandalia.adicionado {
-  background: #00a651;
 }
 
 .btn-sandalia.btn-detalhes {
   background: transparent;
   border: 2px solid #0b1a31;
   color: #0b1a31;
-}
-
-.btn-sandalia.btn-detalhes:hover {
-  background: #0b1a31;
-  color: white;
 }
 
 /* ===== BENEFÍCIOS ===== */
@@ -281,66 +241,72 @@
   margin-bottom: 50px;
 }
 
-.beneficios-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
+/* ======================================================== */
+/* --- MÁGICA DO MODO DARK (INTEGRAÇÃO TOTAL) --- */
+/* ======================================================== */
+
+body.dark-theme .sandalias-main {
+  background-color: #080707 !important; /* Preto padrão */
 }
 
-.beneficio-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+/* Cards Escuros */
+body.dark-theme .sandalia-card {
+  background-color: #141414 !important;
+  border-color: #222 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.beneficio-icone {
-  font-size: 1.5rem;
+/* Textos Brancos */
+body.dark-theme .sandalia-card-info h3,
+body.dark-theme .aba-descricao h2,
+body.dark-theme .sandalia-preco {
+  color: #ffffff !important;
+}
+
+body.dark-theme .sandalia-card-info p,
+body.dark-theme .aba-descricao p {
+  color: #cccccc !important;
+}
+
+/* Ajuste das Abas (Buttons) no Dark */
+body.dark-theme .aba-btn {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+body.dark-theme .aba-btn.ativa {
+  background: #ffffff;
+  color: #080707;
+  border-color: #ffffff;
+}
+
+/* Ajuste dos botões dos Cards no Dark */
+body.dark-theme .btn-sandalia.btn-detalhes {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+body.dark-theme .btn-sandalia.btn-detalhes:hover {
+  background: #ffffff;
+  color: #080707;
+}
+
+body.dark-theme .btn-sandalia:not(.btn-detalhes) {
+  background: #0072ff; /* Azul para destacar o 'Comprar' no escuro */
+}
+
+/* Tags sutilmente mais escuras no dark */
+body.dark-theme .sandalia-tag {
+  background: #1a2a44;
   color: #00c6ff;
-}
-
-.beneficio-item h4 {
-  color: white;
-  font-size: 1rem;
-  font-weight: 700;
-  margin: 0;
-}
-
-.beneficio-item p {
-  color: #a0b0c8;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin: 0;
 }
 
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
-  .sandalias-hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .sandalias-main {
-    padding: 40px 5% 60px;
-  }
-
-  .aba-btn {
-    padding: 12px 24px;
-    font-size: 0.9rem;
-  }
-
-  .sandalias-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .sandalia-card-footer {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .btn-sandalia {
-    width: 100%;
-    text-align: center;
-  }
+  .sandalias-hero-content h1 { font-size: 2rem; }
+  .sandalias-main { padding: 40px 5% 60px; }
+  .aba-btn { padding: 12px 24px; font-size: 0.9rem; }
+  .sandalias-grid { grid-template-columns: 1fr; }
+  .sandalia-card-footer { flex-direction: column; align-items: flex-start; }
+  .btn-sandalia { width: 100%; text-align: center; }
 }
