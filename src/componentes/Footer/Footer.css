@@ -170,4 +170,14 @@
     gap: 5px;
     text-align: center;
   }
+}/* Isso remove o azul padrão de TODOS os links do rodapé */
+.footer-container a {
+  color: inherit; /* Faz o link usar a mesma cor do texto (branco) */
+  text-decoration: none; /* Tira o sublinhado se você quiser */
+  transition: color 0.3s ease;
+}
+
+/* Efeito de hover para o usuário saber que é um link clicável */
+.footer-container a:hover {
+  color: #0072ff; /* Quando passar o mouse, ele brilha no azul do seu tema */
 }

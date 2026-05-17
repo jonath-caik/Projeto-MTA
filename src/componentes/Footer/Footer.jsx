@@ -32,7 +32,7 @@ const Footer = () => {
         <div className="footer-section contact">
           <h3>Fale Conosco</h3>
           <p><span>📍</span> Salvador | Dias D'ávilas,Bahia - Brasil</p>
-          <p><span>📞</span> (71) 99999-9999</p>
+          <p><span>📞</span> <a href="https://wa.me/5571981238344" target="_blank" rel="noopener noreferrer">contato NeaBemEstar</a></p>
           <p><span>✉️</span> @NeaBemestar.com.br</p>
         </div>
         
@@ -41,7 +41,8 @@ const Footer = () => {
       {/* Faixa inferior de Direitos Autorais */}
       <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} NeaBemEstar. Todos os direitos reservados.</p>
-                   <p>Desenvolvido Com ☕ e Com Muito ❤️</p> Equipe De Desenvolvimento: @alexandre_lima660 | @cordeiro_.mariana | @hpzin.xp | @jonath.caik  .
+                   <p>Desenvolvido Com ☕ e Com Muito ❤️</p> <p>Equipe De Desenvolvimento: @alexandre_lima660 | @cordeiro_.mariana | @hpzin.xp | @jonath.caik |
+      </p>
       </div>
     </footer>
   );

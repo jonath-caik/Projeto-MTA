@@ -3,9 +3,9 @@ import React from "react";
 import "./WhatsAppButton.css";
 
 const WhatsAppButton = () => {
-  const numeroTelefone = "557181288321";
+  const numeroTelefone = "5571981238344";
   const mensagemInicial =
-    "Olá! Gostaria de falar com a Nea sobre os produtos do NeaBemEstar, fiquei Interessado .";
+    "Olá! Gostaria de falar com a Nea sobre os produtos do NeaBemEstar, .";
 
   // APAGUE A SUA LINHA 11 E COLE ESSA AQUI:
   const linkWhatsApp = `https://wa.me/${numeroTelefone}?text=${encodeURIComponent(mensagemInicial)}`;
