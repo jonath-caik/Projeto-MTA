@@ -4,6 +4,8 @@ import Home from "./componentes/Home/Home.jsx";
 import SandaliasPage from "./componentes/Sandalias/SandaliasPage.jsx";
 import ProductPage from "./componentes/Produto/ProductPage.jsx";
 import Footer from "./componentes/Footer/Footer.jsx";
+import WhatsAppButton from "./componentes/Icon do whatsApp/WhatsAppButton.jsx"; 
+
 import "./App.css";
 
 function App() {
@@ -53,6 +55,10 @@ function App() {
       </main>
 
       <Footer />
+
+      
+      <WhatsAppButton />
+      
     </div>
   );
 }

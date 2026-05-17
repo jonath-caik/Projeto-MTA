@@ -1,0 +1,41 @@
+/* src/components/WhatsAppButton.css */
+
+/* Container do Botão Flutuante */
+.whatsapp-float-btn {
+  position: fixed; /* Fixa na tela, independente da rolagem */
+  bottom: 20px; /* Distância do fundo da página */
+  right: 20px;  /* Distância do lado direito */
+  background-color: #25D366; /* Verde oficial do WhatsApp */
+  color: white; /* Cor do texto */
+  border-radius: 50px; /* Cantos super arredondados (estilo pílula) */
+  padding: 10px 22px; /* Espaçamento interno */
+  display: flex; /* Alinha ícone e texto lado a lado */
+  align-items: center; /* Centraliza verticalmente */
+  gap: 10px; /* Espaço entre o ícone e o texto */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* Sombra suave para dar profundidade */
+  z-index: 9999; /* Garante que fique acima de TUDO no site */
+  text-decoration: none; /* Tira o sublinhado do link */
+  font-family: sans-serif; /* Fonte limpa */
+  font-weight: 700; /* Texto em negrito */
+  transition: all 0.3s ease; /* Animação suave no hover */
+}
+
+/* Efeito ao passar o mouse */
+.whatsapp-float-btn:hover {
+  background-color: #1ebd5a; /* Verde um pouco mais escuro */
+  transform: scale(1.05) translateY(-3px); /* Aumenta levemente e sobe un pouquinho */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35); /* Sombra mais forte */
+}
+
+/* Estilo do Ícone SVG */
+.whatsapp-icon-svg {
+  width: 20px; /* Tamanho do ícone */
+  height: 20px;
+  fill: white; /* Cor do ícone */
+}
+
+/* Estilo do Texto */
+.whatsapp-btn-text {
+  font-size: 15px;
+  white-space: nowrap; /* Impede que o texto quebre linha */
+}

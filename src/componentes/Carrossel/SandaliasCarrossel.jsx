@@ -14,9 +14,8 @@ const sandalias = [
   { id: 1, nome: 'Sandália Ortopédica "Couro Aurora /Plataforma"', img: '/fotos/sandalias/sandalia1.jpeg' },
   { id: 2, nome: 'Sandália Ortopédica "Marron/Salto Curto"', img: '/fotos/sandalias/sandalia3.jpeg' },
   { id: 3, nome: 'Sandália Confort Couro Legitimo',       img: '/fotos/sandalias/sandalia7.jpeg' },
-{ id: 4, nome: 'Sandália Confort Plus',       img: '/fotos/sandalias/sandalia2.jpg' },
-{ id: 5, nome: 'Sandália Confort Com Estilo',       img: '/fotos/sandalias/sandalia10.jpeg' },
-
+  { id: 4, nome: 'Sandália Confort Plus',       img: '/fotos/sandalias/sandalia2.jpg' },
+  { id: 5, nome: 'Sandália Confort Com Estilo',       img: '/fotos/sandalias/sandalia10.jpeg' },
 ];
 
 const SandaliasCarrossel = () => {
@@ -25,19 +24,25 @@ const SandaliasCarrossel = () => {
     <section className="carousel-section" id="sandalias">
       <h2 className="carousel-title">Nossas Sandálias Ortopédicas</h2>
 
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={30}
-        slidesPerView={1}
-        navigation={true}
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 3500, disableOnInteraction: false }}
-        breakpoints={{
-          768:  { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
-        }} 
-        className="mySwiper"
-      >
+     <Swiper
+       modules={[Navigation, Pagination, Autoplay]}
+       spaceBetween={30}
+       slidesPerView={1}
+       navigation={true}
+       pagination={{ clickable: true }}
+       loop={true} 
+       speed={800} /* Mudamos de 4000 para 800 (desliza rápido) */
+       autoplay={{ 
+         delay: 3000, /* Ele fica parado 3 segundos antes de passar o próximo */
+         disableOnInteraction: false, 
+         pauseOnMouseEnter: true /* Agora ele congela na hora! */
+       }} 
+       breakpoints={{
+         768:  { slidesPerView: 2 },
+         1024: { slidesPerView: 3 },
+       }}
+           className="mySwiper"
+           >
         {sandalias.map((item) => (
           <SwiperSlide key={item.id}>
             {/* Usando as MESMAS classes do ProductCarousel */}

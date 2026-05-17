@@ -1,9 +1,12 @@
+/* ========================================= */
+/* --- ESTILOS DO CARROSSEL (Geral) --- */
+/* ========================================= */
+
 .carousel-section {
-  padding: 30px 5%; /* Reduzido o espaço em branco para enquadrar na tela */
+  padding: 30px 5%;
   background-color: #fcfcfc;
   text-align: center;
   width: 100%;
-  /* Aumentei para 120px para garantir que o Navbar não cubra nada */
   scroll-margin-top: 120px; 
   box-sizing: border-box;
 }
@@ -11,7 +14,7 @@
 .carousel-title {
   font-size: 2.2rem;
   color: #0b1a31;
-  margin-bottom: 20px; /* Reduzido o espaço entre o título e os cards */
+  margin-bottom: 30px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -25,6 +28,7 @@
   margin-bottom: 50px; 
   transition: 0.4s;
   border: 1px solid #eee;
+  height: 100%; 
 }
 
 .product-card-carousel:hover {
@@ -32,15 +36,32 @@
   box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
+/* --- AJUSTE: CONTAINER COM ZOOM REDUZIDO --- */
 .product-img-container {
   width: 100%;
-  height: 260px; /* Altura da foto reduzida para caber na tela do PC */
+  height: 280px; /* Altura equilibrada */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 5px; /* Pequena margem de segurança para não colcar nas bordas */
+  box-sizing: border-box;
 }
 
 .product-img-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Mantém o preenchimento do container */
+  object-position: center;
+  /* REDUZIDO: Zoom de 1.05 para 1.01 para não cortar detalhes */
+  transform: scale(1.01); 
+  transition: transform 0.4s ease-in-out;
+}
+
+/* Efeito de hover mais suave também */
+.product-card-carousel:hover .product-img-container img {
+  transform: scale(1.06); 
 }
 
 .product-info-carousel {
@@ -49,8 +70,9 @@
 
 .product-info-carousel h3 {
   color: #0b1a31;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   margin-bottom: 15px;
+  min-height: 3rem; 
 }
 
 .btn-buy {
@@ -68,7 +90,7 @@
   background: #0072ff;
 }
 
-/* Customização das setas e pontos do Swiper */
+/* --- SETAS E PAGINAÇÃO --- */
 .swiper-button-next, .swiper-button-prev {
   color: #0b1a31 !important;
   transform: scale(0.7);
@@ -78,35 +100,57 @@
   background: #0072ff !important;
 }
 
-/* =========================================================
-   --- AJUSTE EXCLUSIVO PARA CELULAR (MOBILE) ---
-   ========================================================= */
+/* ========================================= */
+/* --- MODO DARK --- */
+/* ========================================= */
+
+body.dark-theme .carousel-section {
+  background-color: #080707 !important;
+}
+
+body.dark-theme .product-card-carousel {
+  background-color: #141414 !important;
+  border-color: #222 !important;
+}
+
+body.dark-theme .product-info-carousel h3,
+body.dark-theme .carousel-title {
+  color: #ffffff !important;
+}
+
+/* ========================================= */
+/* --- RESPONSIVIDADE --- */
+/* ========================================= */
+
 @media (max-width: 768px) {
-  .carousel-section {
-    padding: 30px 5% 50px 5%; 
-    /* Margem de segurança para o Navbar no celular */
-    scroll-margin-top: 100px;
-  }
-
-  .carousel-title {
-    font-size: 1.6rem; 
-    margin-bottom: 20px;
-  }
-
   .product-img-container {
-    height: 240px; 
+    height: 240px;
   }
+  .carousel-title {
+    font-size: 1.6rem;
+  }
+}/* ========================================= */
+/* --- AJUSTE DO RODAPÉ NO MODO DARK --- */
+/* ========================================= */
 
-  .product-info-carousel {
-    padding: 15px; 
-  }
+/* Isso vai pegar o footer quando o body tiver a classe .dark-theme */
+body.dark-theme footer, 
+body.dark-theme .footer {
+  background-color: #080707 !important; /* O mesmo preto das seções */
+  color: #ffffff !important;
+  border-top: 1px solid #222 !important; 
+  transition: background-color 0.4s ease;
+}
 
-  .product-info-carousel h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-  }
+/* Garante que os links dentro do rodapé fiquem brancos */
+body.dark-theme footer a,
+body.dark-theme footer p,
+body.dark-theme footer span,
+body.dark-theme footer h4 {
+  color: #ffffff !important;
+}
 
-  .product-card-carousel {
-    margin-bottom: 40px; 
-  }
+/* Se tiver ícones de rede social (FontAwesome ou outros) */
+body.dark-theme footer i {
+  color: #ffffff !important;
 }

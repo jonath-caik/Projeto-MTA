@@ -23,19 +23,25 @@ const ProductCarousel = ({ setPagina, navegarParaProduto }) => {
     <section className="carousel-section" id="produtos">
       <h2 className="carousel-title">Nossos Destaques</h2>
 
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={30}
-        slidesPerView={1}
-        navigation={true}
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 3500, disableOnInteraction: false }}
-        breakpoints={{
-          768:  { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
-        }}
+  <Swiper
+    modules={[Navigation, Pagination, Autoplay]}
+    spaceBetween={30}
+    slidesPerView={1}
+    navigation={true}
+    pagination={{ clickable: true }}
+    loop={true} 
+    speed={800} /* Mudamos de 4000 para 800 (desliza rápido) */
+    autoplay={{ 
+      delay: 3000, /* Ele fica parado 3 segundos antes de passar o próximo */
+      disableOnInteraction: false, 
+      pauseOnMouseEnter: true /* Agora ele congela na hora! */
+    }} 
+    breakpoints={{
+      768:  { slidesPerView: 2 },
+      1024: { slidesPerView: 3 },
+    }}
         className="mySwiper"
-      >
+        >
         {products.map((product) => (
           <SwiperSlide key={product.id}>
             <div className="product-card-carousel">

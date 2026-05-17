@@ -1,20 +1,15 @@
+/* ========================================= */
+/* --- ESTILOS PADRÃO (MODO CLARO) --- */
+/* ========================================= */
 body {
   margin: 0;
-  /* Remove a margem padrão do navegador */
-
   padding: 0;
-  /* Remove o espaçamento interno padrão */
-
   min-height: 100vh;
-  /* Garante que o body tenha pelo menos a altura total da tela */
-
+  
+  /* FUNDO AZUL PADRÃO */
   background-color: #040b1a;
-  /* Cor base do fundo (azul bem escuro) */
-
   background-image:
     linear-gradient(135deg, #040b1a 0%, #081a3d 40%, #0f3073 100%),
-    /* Gradiente diagonal criando profundidade */
-
     repeating-linear-gradient(
       0deg,
       transparent,
@@ -22,17 +17,146 @@ body {
       rgba(255, 255, 255, 0.02) 2px,
       rgba(255, 255, 255, 0.02) 4px
     );
-    /* Linhas repetidas bem leves (efeito textura/tech) */
-
   background-attachment: fixed;
-  /* Mantém o fundo fixo ao rolar (efeito parallax leve) */
-
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  /* Define a fonte padrão da aplicação */
-
   overflow-x: hidden;
-  /* Evita scroll horizontal indesejado */
-
   scroll-behavior: smooth;
-  /* Deixa a rolagem suave ao clicar em links (#ancoras) */
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Estilo do botão padrão (Navbar) */
+.btn-modo-escuro {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  margin-left: 15px;
+}
+
+.btn-modo-escuro:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================= */
+/* --- MODO DARK: TOPO COM IMAGEM, RESTO PRETO --- */
+/* ========================================= */
+
+body.dark-theme {
+  /* Imagem com película presa no fundo do site */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+    url('/CapaDoSite.jpg') !important; 
+    
+  background-size: cover !important;
+  background-position: center center !important; 
+  background-attachment: fixed !important;
+  background-color: #080707 !important; 
+  color: #ffffff !important; 
+}
+
+/* 1. PINTA TODOS OS CONTAINERS E SEÇÕES DE PRETO SÓLIDO */
+body.dark-theme section,
+body.dark-theme .container {
+  background-color: #080707 !important; 
+  background-image: none !important;
+}
+
+/* 2. Deixa APENAS a primeira seção (topo) transparente para a imagem aparecer */
+body.dark-theme section:first-of-type {
+  background-color: transparent !important;
+}
+
+/* 3. Força todos os textos a ficarem brancos */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme p,
+body.dark-theme span,
+body.dark-theme li,
+body.dark-theme a {
+  color: #ffffff !important;
+}
+
+/* 4. Navbar com preto sólido */
+body.dark-theme nav, 
+body.dark-theme .Navbar {
+  background-color: #0a0a0a !important;
+  border-bottom: 1px solid #222 !important;
+}
+
+/* 5. A CORREÇÃO: PINTANDO A CAIXA BRANCA DE DARK */
+body.dark-theme .card,
+body.dark-theme .produto-item,
+body.dark-theme .swiper-slide,
+body.dark-theme .swiper-slide > div, /* Força a div interna do carrossel a ficar escura */
+body.dark-theme .card > div {
+  background-color: #141414 !important; /* Cinza escuro */
+  border-color: #222 !important;
+  border-radius: 8px; 
+}
+
+body.dark-theme .swiper {
+  background-color: transparent !important;
+}
+
+/* 6. Botão no modo escuro */
+body.dark-theme .btn-modo-escuro {
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .btn-modo-escuro:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ======================================================== */
+/* 7. RESGATANDO OS TEXTOS APAGADOS NO CARROSSEL            */
+/* ======================================================== */
+
+/* Força o texto dos produtos a ficar branco e visível */
+body.dark-theme .swiper-slide *,
+body.dark-theme .card *,
+body.dark-theme .produto-item * {
+  color: #ffffff !important;
+  opacity: 1 !important; 
+}
+
+/* Protege os botões "Ver Detalhes" */
+body.dark-theme .swiper-slide button,
+body.dark-theme .card button {
+  background-color: #0b1a30 !important; /* Azul bonito */
+  color: #ffffff !important;
+  border: 1px solid #1a3a6a !important;
+}
+
+/* -------------------------------------------------------- */
+/* A CORREÇÃO DAS SETINHAS: SEM QUADRADO BRANCO!            */
+/* -------------------------------------------------------- */
+
+/* Força o ícone da seta a ser branco */
+body.dark-theme .swiper-button-next,
+body.dark-theme .swiper-button-prev {
+  color: #ffffff !important;
+  background-color: transparent !important; /* Remove o fundo quadrado branco */
+}
+
+/* Garante que o pseudo-elemento da seta também fique branco */
+body.dark-theme .swiper-button-next::after,
+body.dark-theme .swiper-button-prev::after {
+  color: #ffffff !important;
+}
+
+/* Bolinhas de paginação brancas (mas mantendo o fundo delas) */
+body.dark-theme .swiper-pagination-bullet {
+  background-color: #ffffff !important;
+  opacity: 0.5; /* Opacidade pras inativas */
+}
+
+/* Bolinha de paginação ativa 100% visível */
+body.dark-theme .swiper-pagination-bullet-active {
+  opacity: 1 !important;
 }

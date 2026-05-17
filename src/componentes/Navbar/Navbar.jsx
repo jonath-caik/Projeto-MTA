@@ -1,8 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 
 function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
   const [menuAberto, setMenuAberto] = useState(false);
+  
+  // 1. NOVO: Estado para controlar o Modo Escuro
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // 2. NOVO: Efeito que adiciona ou tira a classe 'dark-theme' do site todo
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add("dark-theme");
+    } else {
+      document.body.classList.remove("dark-theme");
+    }
+  }, [isDarkMode]);
 
   const irParaInicio = () => {
     setPagina("home");
@@ -11,14 +23,14 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // NOVA FUNÇÃO DA SANDÁLIA: Rolando a tela até o novo carrossel
+  // FUNÇÃO DA SANDÁLIA
   const irParaSandalias = () => {
     setPagina("home");
-    setLinkAtivo("sandalias"); // Deixa a cor do link ativa
+    setLinkAtivo("sandalias"); 
     setMenuAberto(false);
     setTimeout(() => {
       document
-        .getElementById("sandalias") // ID da nova seção de sandálias
+        .getElementById("sandalias") 
         ?.scrollIntoView({ behavior: "smooth" });
     }, 100);
   };
@@ -77,8 +89,6 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
             </a>
           </li>
 
-         
-
           <li>
             <a
               href="#oleo"
@@ -105,9 +115,7 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
             </a>
           </li>
 
-
-
-           <li>
+          <li>
             <a
               href="#sandalias"
               className={linkAtivo === "sandalias" ? "ativo" : ""}
@@ -119,6 +127,18 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
               Sandália
             </a>
           </li>
+
+          {/* 3. NOVO: Botão de Modo Escuro adicionado na Navbar */}
+          <li>
+            <button
+              className="btn-modo-escuro"
+              onClick={() => setIsDarkMode(!isDarkMode)}
+              title="Alternar Modo Escuro"
+            >
+              {isDarkMode ? "☀️" : "🌙"}
+            </button>
+          </li>
+
         </ul>
       </div>
     </nav>
