@@ -178,6 +178,12 @@
 }
 
 /* ===== SIZE SELECTOR ===== */
+.pp-tamanhos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 52px);
+  gap: 10px;
+}
+
 .pp-tam-btn {
   width: 48px;
   height: 48px;

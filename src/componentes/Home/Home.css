@@ -12,7 +12,7 @@
   color: white;
   background:
     linear-gradient(rgba(11, 26, 49, 0.8), rgba(11, 26, 49, 0.7)),
-    url("/image.png") no-repeat;
+    url("/fotos/home/image.png") no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -53,7 +53,7 @@
   color: #00c6ff;
   font-weight: 600;
   letter-spacing: 3px;
-  font-size: 1rem;
+  font-size: 10rem;
   margin-bottom: 0;
   text-transform: uppercase;
 }
@@ -103,36 +103,80 @@
 
 @media (max-width: 768px) {
   .hero-section {
-    display: block !important;
+    display: flex !important;
+    align-items: flex-start !important;
     min-height: 100vh !important;
     background-attachment: scroll !important;
+    padding-top: 64px;
   }
 
   .hero-container-flex {
     flex-direction: column;
-    padding: 0;
+    align-items: stretch;
+    padding: 170px 1px 40px;
     margin-top: 0;
+    gap: 6px;
+    width: 100%;
+  }
+
+  /* Texto aparece primeiro */
+  .hero-content {
+    order: 1;
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    text-align: left !important;
+    padding: 0;
   }
 
   .subtitle-wrapper {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
-  .hero-content {
-    position: absolute !important;
-    top: 110px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    width: 90% !important;
-    text-align: center !important;
-  }
-
-  .hero-image-container {
-    display: none;
+  /* "NEABEMESTAR" centralizado */
+  .subtitle-tag {
+    text-align: center;
+    width: 100%;
   }
 
   .hero-content h1 {
-    font-size: 1.8rem !important;
+    font-size: 1.75rem !important;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  /* Botão alinhado à direita */
+  .hero-buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .btn-primary {
+    padding: 11px 26px !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* Foto abaixo do texto, alinhada com o container */
+  .hero-image-container {
+    order: 2;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 0;
+    padding-left: 0;
+  }
+
+  .hero-person-img {
+    width: 52%;
+    max-width: 210px;
+    margin-left: 0;
   }
 }
 

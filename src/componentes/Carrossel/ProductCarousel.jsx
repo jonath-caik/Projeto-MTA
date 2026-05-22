@@ -13,9 +13,9 @@ const kitDoTERRA = outrosProdutos.find((p) => p.slug === 'kit-bem-estar-doterra'
 const ProductCarousel = ({ setPagina, navegarParaProduto }) => {
   const products = [
     { id: 1, title: filtroPurific.nome, img: filtroPurific.img, acao: () => navegarParaProduto(filtroPurific) },
-    { id: 2, title: 'Sandália Ortopédica "couro"',  img: '/sandalia ce couro.jpg',           acao: () => setPagina('sandalias') },
-    { id: 3, title: 'Sandália Ortopédica "vazada"', img: '/sandaliavazada.jpeg',              acao: () => setPagina('sandalias') },
-    { id: 4, title: 'Filtro Purific - Preto',        img: '/purificador3.png',                acao: () => navegarParaProduto(filtroPurific) },
+    { id: 2, title: 'Sandália Ortopédica "couro"',  img: '/fotos/sandalias/sandalia_couro.jpg',                          acao: () => setPagina('sandalias') },
+    { id: 3, title: 'Sandália Ortopédica "vazada"', img: '/fotos/sandalias/sandaliavazada.jpeg',                          acao: () => setPagina('sandalias') },
+    { id: 4, title: 'Filtro Purific - Preto',        img: '/fotos/purificador/purificador_agua_natural/purificador3.png', acao: () => navegarParaProduto(filtroPurific) },
     { id: 5, title: kitDoTERRA.nome,                 img: kitDoTERRA.img,                     acao: () => navegarParaProduto(kitDoTERRA) },
   ];
 

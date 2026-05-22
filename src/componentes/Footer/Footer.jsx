@@ -19,7 +19,7 @@ const Footer = () => {
         {/* COLUNA 2 (CENTRO): Logo e Frase */}
         <div className="footer-section brand">
           <img 
-            src="/logo interna do portifólio.svg" 
+            src="public/fotos/logos/logo.svg" 
             alt="NoaBemEstar Logo" 
             className="footer-logo" 
           />
@@ -31,7 +31,7 @@ const Footer = () => {
         {/* COLUNA 3 (DIREITA): Contato */}
         <div className="footer-section contact">
           <h3>Fale Conosco</h3>
-          <p><span>📍</span> Salvador | Dias D'ávilas,Bahia - Brasil</p>
+          <p><span>📍</span> Salvador | Dias D'ávila, Bahia - Brasil</p>
           <p><span>📞</span> <a href="https://wa.me/5571981238344" target="_blank" rel="noopener noreferrer">contato NeaBemEstar</a></p>
           <p><span>✉️</span> @NeaBemestar.com.br</p>
         </div>

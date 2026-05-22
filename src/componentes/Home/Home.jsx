@@ -13,7 +13,7 @@ function Home({ setPagina, setLinkAtivo, navegarParaProduto }) {
 
           <div className="hero-image-container">
             <img
-              src="NEABEMESTAR.png"
+              src="/fotos/logos/NEABEMESTAR.png"
               alt="Destaque NeaBemEstar"
               className="hero-person-img"
             />
@@ -43,7 +43,7 @@ function Home({ setPagina, setLinkAtivo, navegarParaProduto }) {
       <FiltroCarousel navegarParaProduto={navegarParaProduto} />
 
       {/* O Carrossel de Sandálias */}
-      <SandaliasCarrossel />
+      <SandaliasCarrossel navegarParaProduto={navegarParaProduto} />
 
     </div>
   );

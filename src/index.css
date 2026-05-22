@@ -48,7 +48,7 @@ body {
 body.dark-theme {
   background-image: 
     linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
-    url('/CapaDoSite.jpg') !important; 
+    url('/fotos/home/CapaDoSite.jpg') !important;
     
   background-size: cover !important;
   background-position: center center !important; 

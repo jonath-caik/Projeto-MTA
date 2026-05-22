@@ -3,151 +3,170 @@ import "./Navbar.css";
 
 function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
   const [menuAberto, setMenuAberto] = useState(false);
-  
-  // 1. CORRIGIDO: O estado agora começa verificando se existe algo salvo no localStorage
+  const [scrolled, setScrolled] = useState(false);
+
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const temaSalvo = localStorage.getItem("theme");
-    return temaSalvo === "dark"; // Se for 'dark', começa como true
+    return temaSalvo === "dark";
   });
 
-  // 2. CORRIGIDO: Efeito que aplica a classe e SALVA a preferência
+  // Aplica classe dark e salva preferência
   useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add("dark-theme");
-      localStorage.setItem("theme", "dark"); // Salva no navegador
+      localStorage.setItem("theme", "dark");
     } else {
       document.body.classList.remove("dark-theme");
-      localStorage.setItem("theme", "light"); // Salva no navegador
+      localStorage.setItem("theme", "light");
     }
   }, [isDarkMode]);
+
+  // Detecta scroll para aplicar classe .scrolled
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Fecha menu ao redimensionar para desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) setMenuAberto(false);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const fecharMenu = () => setMenuAberto(false);
 
   const irParaInicio = () => {
     setPagina("home");
     setLinkAtivo("home");
-    setMenuAberto(false);
+    fecharMenu();
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // FUNÇÃO DA SANDÁLIA
-  const irParaSandalias = () => {
-    setPagina("home");
-    setLinkAtivo("sandalias"); 
-    setMenuAberto(false);
-    setTimeout(() => {
-      document
-        .getElementById("sandalias") 
-        ?.scrollIntoView({ behavior: "smooth" });
-    }, 100);
-  };
-
-  // FUNÇÃO DO ÓLEO
   const irParaOleo = () => {
     setPagina("home");
     setLinkAtivo("oleo");
-    setMenuAberto(false);
+    fecharMenu();
     setTimeout(() => {
-      document
-        .getElementById("oleo")
-        ?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById("oleo")?.scrollIntoView({ behavior: "smooth" });
     }, 100);
   };
 
-  // FUNÇÃO DO FILTRO
   const irParaFiltros = () => {
     setPagina("home");
     setLinkAtivo("filtros");
-    setMenuAberto(false);
+    fecharMenu();
     setTimeout(() => {
-      document
-        .getElementById("filtros") 
-        ?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById("filtros")?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
+
+  const irParaSandalias = () => {
+    setPagina("home");
+    setLinkAtivo("sandalias");
+    fecharMenu();
+    setTimeout(() => {
+      document.getElementById("sandalias")?.scrollIntoView({ behavior: "smooth" });
     }, 100);
   };
 
   return (
-    <nav className="Navbar">
-      <div className="Navbar-container">
-        <img
-          src="/logo interna do portifólio.svg"
-          alt="Logo"
-          className="Logo-img"
-        />
+    <>
+      {/* Overlay para fechar o menu mobile */}
+      <div
+        className={`nav-overlay ${menuAberto ? "ativo" : ""}`}
+        onClick={fecharMenu}
+      />
 
-        <div
-          className="menu-hamburger"
-          onClick={() => setMenuAberto(!menuAberto)}
-        >
-          {menuAberto ? "✕" : "☰"}
+      <nav className={`Navbar ${scrolled ? "scrolled" : ""}`}>
+        <div className="Navbar-container">
+
+          {/* Logo */}
+          <img
+            src="/fotos/logos/logo.svg"
+            alt="Logo NeaBemEstar"
+            className="Logo-img"
+            onClick={irParaInicio}
+          />
+
+          {/* Hamburger — 3 spans para animar em X */}
+          <div
+            className={`menu-hamburger ${menuAberto ? "aberto" : ""}`}
+            onClick={() => setMenuAberto(!menuAberto)}
+            aria-label="Abrir menu"
+          >
+            <span />
+            <span />
+            <span />
+          </div>
+
+          {/* Links de navegação */}
+          <ul className={`Nav-links ${menuAberto ? "ativo" : ""}`}>
+            <li>
+              <a
+                href="#"
+                className={linkAtivo === "home" ? "ativo" : ""}
+                onClick={(e) => { e.preventDefault(); irParaInicio(); }}
+              >
+                Início
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#oleo"
+                className={linkAtivo === "oleo" ? "ativo" : ""}
+                onClick={(e) => { e.preventDefault(); irParaOleo(); }}
+              >
+                Óleo
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#filtros"
+                className={linkAtivo === "filtros" ? "ativo" : ""}
+                onClick={(e) => { e.preventDefault(); irParaFiltros(); }}
+              >
+                Purificadores
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#sandalias"
+                className={linkAtivo === "sandalias" ? "ativo" : ""}
+                onClick={(e) => { e.preventDefault(); irParaSandalias(); }}
+              >
+                Sandália
+              </a>
+            </li>
+
+            <li>
+              <label
+                className="dark-toggle"
+                title={isDarkMode ? "Modo Claro" : "Modo Escuro"}
+              >
+                <input
+                  type="checkbox"
+                  checked={isDarkMode}
+                  onChange={() => setIsDarkMode(!isDarkMode)}
+                />
+                <span className="dark-toggle__track">
+                  <span className="dark-toggle__thumb">
+                    {isDarkMode ? "🔆" : "🌙"}
+                  </span>
+                </span>
+              </label>
+            </li>
+          </ul>
+
         </div>
-
-        <ul className={`Nav-links ${menuAberto ? "ativo" : ""}`}>
-          <li>
-            <a
-              href="#"
-              className={linkAtivo === "home" ? "ativo" : ""}
-              onClick={(e) => {
-                e.preventDefault();
-                irParaInicio();
-              }}
-            >
-              Início
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="#oleo"
-              className={linkAtivo === "oleo" ? "ativo" : ""}
-              onClick={(e) => {
-                e.preventDefault();
-                irParaOleo();
-              }}
-            >
-              Óleo
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="#filtros"
-              className={linkAtivo === "filtros" ? "ativo" : ""}
-              onClick={(e) => {
-                e.preventDefault();
-                irParaFiltros();
-              }}
-            >
-              Purificadores
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="#sandalias"
-              className={linkAtivo === "sandalias" ? "ativo" : ""}
-              onClick={(e) => {
-                e.preventDefault();
-                irParaSandalias();
-              }}
-            >
-              Sandália
-            </a>
-          </li>
-
-          {/* 3. Botão de Alternar Tema */}
-          <li>
-            <button
-              className="btn-modo-escuro"
-              onClick={() => setIsDarkMode(!isDarkMode)}
-              title="Alternar Modo Escuro"
-              style={{ background: 'transparent', border: 'none', cursor: 'pointer', fontSize: '1.2rem' }}
-            >
-              {isDarkMode ? "☀️" : "🌙"}
-            </button>
-          </li>
-
-        </ul>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 }
 
