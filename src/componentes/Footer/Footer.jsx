@@ -19,7 +19,7 @@ const Footer = () => {
         {/* COLUNA 2 (CENTRO): Logo e Frase */}
         <div className="footer-section brand">
           <img 
-            src="public/fotos/logos/logo.svg" 
+            src="/fotos/logos/logo.svg"
             alt="NoaBemEstar Logo" 
             className="footer-logo" 
           />
