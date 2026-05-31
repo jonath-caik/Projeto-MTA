@@ -98,6 +98,246 @@
 }
 
 /* =========================================================
+   --- ESTILO DA SEÇÃO DO VENDEDOR (SUBTÍTULO EM FORMATO DE PÍLULA) ---
+   ========================================================= */
+.vendedor-section {
+  padding: 50px 8% 45px; /* Seção compacta verticalmente */
+  background: linear-gradient(to right, #ffffff 0%, #bac6cd 40%, #00c6ff 100%) !important;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.4s ease;
+  border-bottom: 1px solid rgba(11, 26, 49, 0.1);
+}
+
+.vendedor-container-clean {
+  max-width: 800px; 
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ATUALIZADO: "Consultoria & Atendimento" idêntico à pílula da imagem image_f8dc3b.png */
+.vendedor-tag-sub {
+  font-size: 0.72rem;
+  padding: 6px 14px; /* Espaçamento interno da pílula */
+  border-radius: 50px; /* Cantos arredondados de botão */
+  background-color: #000000 !important; /* Fundo azul oficial */
+  color: #ffffff !important; /* Texto branco por dentro */
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block; /* Garante o comportamento correto do bloco arredondado */
+  margin-bottom: 15px; /* Espaço até o h2 */
+  box-shadow: 0 4px 10px rgba(0, 114, 255, 0.15);
+}
+
+.vendedor-container-clean h2 {
+  font-size: 2.2rem;
+  color: #0b1a31;
+  font-weight: 800;
+  margin: 0 0 20px;
+  line-height: 1.2;
+}
+
+.vendedor-container-clean h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #0b1a31;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.vendedor-texto-trajetoria {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.vendedor-texto-trajetoria p {
+  font-size: 1rem;
+  color: #1e293b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.p-destaque-vendedor {
+  font-size: 1.15rem !important;
+  color: #0b1a31 !important;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.vendedor-badges {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.badge-vendedor-item {
+  font-size: 0.72rem;
+  padding: 6px 14px;
+  border-radius: 50px;
+  background-color: #0072ff !important; 
+  color: #ffffff !important;
+  font-weight: 700;
+  border: none !important;
+  box-shadow: 0 4px 10px rgba(0, 114, 255, 0.2);
+  transition: all 0.4s ease;
+}
+
+/* =========================================================
+   --- ADAPTAÇÃO PARA MODO DARK (MANTIDO PRETO PURO ORIGINAL) ---
+   ========================================================= */
+body.dark-theme .vendedor-section {
+  background: #080707 !important; 
+  background-color: #080707 !important;
+  border-bottom-color: #141414 !important;
+}
+
+body.dark-theme .vendedor-container-clean h2 {
+  color: #ffffff !important;
+}
+
+body.dark-theme .vendedor-container-clean h2::after {
+  background: #00c6ff !important;
+}
+
+body.dark-theme .vendedor-texto-trajetoria p {
+  color: #cccccc !important;
+}
+
+body.dark-theme .p-destaque-vendedor {
+  color: #e2e8f0 !important;
+}
+
+/* No Dark, todas as pílulas azuis mantêm a mesma identidade de destaque */
+body.dark-theme .vendedor-tag-sub {
+  background-color: #0072ff !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .badge-vendedor-item {
+  background-color: #0072ff !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 114, 255, 0.35);
+}
+/* =========================================================
+   --- ADAPTAÇÃO PARA MODO DARK (MANTIDO PRETO PURO ORIGINAL) ---
+   ========================================================= */
+body.dark-theme .vendedor-section {
+  /* Mantido o fundo preto puro original do seu projeto */
+  background-color: #080707 !important; 
+  border-bottom-color: #141414 !important;
+}
+
+body.dark-theme .vendedor-container-clean h2 {
+  color: #ffffff !important;
+}
+
+body.dark-theme .vendedor-container-clean h2::after {
+  background: #00c6ff !important;
+}
+
+body.dark-theme .vendedor-texto-trajetoria p {
+  color: #cccccc !important;
+}
+
+body.dark-theme .p-destaque-vendedor {
+  color: #e2e8f0 !important;
+}
+
+body.dark-theme .vendedor-tag-sub {
+  color: #00c6ff !important;
+}
+
+body.dark-theme .badge-vendedor-item {
+  background-color: #0072ff !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 114, 255, 0.35);
+}
+
+/* --- INTEGRAÇÃO TOTAL MODO DARK --- */
+body.dark-theme .vendedor-section {
+  background-color: #080707 !important;
+  border-bottom-color: #141414 !important;
+}
+
+body.dark-theme .vendedor-container-clean h2 {
+  color: #ffffff !important;
+}
+
+body.dark-theme .vendedor-container-clean h2::after {
+  background: #00c6ff !important;
+}
+
+body.dark-theme .vendedor-texto-trajetoria p {
+  color: #cccccc !important;
+}
+
+body.dark-theme .p-destaque-vendedor {
+  color: #e2e8f0 !important;
+}
+
+body.dark-theme .vendedor-tag-sub {
+  color: #00c6ff !important;
+}
+
+body.dark-theme .badge-vendedor-item {
+  background-color: #0072ff !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 114, 255, 0.35);
+}
+
+/* --- RESPONSIVIDADE CELL --- */
+@media (max-width: 768px) {
+  .vendedor-section { padding: 40px 6% 35px; } /* Super enxuto no mobile */
+  .vendedor-container-clean h2 { font-size: 1.6rem; }
+  .vendedor-texto-trajetoria p { font-size: 0.9rem; line-height: 1.5; }
+  .p-destaque-vendedor { font-size: 1rem; }
+}
+
+/* =========================================================
+   --- ADAPTAÇÃO AUTOMÁTICA PARA MODO DARK (PRETO PURO) ---
+   ========================================================= */
+body.dark-theme .vendedor-section {
+  background-color: #080707 !important;
+  border-bottom-color: #141414 !important;
+}
+
+body.dark-theme .vendedor-container-clean h2 {
+  color: #ffffff !important;
+}
+
+body.dark-theme .vendedor-container-clean h2::after {
+  background: #00c6ff !important;
+}
+
+body.dark-theme .vendedor-texto-trajetoria p {
+  color: #cccccc !important;
+}
+
+body.dark-theme .p-destaque-vendedor {
+  color: #e2e8f0 !important;
+}
+
+body.dark-theme .vendedor-tag-sub {
+  color: #00c6ff !important;
+}
+
+body.dark-theme .badge-vendedor-item {
+  background-color: #0072ff !important; /* Mantém o azul vivo para destacar no escuro */
+  color: #ffffff !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
+}
+
+/* =========================================================
    --- AJUSTE PARA CELULAR (MOBILE) ---
    ========================================================= */
 
@@ -119,7 +359,6 @@
     width: 100%;
   }
 
-  /* Texto aparece primeiro */
   .hero-content {
     order: 1;
     position: static !important;
@@ -135,10 +374,10 @@
     justify-content: flex-start;
   }
 
-  /* "NEABEMESTAR" centralizado */
   .subtitle-tag {
     text-align: center;
     width: 100%;
+    font-size: 4rem; 
   }
 
   .hero-content h1 {
@@ -152,7 +391,6 @@
     margin-bottom: 20px;
   }
 
-  /* Botão alinhado à direita */
   .hero-buttons {
     display: flex;
     justify-content: flex-end;
@@ -163,7 +401,6 @@
     font-size: 0.9rem !important;
   }
 
-  /* Foto abaixo do texto, alinhada com o container */
   .hero-image-container {
     order: 2;
     display: flex;
@@ -177,6 +414,28 @@
     width: 52%;
     max-width: 210px;
     margin-left: 0;
+  }
+
+  .vendedor-section {
+    padding: 60px 6% 50px;
+  }
+  
+  .vendedor-container-clean h2 {
+    font-size: 1.9rem;
+  }
+  
+  .vendedor-texto-trajetoria p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+  
+  .p-destaque-vendedor {
+    font-size: 1.1rem;
+  }
+
+  .badge-vendedor-item {
+    padding: 6px 14px;
+    font-size: 0.7rem;
   }
 }
 

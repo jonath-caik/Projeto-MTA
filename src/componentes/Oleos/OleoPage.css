@@ -1,8 +1,10 @@
+/* ===== CONFIGURAÇÃO DA PÁGINA ===== */
 .oleo-page {
   min-height: 100vh;
-  background-color: #f7f9fc;
+  transition: background-color 0.4s ease;
 }
 
+/* ===== HERO (Idêntico ao de Purificadores e Sandálias) ===== */
 .oleo-hero {
   min-height: 60vh;
   display: flex;
@@ -11,57 +13,64 @@
   text-align: center;
   padding: 0 20px;
   padding-top: 100px;
-  background: linear-gradient(135deg, #0b1a31 0%, #0d2a50 60%, #0b3a6e 100%);
+  background: linear-gradient(135deg, #0b1a31 0%, #0c2545 50%, #083060 100%) !important;
   position: relative;
   overflow: hidden;
+  color: white;
 }
 
+/* Overlay radial para dar os focos de luz azul no fundo */
 .oleo-hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 70% 40%, rgba(0, 198, 255, 0.12) 0%, transparent 60%),
-              radial-gradient(ellipse at 20% 80%, rgba(0, 114, 255, 0.10) 0%, transparent 50%);
+  background: radial-gradient(ellipse at 80% 30%, rgba(0, 198, 255, 0.10) 0%, transparent 55%),
+              radial-gradient(ellipse at 10% 80%, rgba(0, 114, 255, 0.08) 0%, transparent 50%) !important;
+  z-index: 0;
 }
 
 .oleo-hero-content {
   position: relative;
   z-index: 1;
-  max-width: 700px;
+  max-width: 720px;
+  width: 100%;
 }
 
+/* Subtítulo pequeno e elegante travado para não estourar */
 .oleo-hero-content .subtitle-tag {
-  color: #00c6ff;
-  font-weight: 700;
-  letter-spacing: 4px;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  display: block;
+  color: #00c6ff !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 4px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 16px !important;
+  display: inline-block !important;
+  -webkit-text-fill-color: #00c6ff !important;
 }
 
+/* Título principal idêntico ao de Purificadores */
 .oleo-hero-content h1 {
-  font-size: 2.8rem;
-  font-weight: 800;
-  margin: 0 0 16px;
-  color: white;
-  line-height: 1.2;
-  background: linear-gradient(to right, #fff, #00c6ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: 2.8rem !important;
+  font-weight: 800 !important;
+  margin: 0 0 16px !important;
+  line-height: 1.2 !important;
+  background: linear-gradient(to right, #fff, #00c6ff) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  display: block !important;
 }
 
 .oleo-hero-desc {
-  font-size: 1.05rem;
-  color: rgba(255,255,255,0.75);
-  margin: 0 0 28px;
-  line-height: 1.6;
+  font-size: 1.05rem !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+  margin: 0 0 28px !important;
+  line-height: 1.6 !important;
 }
 
 .btn-voltar {
   background: transparent;
-  border: 2px solid rgba(255,255,255,0.35);
+  border: 2px solid rgba(255, 255, 255, 0.4);
   color: white;
   padding: 10px 26px;
   border-radius: 50px;
@@ -73,55 +82,86 @@
 }
 
 .btn-voltar:hover {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.1);
   border-color: #00c6ff;
   color: #00c6ff;
 }
 
+/* ===== MAIN SECTION (Fundo esticado de ponta a ponta nas laterais) ===== */
 .oleo-main {
+  background-color: #fcfcfc;
   padding: 60px 8% 80px;
-  max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ===== GRID DE PRODUTOS (VITRINE DO CATÁLOGO) ===== */
+.lista-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 30px;
+  width: 100%;
+  max-width: 1400px; /* Alinha os cards elegantemente no centro */
   margin: 0 auto;
 }
 
-.oleo-detalhe {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
-  margin-bottom: 60px;
+/* Deixa o card com o design idêntico ao de Sandálias */
+.lista-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #eee;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: 0.35s;
+  display: flex;
+  flex-direction: column;
 }
 
-.oleo-imagem-wrapper {
-  background: white;
-  border-radius: 24px;
-  border: 1px solid #e8ecf0;
-  box-shadow: 0 20px 50px rgba(11,26,49,0.08);
-  aspect-ratio: 1/1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
+.lista-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.lista-card-img {
+  width: 100%;
+  height: 280px;
   overflow: hidden;
 }
 
-.oleo-imagem-wrapper img {
+.lista-card-img img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  transition: transform 0.5s ease;
+  object-fit: cover;
+  transition: transform 0.4s;
 }
 
-.oleo-imagem-wrapper:hover img { transform: scale(1.05); }
-
-.oleo-info {
+.lista-card-info {
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding-top: 10px;
+  flex: 1;
 }
 
-.oleo-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.lista-card-info h3 {
+  font-size: 1.2rem;
+  color: #0b1a31;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.lista-card-info p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  flex: 1;
+  margin: 0 0 20px;
+}
+
+.oleo-tags { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 8px; 
+}
 
 .oleo-tag {
   font-size: 0.72rem;
@@ -134,85 +174,383 @@
   text-transform: uppercase;
 }
 
-.oleo-info h2 { font-size: 2rem; color: #0b1a31; font-weight: 800; margin: 0; line-height: 1.25; }
-.oleo-info .oleo-subtitulo { font-size: 1rem; color: #666; margin: 0; line-height: 1.6; }
+/* Rodapé do card da vitrine */
+.lista-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
 
-.oleo-preco-bloco { display: flex; align-items: baseline; gap: 12px; }
-.oleo-preco { font-size: 2.2rem; font-weight: 900; color: #0b1a31; }
-.oleo-preco-parcelado { font-size: 0.9rem; color: #888; }
-.oleo-divider { height: 1px; background: #eee; margin: 4px 0; }
-
-.oleo-beneficios { display: flex; flex-direction: column; gap: 10px; }
-.oleo-beneficios h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #0072ff; margin: 0 0 4px; }
-
-.oleo-beneficio-item { display: flex; align-items: center; gap: 10px; font-size: 0.95rem; color: #444; }
-.oleo-beneficio-item::before { content: "✦"; color: #00c6ff; font-size: 0.7rem; flex-shrink: 0; }
-
-.oleo-quantidade { display: flex; align-items: center; gap: 16px; }
-.oleo-quantidade label { font-size: 0.85rem; font-weight: 700; color: #0b1a31; text-transform: uppercase; letter-spacing: 1px; }
-
-.qty-controle { display: flex; align-items: center; border: 2px solid #e0e6ed; border-radius: 50px; overflow: hidden; }
-.qty-btn { background: none; border: none; width: 36px; height: 36px; font-size: 1.2rem; cursor: pointer; color: #0b1a31; font-weight: 700; transition: background 0.2s; display: flex; align-items: center; justify-content: center; }
-.qty-btn:hover { background: #f0f4f8; }
-.qty-num { min-width: 32px; text-align: center; font-size: 1rem; font-weight: 700; color: #0b1a31; }
-
-.oleo-acoes { display: flex; gap: 14px; flex-wrap: wrap; }
+.lista-preco {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0b1a31;
+}
 
 .btn-carrinho {
-  flex: 1;
   background: #0b1a31;
   color: white;
   border: none;
-  padding: 16px 28px;
+  padding: 11px 24px;
   border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
   font-family: inherit;
-  min-width: 180px;
 }
-.btn-carrinho:hover { background: #0072ff; transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,114,255,0.3); }
-.btn-carrinho.adicionado { background: #00a651; }
 
-.btn-comprar {
-  flex: 1;
-  background: transparent;
-  color: #0b1a31;
-  border: 2px solid #0b1a31;
-  padding: 16px 28px;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.3s;
-  font-family: inherit;
-  min-width: 180px;
+.btn-carrinho:hover { 
+  background: #0072ff; 
+  transform: translateY(-2px); 
+  box-shadow: 0 10px 25px rgba(0,114,255,0.3); 
 }
-.btn-comprar:hover { background: #0b1a31; color: white; transform: translateY(-2px); }
 
+
+/* =========================================================
+   --- ESTILIZAÇÃO DO DETALHE DO PRODUTO (LADO A LADO) ---
+   ========================================================= */
+
+/* Container que junta as duas colunas */
+.oleo-detalhe {
+  display: flex !important;
+  max-width: 1200px !important;
+  margin: 40px auto 50px !important;
+  gap: 50px !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+}
+
+/* Coluna da Imagem (Esquerda) */
+.oleo-coluna-esquerda {
+  flex: 1 !important;
+  max-width: 480px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.oleo-imagem-wrapper {
+  width: 100% !important;
+  background: white !important;
+  border-radius: 20px !important;
+  padding: 30px !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid #eee !important;
+}
+
+.oleo-imagem-wrapper img {
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 380px !important;
+  object-fit: contain !important;
+}
+
+.oleo-coluna-esquerda .oleo-tags {
+  display: flex !important;
+  gap: 8px !important;
+  margin-top: 20px !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+}
+
+/* Coluna das Informações (Direita) */
+.oleo-info {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+
+.oleo-info h2 {
+  font-size: 2.4rem !important;
+  color: #0b1a31 !important;
+  font-weight: 800 !important;
+  margin: 10px 0 !important;
+}
+
+.oleo-subtitulo {
+  font-size: 1.05rem !important;
+  color: #555 !important;
+  line-height: 1.6 !important;
+  margin-bottom: 15px !important;
+}
+
+.oleo-divider {
+  width: 100% !important;
+  height: 1px !important;
+  background: #eaeaea !important;
+  margin: 15px 0 !important;
+}
+
+/* Bloco de Preço */
+.oleo-preco-bloco {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+
+.oleo-preco {
+  font-size: 2.2rem !important;
+  font-weight: 800 !important;
+  color: #0b1a31 !important;
+}
+
+.oleo-preco-parcelado {
+  font-size: 0.9rem !important;
+  color: #666 !important;
+}
+
+/* Benefícios */
+.oleo-beneficios h4 {
+  font-size: 0.9rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  color: #0b1a31 !important;
+  margin: 0 0 12px 0 !important;
+  font-weight: 700 !important;
+}
+
+.oleo-beneficio-item {
+  font-size: 0.95rem !important;
+  color: #22c55e !important; /* Verde elegante para os checks */
+  font-weight: 500 !important;
+  margin-bottom: 6px !important;
+}
+
+/* Quantidade e Seletor */
+.oleo-quantidade {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.oleo-quantidade label {
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  color: #0b1a31 !important;
+  text-transform: uppercase !important;
+}
+
+.qty-controle {
+  display: flex !important;
+  align-items: center !important;
+  border: 1px solid #ddd !important;
+  border-radius: 50px !important;
+  padding: 4px !important;
+  background: white !important;
+}
+
+.qty-btn {
+  background: none !important;
+  border: none !important;
+  width: 32px !important;
+  height: 32px !important;
+  font-size: 1.2rem !important;
+  cursor: pointer !important;
+  color: #0b1a31 !important;
+}
+
+.qty-num {
+  font-weight: 700 !important;
+  padding: 0 15px !important;
+  color: #0b1a31 !important;
+}
+
+/* Botões de Ações de Detalhe (Estilizados como a Sandália) */
+.oleo-acoes {
+  display: flex !important;
+  gap: 15px !important;
+  width: 100% !important;
+  margin-top: 20px !important;
+}
+
+.oleo-acoes button {
+  flex: 1 !important;
+  padding: 14px !important;
+  border-radius: 50px !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: 0.3s !important;
+  font-family: inherit !important;
+}
+
+.oleo-acoes .btn-carrinho {
+  background: transparent !important;
+  border: 2px solid #0072ff !important;
+  color: #0072ff !important;
+}
+
+.oleo-acoes .btn-carrinho:hover {
+  background: rgba(0, 114, 255, 0.05) !important;
+  transform: translateY(-2px) !important;
+}
+
+.oleo-acoes .btn-carrinho.adicionado {
+  background: #22c55e !important;
+  border-color: #22c55e !important;
+  color: white !important;
+}
+
+.oleo-acoes .btn-comprar {
+  background: #0b1a31 !important;
+  color: white !important;
+  border: none !important;
+}
+
+.oleo-acoes .btn-comprar:hover {
+  background: #0072ff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 25px rgba(0, 114, 255, 0.3) !important;
+}
+
+/* ===== GRID DA SEÇÃO INFERIOR: COMO UTILIZAR ===== */
 .oleo-como-usar {
-  background: white;
-  border-radius: 24px;
-  padding: 50px;
-  border: 1px solid #e8ecf0;
-  box-shadow: 0 10px 30px rgba(11,26,49,0.05);
+  width: 100%;
+  max-width: 1200px;
+  margin: 50px auto 0;
+  border-top: 1px solid #eaeaea;
+  padding-top: 40px;
 }
-.oleo-como-usar h3 { font-size: 1.6rem; font-weight: 800; color: #0b1a31; margin: 0 0 30px; text-align: center; text-transform: uppercase; letter-spacing: 1px; }
 
-.oleo-uso-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+.oleo-como-usar h3 {
+  font-size: 1.6rem;
+  color: #0b1a31;
+  font-weight: 800;
+  margin-bottom: 25px;
+  text-align: center;
+}
 
-.oleo-uso-card { text-align: center; padding: 28px 20px; border-radius: 16px; background: #f7f9fc; border: 1px solid #edf0f4; transition: 0.3s; }
-.oleo-uso-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(11,26,49,0.08); border-color: #00c6ff; }
-.oleo-uso-icon { font-size: 2.2rem; margin-bottom: 12px; display: block; }
-.oleo-uso-card h4 { font-size: 1rem; font-weight: 700; color: #0b1a31; margin: 0 0 8px; }
-.oleo-uso-card p { font-size: 0.85rem; color: #777; line-height: 1.5; margin: 0; }
+.oleo-uso-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
 
+.oleo-uso-card {
+  background: #f8fafc;
+  padding: 25px 20px;
+  border-radius: 16px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.oleo-uso-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.02);
+}
+
+.oleo-uso-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.oleo-uso-card h4 {
+  font-size: 1.1rem;
+  color: #0b1a31;
+  margin: 0 0 8px 0;
+  font-weight: 700;
+}
+
+.oleo-uso-card p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+}
+
+
+/* ===== INTEGRAÇÃO TOTAL DO MODO DARK ===== */
+body.dark-theme .oleo-main {
+  background-color: #080707 !important;
+}
+
+body.dark-theme .lista-card {
+  background-color: #141414 !important;
+  border-color: #222 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-theme .lista-card-info h3,
+body.dark-theme .lista-preco,
+body.dark-theme .oleo-info h2,
+body.dark-theme .oleo-preco,
+body.dark-theme .oleo-beneficios h4,
+body.dark-theme .oleo-quantidade label,
+body.dark-theme .qty-btn,
+body.dark-theme .qty-num,
+body.dark-theme .oleo-como-usar h3,
+body.dark-theme .oleo-uso-card h4 {
+  color: #ffffff !important;
+}
+
+body.dark-theme .lista-card-info p,
+body.dark-theme .oleo-subtitulo,
+body.dark-theme .oleo-preco-parcelado,
+body.dark-theme .oleo-uso-card p {
+  color: #cccccc !important;
+}
+
+body.dark-theme .btn-carrinho {
+  background: #0072ff;
+}
+
+body.dark-theme .oleo-tag {
+  background: #1a2a44;
+  color: #00c6ff;
+}
+
+body.dark-theme .oleo-imagem-wrapper {
+  background: #141414 !important;
+  border-color: #222 !important;
+}
+
+body.dark-theme .qty-controle {
+  background: #141414 !important;
+  border-color: #333 !important;
+}
+
+body.dark-theme .oleo-uso-card {
+  background: #141414 !important;
+}
+
+body.dark-theme .oleo-divider {
+  background: #222 !important;
+}
+
+body.dark-theme .oleo-acoes .btn-comprar {
+  background: #0072ff !important;
+}
+
+
+/* ===== RESPONSIVIDADE MOBILE ===== */
 @media (max-width: 768px) {
-  .oleo-hero-content h1 { font-size: 1.9rem; }
+  .oleo-hero-content h1 { font-size: 2rem !important; }
   .oleo-main { padding: 40px 5% 60px; }
-  .oleo-detalhe { grid-template-columns: 1fr; gap: 30px; }
-  .oleo-acoes { flex-direction: column; }
-  .oleo-como-usar { padding: 30px 20px; }
-  .oleo-info h2 { font-size: 1.6rem; }
+  .lista-grid { grid-template-columns: 1fr; gap: 20px; }
+  .lista-card-footer { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .btn-carrinho { width: 100%; text-align: center; }
+
+  /* Ajustes para o bloco de detalhes em telas menores */
+  .oleo-detalhe {
+    flex-direction: column !important;
+    gap: 25px !important;
+  }
+  .oleo-coluna-esquerda, .oleo-info {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .oleo-acoes {
+    flex-direction: column !important;
+  }
+  .oleo-uso-grid {
+    grid-template-columns: 1fr;
+  }
 }

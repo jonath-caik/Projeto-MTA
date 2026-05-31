@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./SandaliasPage.css";
 import { sandalias } from "../../dados/produtos";
 
+
 const produtosOrtopedicos = sandalias.filter((s) => s.categoria === "Sandalia Ortopedica");
 const produtosMagneticos  = sandalias.filter((s) => s.categoria === "Sandalia Magnetica");
 

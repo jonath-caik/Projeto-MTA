@@ -1,74 +1,85 @@
-/* ===== HERO ===== */
+/* ===== HERO (Idêntico ao de Óleos e Purificadores) ===== */
 .sandalias-page {
   min-height: 100vh;
 }
 
 .sandalias-hero {
-  min-height: 75vh;
+  min-height: 60vh; /* Ajustado para a mesma altura padrão dos outros */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 0 20px;
   padding-top: 100px;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center center;
-  background-repeat: no-repeat;
+  
+  /* Troca a imagem de fundo pelo gradiente azul escuro oficial */
+  background: linear-gradient(135deg, #0b1a31 0%, #0c2545 50%, #083060 100%) !important;
+  
   color: white;
   position: relative;
+  overflow: hidden;
 }
 
+/* Efeito de focos de luz azul nas pontas idêntico ao dos óleos e filtros */
 .sandalias-hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(rgba(11, 26, 49, 0.85), rgba(11, 26, 49, 0.75));
+  background: radial-gradient(ellipse at 80% 30%, rgba(0, 198, 255, 0.10) 0%, transparent 55%),
+              radial-gradient(ellipse at 10% 80%, rgba(0, 114, 255, 0.08) 0%, transparent 50%) !important;
   z-index: 0;
 }
 
 .sandalias-hero-content {
   position: relative;
   z-index: 1;
+  max-width: 720px;
+  width: 100%;
 }
 
 .sandalias-hero-content .subtitle-tag {
-  color: #00c6ff;
-  font-weight: 600;
-  letter-spacing: 3px;
-  font-size: 1rem;
-  text-transform: uppercase;
-  margin-bottom: 15px;
+  color: #00c6ff !important;
+  font-size: 0.85rem !important; /* Tamanho pequeno e elegante padronizado */
+  font-weight: 700 !important;
+  letter-spacing: 4px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 16px !important;
+  display: inline-block !important;
+  -webkit-text-fill-color: #00c6ff !important;
 }
 
 .sandalias-hero-content h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin: 0 0 15px;
-  background: linear-gradient(to right, #fff, #00c6ff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 2.8rem !important; /* Travado no tamanho oficial do projeto */
+  font-weight: 800 !important;
+  margin: 0 0 16px !important;
+  line-height: 1.2 !important;
+  background: linear-gradient(to right, #fff, #00c6ff) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  display: block !important;
 }
 
 .sandalias-hero-desc {
-  font-size: 1.1rem;
-  color: #e2e8f0;
-  opacity: 0.85;
-  margin: 0 0 25px;
+  font-size: 1.05rem !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+  margin: 0 0 28px !important;
+  line-height: 1.6 !important;
+  text-shadow: none !important; /* Remove sombra antiga já que o fundo agora é liso */
 }
 
 .btn-voltar {
   background: transparent;
   border: 2px solid rgba(255, 255, 255, 0.4);
   color: white;
-  padding: 10px 24px;
+  padding: 10px 26px;
   border-radius: 50px;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
   font-family: inherit;
+  backdrop-filter: none;
 }
 
 .btn-voltar:hover {
@@ -77,10 +88,12 @@
   color: #00c6ff;
 }
 
-/* ===== MAIN ===== */
+/* ===== MAIN SECTION ===== */
 .sandalias-main {
   background-color: #fcfcfc;
   padding: 60px 8% 80px;
+  width: 100%;
+  box-sizing: border-box;
   transition: background-color 0.4s ease;
 }
 
@@ -141,6 +154,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .sandalia-card {
@@ -181,18 +196,22 @@
 
 .sandalia-tag {
   font-size: 0.72rem;
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 50px;
   background: #e8f4ff;
   color: #0072ff;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: inline-block;
+  width: fit-content;
 }
 
 .sandalia-card-info h3 {
   font-size: 1.2rem;
   color: #0b1a31;
   font-weight: 700;
-  margin: 0 0 10px;
+  margin: 10px 0;
 }
 
 .sandalia-card-info p {
@@ -201,6 +220,13 @@
   line-height: 1.5;
   flex: 1;
   margin: 0 0 20px;
+}
+
+.sandalia-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
 }
 
 .sandalia-preco {
@@ -213,7 +239,7 @@
   background: #0b1a31;
   color: white;
   border: none;
-  padding: 11px 20px;
+  padding: 11px 24px;
   border-radius: 50px;
   font-size: 0.85rem;
   font-weight: 600;
@@ -241,22 +267,62 @@
   margin-bottom: 50px;
 }
 
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.beneficio-item {
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.beneficio-icone {
+  font-size: 1.5rem;
+  color: #00c6ff;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.beneficio-item h4 {
+  color: white;
+  font-size: 1.1rem;
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+.beneficio-item p {
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
 /* ======================================================== */
-/* --- MÁGICA DO MODO DARK (INTEGRAÇÃO TOTAL) --- */
+/* --- MÁGICA DO MODO DARK (TOTALMENTE PADRONIZADO) --- */
 /* ======================================================== */
+
+/* Mantém o topo escuro corporativo também no Modo Dark */
+body.dark-theme .sandalias-hero::before {
+  background: radial-gradient(ellipse at 80% 30%, rgba(0, 198, 255, 0.10) 0%, transparent 55%),
+              radial-gradient(ellipse at 10% 80%, rgba(0, 114, 255, 0.08) 0%, transparent 50%) !important;
+}
 
 body.dark-theme .sandalias-main {
-  background-color: #080707 !important; /* Preto padrão */
+  background-color: #080707 !important;
+  background: #080707 !important;        
 }
 
-/* Cards Escuros */
 body.dark-theme .sandalia-card {
-  background-color: #141414 !important;
-  border-color: #222 !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  background-color: #141414 !important; 
+  border-color: #222222 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
 }
 
-/* Textos Brancos */
 body.dark-theme .sandalia-card-info h3,
 body.dark-theme .aba-descricao h2,
 body.dark-theme .sandalia-preco {
@@ -268,7 +334,6 @@ body.dark-theme .aba-descricao p {
   color: #cccccc !important;
 }
 
-/* Ajuste das Abas (Buttons) no Dark */
 body.dark-theme .aba-btn {
   border-color: #ffffff;
   color: #ffffff;
@@ -280,7 +345,6 @@ body.dark-theme .aba-btn.ativa {
   border-color: #ffffff;
 }
 
-/* Ajuste dos botões dos Cards no Dark */
 body.dark-theme .btn-sandalia.btn-detalhes {
   border-color: #ffffff;
   color: #ffffff;
@@ -292,21 +356,26 @@ body.dark-theme .btn-sandalia.btn-detalhes:hover {
 }
 
 body.dark-theme .btn-sandalia:not(.btn-detalhes) {
-  background: #0072ff; /* Azul para destacar o 'Comprar' no escuro */
+  background: #0072ff;
 }
 
-/* Tags sutilmente mais escuras no dark */
 body.dark-theme .sandalia-tag {
-  background: #1a2a44;
-  color: #00c6ff;
+  background-color: #222222 !important;
+  color: #ffffff !important;
+  border: 1px solid #333333;
 }
 
-/* ===== MOBILE ===== */
+body.dark-theme .sandalias-beneficios {
+  background-color: #141414 !important;
+  border-top: 1px solid #222;
+}
+
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
-  .sandalias-hero-content h1 { font-size: 2rem; }
+  .sandalias-hero-content h1 { font-size: 2rem !important; }
   .sandalias-main { padding: 40px 5% 60px; }
   .aba-btn { padding: 12px 24px; font-size: 0.9rem; }
-  .sandalias-grid { grid-template-columns: 1fr; }
-  .sandalia-card-footer { flex-direction: column; align-items: flex-start; }
+  .sandalias-grid { grid-template-columns: 1fr; gap: 20px; }
+  .sandalia-card-footer { flex-direction: column; align-items: flex-start; gap: 10px; }
   .btn-sandalia { width: 100%; text-align: center; }
 }

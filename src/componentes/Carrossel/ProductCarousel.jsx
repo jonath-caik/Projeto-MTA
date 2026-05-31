@@ -7,6 +7,8 @@ import 'swiper/css/pagination';
 import './ProductCarousel.css';
 import { outrosProdutos } from '../../dados/produtos';
 
+
+
 const filtroPurific = outrosProdutos.find((p) => p.slug === 'filtro-purific');
 const kitDoTERRA = outrosProdutos.find((p) => p.slug === 'kit-bem-estar-doterra');
 
@@ -21,6 +23,7 @@ const ProductCarousel = ({ setPagina, navegarParaProduto }) => {
 
   return (
     <section className="carousel-section" id="produtos">
+    
       <h2 className="carousel-title">Nossos Destaques</h2>
 
   <Swiper

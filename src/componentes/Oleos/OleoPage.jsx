@@ -129,26 +129,30 @@ function OleoPage({ setPagina, produtoSelecionado }) {
           <span className="subtitle-tag">NeaBemEstar · doTERRA</span>
           <h1>{oleo.nome}</h1>
           <p className="oleo-hero-desc">{oleo.subtitulo}</p>
-<button className="btn-voltar" onClick={() => setPagina("home")}
-            aria-label="Voltar">
-            ← Voltar ao início
+          <button className="btn-voltar" onClick={() => setPagina("oleo")} aria-label="Voltar">
+            ← Voltar aos óleos
           </button>
         </div>
       </section>
 
       <section className="oleo-main">
+        {/* CONTAINER FLEX PAI */}
         <div className="oleo-detalhe">
-          <div className="oleo-imagem-wrapper">
-            <img src={oleo.img} alt={oleo.nome} />
-          </div>
-
-          <div className="oleo-info">
+          
+          {/* COLUNA ESQUERDA: ENCAPSULA A IMAGEM E AS TAGS LOGO ABAIXO (IGUAL À SANDÁLIA) */}
+          <div className="oleo-coluna-esquerda">
+            <div className="oleo-imagem-wrapper">
+              <img src={oleo.img} alt={oleo.nome} />
+            </div>
             <div className="oleo-tags">
               {oleo.tags.map((tag) => (
                 <span key={tag} className="oleo-tag">{tag}</span>
               ))}
             </div>
+          </div>
 
+          {/* COLUNA DIREITA: CONCENTRA TODAS AS INFORMAÇÕES DE COMPRA LADO A LADO */}
+          <div className="oleo-info">
             <h2>{oleo.nome}</h2>
             <p className="oleo-subtitulo">{oleo.subtitulo}</p>
             <div className="oleo-divider" />
@@ -185,8 +189,10 @@ function OleoPage({ setPagina, produtoSelecionado }) {
               </button>
             </div>
           </div>
+
         </div>
 
+        {/* SEÇÃO INFERIOR: COMO UTILIZAR EM GRID */}
         <div className="oleo-como-usar">
           <h3>Como Utilizar</h3>
           <div className="oleo-uso-grid">

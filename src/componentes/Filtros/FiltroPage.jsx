@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./FiltroPage.css";
+import "../Sandalias/SandaliasPage.css";
 
 const purificadoresDetalhes = {
   1: {
@@ -127,21 +127,30 @@ function FiltroPage({ setPagina, produtoSelecionado }) {
           <span className="subtitle-tag">NeaBemEstar · Purificadores</span>
           <h1>{filtro.nome}</h1>
           <p className="filtro-hero-desc">{filtro.subtitulo}</p>
-          <button className="btn-voltar" onClick={() => setPagina("home")}>← Voltar ao início</button>
+          <button className="btn-voltar" onClick={() => setPagina("filtros")}>
+            ← Voltar aos purificadores
+          </button>
         </div>
       </section>
 
       <section className="filtro-main">
+        {/* DESIGN DO PRODUTO EM DUAS COLUNAS */}
         <div className="filtro-detalhe">
-          <div className="filtro-imagem-wrapper">
-            <img src={filtro.img} alt={filtro.nome} />
+          
+          {/* COLUNA ESQUERDA: IMAGEM + TAGS LOGO ABAIXO */}
+          <div className="filtro-coluna-esquerda">
+            <div className="filtro-imagem-wrapper">
+              <img src={filtro.img} alt={filtro.nome} />
+            </div>
+            <div className="filtro-tags">
+              {filtro.tags.map((tag) => (
+                <span key={tag} className="filtro-tag">{tag}</span>
+              ))}
+            </div>
           </div>
 
+          {/* COLUNA DIREITA: INFORMAÇÕES COMERCIAIS E BOTÕES */}
           <div className="filtro-info">
-            <div className="filtro-tags">
-              {filtro.tags.map((tag) => <span key={tag} className="filtro-tag">{tag}</span>)}
-            </div>
-
             <h2>{filtro.nome}</h2>
             <p className="filtro-subtitulo">{filtro.subtitulo}</p>
             <div className="filtro-divider" />
@@ -181,8 +190,10 @@ function FiltroPage({ setPagina, produtoSelecionado }) {
               </button>
             </div>
           </div>
+
         </div>
 
+        {/* SEÇÃO INFERIOR DETALHADA */}
         <div className="filtro-diferenciais">
           <h3>Por que escolher este purificador?</h3>
           <div className="diferenciais-grid">

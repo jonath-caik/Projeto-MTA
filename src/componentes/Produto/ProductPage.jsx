@@ -20,52 +20,40 @@ function ProductPage({ product, setPagina }) {
   return (
     <div className="product-page">
 
-      {/* Hero */}
       <section className="pp-hero">
         <div className="pp-hero-content">
           <p className="pp-subtitle-tag">NeaBemEstar</p>
           <h1>{product.nome}</h1>
-          <button className="btn-voltar" onClick={() => setPagina('home')}>
-            ← Voltar ao início
+          <button className="btn-voltar" onClick={() => setPagina('sandalias')}>
+            ← Voltar às sandálias
           </button>
         </div>
       </section>
 
-      {/* Main: imagem + informações */}
       <section className="pp-main">
         <div className="pp-container">
 
-          {/* Imagem */}
           <div className="pp-image-wrapper">
             <img src={product.img} alt={product.nome} className="pp-image" />
           </div>
 
-          {/* Informações */}
           <div className="pp-info">
 
-            {/* Tags/Badges */}
             <div className="pp-tags">
               {product.tags.map((tag) => (
                 <span key={tag} className="pp-tag">{tag}</span>
               ))}
             </div>
 
-            {/* Categoria */}
             <p className="pp-categoria">{product.categoria}</p>
-
-            {/* Nome */}
             <h2 className="pp-nome">{product.nome}</h2>
-
-            {/* Descrição */}
             <p className="pp-descricao">{product.descricao}</p>
 
-            {/* Preço */}
             <div className="pp-preco-bloco">
               <span className="pp-preco">{product.preco}</span>
               <span className="pp-parcelamento">{product.parcelamento}</span>
             </div>
 
-            {/* Benefícios */}
             <div className="pp-beneficios">
               <h4>Benefícios</h4>
               <ul>
@@ -78,7 +66,6 @@ function ProductPage({ product, setPagina }) {
               </ul>
             </div>
 
-            {/* Seletor de tamanho — só aparece para sandálias */}
             {product.tamanhos && (
               <div className="pp-tamanhos">
                 <h4>Tamanho:</h4>
@@ -99,7 +86,6 @@ function ProductPage({ product, setPagina }) {
               </div>
             )}
 
-            {/* Seletor de quantidade */}
             <div className="pp-quantidade">
               <span>Quantidade:</span>
               <div className="pp-qty-controls">
@@ -109,7 +95,6 @@ function ProductPage({ product, setPagina }) {
               </div>
             </div>
 
-            {/* Botões de ação */}
             <div className="pp-acoes">
               <button
                 className={`pp-btn-carrinho ${adicionado ? 'adicionado' : ''}`}

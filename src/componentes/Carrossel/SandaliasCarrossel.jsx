@@ -14,6 +14,8 @@ const SandaliasCarrossel = ({ navegarParaProduto }) => {
     <section className="carousel-section" id="sandalias">
       <h2 className="carousel-title">Nossas Sandálias Ortopédicas</h2>
 
+      
+
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={30}
@@ -50,10 +52,17 @@ const SandaliasCarrossel = ({ navegarParaProduto }) => {
               </div>
             </div>
           </SwiperSlide>
+          
         ))}
-      </Swiper>
+      </Swiper> 
+    <br></br>
+      <a href="https://www.timolloja.com.br/direto_fabrica.aspx?ref=61097" className="btn-primary">Ver Produtos Semelhantes</a>
     </section>
+
+    
+    
   );
 };
+
 
 export default SandaliasCarrossel;
