@@ -354,17 +354,25 @@ body.dark-theme .aba-btn.ativa {
 }
 
 body.dark-theme .btn-sandalia.btn-detalhes {
-  border-color: #ffffff;
-  color: #ffffff;
+  background: transparent !important;
+  border: 2px solid #0072ff !important;
+  color: #0072ff !important;
 }
 
 body.dark-theme .btn-sandalia.btn-detalhes:hover {
-  background: #ffffff;
-  color: #080707;
+  background: rgba(0, 114, 255, 0.05) !important;
+  transform: translateY(-2px) !important;
 }
 
 body.dark-theme .btn-sandalia:not(.btn-detalhes) {
-  background: #0072ff;
+  background: #0072ff !important;
+  color: white !important;
+}
+
+body.dark-theme .btn-sandalia:not(.btn-detalhes):hover {
+  background: #0072ff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 25px rgba(0, 114, 255, 0.3) !important;
 }
 
 body.dark-theme .sandalia-tag {
