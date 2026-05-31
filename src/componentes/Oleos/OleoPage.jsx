@@ -106,20 +106,26 @@ const oleosDetalhes = {
 
 const oleoDefault = oleosDetalhes[1];
 
-function OleoPage({ setPagina, produtoSelecionado }) {
+function OleoPage({ setPagina, produtoSelecionado, adicionarAoCarrinho, irParaCarrinho }) {
   const oleo = (produtoSelecionado && oleosDetalhes[produtoSelecionado.id]) || oleoDefault;
   const [quantidade, setQuantidade] = useState(1);
   const [adicionado, setAdicionado] = useState(false);
-  const [comprando, setComprando] = useState(false);
 
   const handleAddCarrinho = () => {
+    adicionarAoCarrinho(
+      { id: produtoSelecionado?.id || 1, nome: oleo.nome, preco: oleo.preco, img: oleo.img, categoria: "Óleo Essencial" },
+      quantidade
+    );
     setAdicionado(true);
     setTimeout(() => setAdicionado(false), 2500);
   };
 
   const handleComprar = () => {
-    setComprando(true);
-    setTimeout(() => setComprando(false), 2500);
+    adicionarAoCarrinho(
+      { id: produtoSelecionado?.id || 1, nome: oleo.nome, preco: oleo.preco, img: oleo.img, categoria: "Óleo Essencial" },
+      quantidade
+    );
+    irParaCarrinho();
   };
 
   return (
@@ -185,7 +191,7 @@ function OleoPage({ setPagina, produtoSelecionado }) {
                 {adicionado ? `✓ ${quantidade}x adicionado!` : "Adicionar ao carrinho"}
               </button>
               <button className="btn-comprar" onClick={handleComprar}>
-                {comprando ? "✓ Pedido enviado!" : "Comprar agora"}
+                Comprar agora
               </button>
             </div>
           </div>

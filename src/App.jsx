@@ -7,6 +7,7 @@ import OleosLista from "./componentes/Oleos/OleosLista.jsx";
 import OleoPage from "./componentes/Oleos/OleoPage.jsx";
 import PurificadoresLista from "./componentes/Filtros/PurificadoresLista.jsx";
 import FiltroPage from "./componentes/Filtros/FiltroPage.jsx";
+import CarrinhoPage from "./componentes/Carrinho/CarrinhoPage.jsx";
 import Footer from "./componentes/Footer/Footer.jsx";
 import WhatsAppButton from "./componentes/WhatsApp/WhatsAppButton.jsx";
 
@@ -16,9 +17,58 @@ function App() {
   const [pagina, setPagina] = useState("home");
   const [linkAtivo, setLinkAtivo] = useState("home");
   const [produtoAtual, setProdutoAtual] = useState(null);
+  const [origemProduto, setOrigemProduto] = useState("home");
+  const [carrinho, setCarrinho] = useState([]);
 
-  const navegarParaProduto = (produto) => {
+  const navegar = (destino) => {
+    const linkMap = { home: "home", oleo: "oleo", filtros: "filtros", sandalias: "sandalias" };
+    if (linkMap[destino] !== undefined) setLinkAtivo(linkMap[destino]);
+    setPagina(destino);
+  };
+
+  const adicionarAoCarrinho = (produto, quantidade = 1, tamanho = null) => {
+    setCarrinho(prev => {
+      const existente = prev.find(
+        item => item.produtoId === produto.id && item.tamanho === tamanho
+      );
+      if (existente) {
+        return prev.map(item =>
+          item.produtoId === produto.id && item.tamanho === tamanho
+            ? { ...item, quantidade: item.quantidade + quantidade }
+            : item
+        );
+      }
+      return [...prev, {
+        id: Date.now() + Math.random(),
+        produtoId: produto.id,
+        nome: produto.nome,
+        preco: produto.preco,
+        img: produto.img,
+        categoria: produto.categoria || '',
+        quantidade,
+        tamanho,
+      }];
+    });
+  };
+
+  const removerDoCarrinho = (itemId) => {
+    setCarrinho(prev => prev.filter(item => item.id !== itemId));
+  };
+
+  const atualizarQuantidade = (itemId, novaQtd) => {
+    if (novaQtd < 1) return;
+    setCarrinho(prev =>
+      prev.map(item => item.id === itemId ? { ...item, quantidade: novaQtd } : item)
+    );
+  };
+
+  const limparCarrinho = () => setCarrinho([]);
+
+  const totalItens = carrinho.reduce((sum, item) => sum + item.quantidade, 0);
+
+  const navegarParaProduto = (produto, origem = "home") => {
     setProdutoAtual(produto);
+    setOrigemProduto(origem);
     setPagina("produto");
   };
 
@@ -32,6 +82,11 @@ function App() {
     setPagina("filtro-detalhe");
   };
 
+  const irParaCarrinho = () => {
+    setPagina("carrinho");
+    setLinkAtivo("");
+  };
+
   useEffect(() => {
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
@@ -43,7 +98,7 @@ function App() {
     if (pagina === "home") {
       return (
         <Home
-          setPagina={setPagina}
+          setPagina={navegar}
           setLinkAtivo={setLinkAtivo}
           navegarParaProduto={navegarParaProduto}
           navegarParaOleo={navegarParaOleo}
@@ -52,13 +107,23 @@ function App() {
       );
     }
     if (pagina === "produto") {
-      return <ProductPage product={produtoAtual} setPagina={setPagina} />;
+      const voltarTexto =
+        origemProduto === "sandalias" ? "← Voltar às sandálias" : "← Voltar ao início";
+      return (
+        <ProductPage
+          product={produtoAtual}
+          voltarFn={() => navegar(origemProduto)}
+          voltarTexto={voltarTexto}
+          adicionarAoCarrinho={adicionarAoCarrinho}
+          irParaCarrinho={irParaCarrinho}
+        />
+      );
     }
     if (pagina === "oleo") {
       return (
         <OleosLista
           navegarParaOleo={navegarParaOleo}
-          setPagina={setPagina}
+          setPagina={navegar}
         />
       );
     }
@@ -66,10 +131,9 @@ function App() {
       return (
         <OleoPage
           produtoSelecionado={produtoAtual}
-          setPagina={(p) => {
-            if (p === "home") setPagina("oleo");
-            else setPagina(p);
-          }}
+          adicionarAoCarrinho={adicionarAoCarrinho}
+          irParaCarrinho={irParaCarrinho}
+          setPagina={(p) => navegar(p === "home" ? "oleo" : p)}
         />
       );
     }
@@ -77,7 +141,7 @@ function App() {
       return (
         <PurificadoresLista
           navegarParaFiltro={navegarParaFiltro}
-          setPagina={setPagina}
+          setPagina={navegar}
         />
       );
     }
@@ -85,19 +149,32 @@ function App() {
       return (
         <FiltroPage
           produtoSelecionado={produtoAtual}
-          setPagina={(p) => {
-            if (p === "home") setPagina("filtros");
-            else setPagina(p);
-          }}
+          adicionarAoCarrinho={adicionarAoCarrinho}
+          irParaCarrinho={irParaCarrinho}
+          setPagina={(p) => navegar(p === "home" ? "filtros" : p)}
         />
       );
     }
     if (pagina === "sandalias") {
       return (
         <SandaliasPage
+          setPagina={navegar}
+          setLinkAtivo={setLinkAtivo}
+          navegarParaProduto={(produto) => navegarParaProduto(produto, "sandalias")}
+          adicionarAoCarrinho={adicionarAoCarrinho}
+          irParaCarrinho={irParaCarrinho}
+        />
+      );
+    }
+    if (pagina === "carrinho") {
+      return (
+        <CarrinhoPage
+          carrinho={carrinho}
+          removerDoCarrinho={removerDoCarrinho}
+          atualizarQuantidade={atualizarQuantidade}
+          limparCarrinho={limparCarrinho}
           setPagina={setPagina}
           setLinkAtivo={setLinkAtivo}
-          navegarParaProduto={navegarParaProduto}
         />
       );
     }
@@ -111,6 +188,8 @@ function App() {
         setPagina={setPagina}
         linkAtivo={linkAtivo}
         setLinkAtivo={setLinkAtivo}
+        totalItens={totalItens}
+        irParaCarrinho={irParaCarrinho}
       />
       <main>{renderPagina()}</main>
       <Footer />

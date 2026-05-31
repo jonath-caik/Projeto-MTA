@@ -284,7 +284,7 @@
 .oleo-divider {
   width: 100% !important;
   height: 1px !important;
-  background: #eaeaea !important;
+  background: #000000 !important;
   margin: 15px 0 !important;
 }
 
@@ -522,7 +522,7 @@ body.dark-theme .oleo-uso-card {
 }
 
 body.dark-theme .oleo-divider {
-  background: #222 !important;
+  background: #ffffff !important;
 }
 
 body.dark-theme .oleo-acoes .btn-comprar {

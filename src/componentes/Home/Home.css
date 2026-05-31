@@ -106,7 +106,7 @@
   width: 100%;
   box-sizing: border-box;
   transition: background-color 0.4s ease;
-  border-bottom: 1px solid rgba(11, 26, 49, 0.1);
+  border-bottom: 1px solid #000000 !important;
 }
 
 .vendedor-container-clean {
@@ -195,9 +195,8 @@
    --- ADAPTAÇÃO PARA MODO DARK (MANTIDO PRETO PURO ORIGINAL) ---
    ========================================================= */
 body.dark-theme .vendedor-section {
-  background: #080707 !important; 
-  background-color: #080707 !important;
-  border-bottom-color: #141414 !important;
+  background: linear-gradient(to right, #313131 0%, #000000 100%) !important;
+  border-bottom: 1px solid #ffffff !important;
 }
 
 body.dark-theme .vendedor-container-clean h2 {
@@ -223,73 +222,7 @@ body.dark-theme .vendedor-tag-sub {
 }
 
 body.dark-theme .badge-vendedor-item {
-  background-color: #0072ff !important;
-  color: #ffffff !important;
-  box-shadow: 0 4px 12px rgba(0, 114, 255, 0.35);
-}
-/* =========================================================
-   --- ADAPTAÇÃO PARA MODO DARK (MANTIDO PRETO PURO ORIGINAL) ---
-   ========================================================= */
-body.dark-theme .vendedor-section {
-  /* Mantido o fundo preto puro original do seu projeto */
-  background-color: #080707 !important; 
-  border-bottom-color: #141414 !important;
-}
-
-body.dark-theme .vendedor-container-clean h2 {
-  color: #ffffff !important;
-}
-
-body.dark-theme .vendedor-container-clean h2::after {
-  background: #00c6ff !important;
-}
-
-body.dark-theme .vendedor-texto-trajetoria p {
-  color: #cccccc !important;
-}
-
-body.dark-theme .p-destaque-vendedor {
-  color: #e2e8f0 !important;
-}
-
-body.dark-theme .vendedor-tag-sub {
-  color: #00c6ff !important;
-}
-
-body.dark-theme .badge-vendedor-item {
-  background-color: #0072ff !important;
-  color: #ffffff !important;
-  box-shadow: 0 4px 12px rgba(0, 114, 255, 0.35);
-}
-
-/* --- INTEGRAÇÃO TOTAL MODO DARK --- */
-body.dark-theme .vendedor-section {
-  background-color: #080707 !important;
-  border-bottom-color: #141414 !important;
-}
-
-body.dark-theme .vendedor-container-clean h2 {
-  color: #ffffff !important;
-}
-
-body.dark-theme .vendedor-container-clean h2::after {
-  background: #00c6ff !important;
-}
-
-body.dark-theme .vendedor-texto-trajetoria p {
-  color: #cccccc !important;
-}
-
-body.dark-theme .p-destaque-vendedor {
-  color: #e2e8f0 !important;
-}
-
-body.dark-theme .vendedor-tag-sub {
-  color: #00c6ff !important;
-}
-
-body.dark-theme .badge-vendedor-item {
-  background-color: #0072ff !important;
+  background-color: #0675fd !important;
   color: #ffffff !important;
   box-shadow: 0 4px 12px rgba(0, 114, 255, 0.35);
 }
@@ -300,41 +233,6 @@ body.dark-theme .badge-vendedor-item {
   .vendedor-container-clean h2 { font-size: 1.6rem; }
   .vendedor-texto-trajetoria p { font-size: 0.9rem; line-height: 1.5; }
   .p-destaque-vendedor { font-size: 1rem; }
-}
-
-/* =========================================================
-   --- ADAPTAÇÃO AUTOMÁTICA PARA MODO DARK (PRETO PURO) ---
-   ========================================================= */
-body.dark-theme .vendedor-section {
-  background-color: #080707 !important;
-  border-bottom-color: #141414 !important;
-}
-
-body.dark-theme .vendedor-container-clean h2 {
-  color: #ffffff !important;
-}
-
-body.dark-theme .vendedor-container-clean h2::after {
-  background: #00c6ff !important;
-}
-
-body.dark-theme .vendedor-texto-trajetoria p {
-  color: #cccccc !important;
-}
-
-body.dark-theme .p-destaque-vendedor {
-  color: #e2e8f0 !important;
-}
-
-body.dark-theme .vendedor-tag-sub {
-  color: #00c6ff !important;
-}
-
-body.dark-theme .badge-vendedor-item {
-  background-color: #0072ff !important; /* Mantém o azul vivo para destacar no escuro */
-  color: #ffffff !important;
-  border-color: transparent !important;
-  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.4);
 }
 
 /* =========================================================

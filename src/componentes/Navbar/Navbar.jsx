@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 
-function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
+function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo, totalItens = 0, irParaCarrinho }) {
   const [menuAberto, setMenuAberto] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -100,7 +100,7 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
 
   <li>
     <a href="#" className={linkAtivo === "oleo" ? "ativo" : ""} onClick={irParaOleo}>
-      Óleo
+      Óleos
     </a>
   </li>
 
@@ -112,8 +112,18 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo }) {
 
   <li>
     <a href="#" className={linkAtivo === "sandalias" ? "ativo" : ""} onClick={irParaSandalias}>
-      Sandália
+      Sandálias
     </a>
+  </li>
+
+  <li>
+    <button className="carrinho-btn" onClick={irParaCarrinho} title="Meu Carrinho">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+      </svg>
+      {totalItens > 0 && <span className="carrinho-badge">{totalItens}</span>}
+    </button>
   </li>
 
   <li>

@@ -34,14 +34,14 @@ function Home({ setPagina, setLinkAtivo, navegarParaProduto }) {
       </section>
 
       {/* SEÇÃO SOBRE O VENDEDOR & CONSULTOR (Versão Compactada e Direta) */}
-      <section className="vendedor-section">
+      <div className="vendedor-section">
         <div className="vendedor-container-clean">
           <span className="vendedor-tag-sub">SOBRE MIM</span>
           <h2>A Trajetória de Quem Escolhe o Melhor para Você</h2>
           
           <div className="vendedor-texto-trajetoria">
             <p className="p-destaque-vendedor">
-              Olá,sou a <strong>VALDINEA</strong>! Fundadora da <strong>NeaBemEstar</strong> , criei este espaço para simplificar o seu autocuidado. Faço uma curadoria rigorosa de cada solução de saúde para entregar apenas o que realmente funciona e traz bem-estar para a sua vida.
+              Olá, eu sou a <strong>VALDINEA</strong>! Fundadora da <strong>NeaBemEstar</strong> , criei este espaço para simplificar o seu autocuidado. Faço uma curadoria rigorosa de cada solução de saúde para entregar apenas o que realmente funciona e traz bem-estar para a sua vida.
             </p>
             
             <p>
@@ -55,7 +55,7 @@ function Home({ setPagina, setLinkAtivo, navegarParaProduto }) {
             <span className="badge-vendedor-item">✦ Atendimento Direto</span>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* O Carrossel de produtos variados */}
       <ProductCarousel setPagina={setPagina} navegarParaProduto={navegarParaProduto} />

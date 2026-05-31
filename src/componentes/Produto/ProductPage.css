@@ -137,8 +137,8 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-top: 1px solid #000000 !important;
+  border-bottom: 1px solid #000000 !important;
   padding: 16px 0;
 }
 
@@ -358,7 +358,7 @@ body.dark-theme .pp-btn-comprar {
 
 /* Linhas divisórias no Dark */
 body.dark-theme .pp-preco-bloco {
-  border-color: #333;
+  border-color: #ffffff !important;
 }
 
 /* Tags sutilmente diferentes */

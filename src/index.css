@@ -46,25 +46,26 @@ body {
 /* ========================================= */
 
 body.dark-theme {
-  background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
-    url('/fotos/home/CapaDoSite.jpg') !important;
-    
-  background-size: cover !important;
-  background-position: center center !important; 
-  background-attachment: fixed !important;
-  background-color: #080707 !important; 
-  color: #ffffff !important; 
+  background-image: none !important;
+  background-color: #080707 !important;
+  color: #ffffff !important;
 }
 
 /* 1. PINTA TODOS OS CONTAINERS E SEÇÕES DE PRETO SÓLIDO */
 body.dark-theme section,
 body.dark-theme .container {
-  background-color: #080707 !important; 
+  background-color: #080707 !important;
   background-image: none !important;
 }
 
-body.dark-theme section:first-of-type {
+/* A imagem fica somente na hero-section da Home */
+body.dark-theme .hero-section {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url('/fotos/home/CapaDoSite.jpg') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-attachment: fixed !important;
   background-color: transparent !important;
 }
 

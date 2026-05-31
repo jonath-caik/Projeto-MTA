@@ -319,7 +319,7 @@
   display: flex !important;
   justify-content: space-between !important;
   padding: 8px 0 !important;
-  border-bottom: 1px dashed #e2e8f0 !important;
+  border-bottom: 1px dashed #000000 !important;
   font-size: 0.95rem !important;
   color: #475569 !important;
   width: 100% !important;
@@ -535,11 +535,11 @@ body.dark-theme .diferencial-card {
 }
 
 body.dark-theme .filtro-divider {
-  background: #222 !important;
+  background: #ffffff !important;
 }
 
 body.dark-theme .filtro-spec-item {
-  border-bottom-color: #222 !important;
+  border-bottom-color: #ffffff !important;
 }
 
 body.dark-theme .filtro-acoes .btn-comprar {

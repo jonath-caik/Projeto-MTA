@@ -6,10 +6,11 @@ import { sandalias } from "../../dados/produtos";
 const produtosOrtopedicos = sandalias.filter((s) => s.categoria === "Sandalia Ortopedica");
 const produtosMagneticos  = sandalias.filter((s) => s.categoria === "Sandalia Magnetica");
 
-function ProdutoCard({ produto, navegarParaProduto }) {
+function ProdutoCard({ produto, navegarParaProduto, adicionarAoCarrinho, irParaCarrinho }) {
   const [adicionado, setAdicionado] = useState(false);
 
-  const handleClick = () => {
+  const handleAddCarrinho = () => {
+    adicionarAoCarrinho(produto, 1);
     setAdicionado(true);
     setTimeout(() => setAdicionado(false), 2000);
   };
@@ -38,7 +39,7 @@ function ProdutoCard({ produto, navegarParaProduto }) {
             </button>
             <button
               className={`btn-sandalia ${adicionado ? "adicionado" : ""}`}
-              onClick={handleClick}
+              onClick={handleAddCarrinho}
             >
               {adicionado ? "✓ Adicionado!" : "Adicionar ao carrinho"}
             </button>
@@ -49,7 +50,7 @@ function ProdutoCard({ produto, navegarParaProduto }) {
   );
 }
 
-function SandaliasPage({ setPagina, navegarParaProduto }) {
+function SandaliasPage({ setPagina, navegarParaProduto, adicionarAoCarrinho, irParaCarrinho }) {
   const [abaAtiva, setAbaAtiva] = useState("ortopedica");
 
   return (
@@ -114,7 +115,7 @@ function SandaliasPage({ setPagina, navegarParaProduto }) {
         {/* GRID */}
         <div className="sandalias-grid">
           {(abaAtiva === "ortopedica" ? produtosOrtopedicos : produtosMagneticos).map(
-            (produto) => <ProdutoCard key={produto.id} produto={produto} navegarParaProduto={navegarParaProduto} />
+            (produto) => <ProdutoCard key={produto.id} produto={produto} navegarParaProduto={navegarParaProduto} adicionarAoCarrinho={adicionarAoCarrinho} irParaCarrinho={irParaCarrinho} />
           )}
         </div>
       </section>

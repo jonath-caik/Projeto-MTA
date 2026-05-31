@@ -111,14 +111,27 @@ const purificadoresDetalhes = {
 
 const filtroDefault = purificadoresDetalhes[1];
 
-function FiltroPage({ setPagina, produtoSelecionado }) {
+function FiltroPage({ setPagina, produtoSelecionado, adicionarAoCarrinho, irParaCarrinho }) {
   const filtro = (produtoSelecionado && purificadoresDetalhes[produtoSelecionado.id]) || filtroDefault;
   const [quantidade, setQuantidade] = useState(1);
   const [adicionado, setAdicionado] = useState(false);
-  const [comprando, setComprando] = useState(false);
 
-  const handleAddCarrinho = () => { setAdicionado(true); setTimeout(() => setAdicionado(false), 2500); };
-  const handleComprar = () => { setComprando(true); setTimeout(() => setComprando(false), 2500); };
+  const handleAddCarrinho = () => {
+    adicionarAoCarrinho(
+      { id: produtoSelecionado?.id || 1, nome: filtro.nome, preco: filtro.preco, img: filtro.img, categoria: "Purificador de Água" },
+      quantidade
+    );
+    setAdicionado(true);
+    setTimeout(() => setAdicionado(false), 2500);
+  };
+
+  const handleComprar = () => {
+    adicionarAoCarrinho(
+      { id: produtoSelecionado?.id || 1, nome: filtro.nome, preco: filtro.preco, img: filtro.img, categoria: "Purificador de Água" },
+      quantidade
+    );
+    irParaCarrinho();
+  };
 
   return (
     <div className="filtro-page">
@@ -186,7 +199,7 @@ function FiltroPage({ setPagina, produtoSelecionado }) {
                 {adicionado ? `✓ ${quantidade}x adicionado!` : "Adicionar ao carrinho"}
               </button>
               <button className="btn-comprar" onClick={handleComprar}>
-                {comprando ? "✓ Pedido enviado!" : "Comprar agora"}
+                Comprar agora
               </button>
             </div>
           </div>

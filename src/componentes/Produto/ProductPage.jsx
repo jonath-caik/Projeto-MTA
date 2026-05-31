@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
 import './ProductPage.css';
 
-function ProductPage({ product, setPagina }) {
+function ProductPage({ product, voltarFn, voltarTexto = "← Voltar", adicionarAoCarrinho, irParaCarrinho }) {
   const [quantidade, setQuantidade] = useState(1);
   const [adicionado, setAdicionado] = useState(false);
   const [tamanhoSelecionado, setTamanhoSelecionado] = useState(null);
 
   const handleAdicionar = () => {
     if (product.tamanhos && !tamanhoSelecionado) return;
+    adicionarAoCarrinho(product, quantidade, tamanhoSelecionado);
     setAdicionado(true);
     setTimeout(() => setAdicionado(false), 2000);
+  };
+
+  const handleComprar = () => {
+    if (product.tamanhos && !tamanhoSelecionado) return;
+    adicionarAoCarrinho(product, quantidade, tamanhoSelecionado);
+    irParaCarrinho();
   };
 
   const diminuir = () => setQuantidade((q) => Math.max(1, q - 1));
@@ -24,8 +31,8 @@ function ProductPage({ product, setPagina }) {
         <div className="pp-hero-content">
           <p className="pp-subtitle-tag">NeaBemEstar</p>
           <h1>{product.nome}</h1>
-          <button className="btn-voltar" onClick={() => setPagina('sandalias')}>
-            ← Voltar às sandálias
+          <button className="btn-voltar" onClick={voltarFn}>
+            {voltarTexto}
           </button>
         </div>
       </section>
@@ -104,7 +111,12 @@ function ProductPage({ product, setPagina }) {
               >
                 {adicionado ? '✓ Adicionado!' : 'Adicionar ao Carrinho'}
               </button>
-              <button className="pp-btn-comprar">
+              <button
+                className="pp-btn-comprar"
+                onClick={handleComprar}
+                disabled={product.tamanhos && !tamanhoSelecionado}
+                style={{ opacity: product.tamanhos && !tamanhoSelecionado ? 0.5 : 1 }}
+              >
                 Comprar Agora
               </button>
             </div>
