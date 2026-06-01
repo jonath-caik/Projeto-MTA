@@ -1,5 +1,5 @@
 /* =========================================================
-   --- ESTILO PARA WEB (DESKTOP) ---
+   --- ESTILO PARA WEB (DESKTOP) - RESETADO E AJUSTADO ---
    ========================================================= */
 
 .hero-section {
@@ -35,6 +35,24 @@
   display: contents;
 }
 
+/* --- CLASSE DE SUPORTE DAS QUEBRAS DE LINHA DO JSX --- */
+.desktop-only-br {
+  display: block;
+}
+
+/* --- CONTROLE DE EXIBIÇÃO DAS TAGS NO DESKTOP --- */
+.mobile-only-tag {
+  display: none !important;
+}
+
+/* CORRIGIDO: Volta a seguir o fluxo natural alinhado à esquerda */
+.web-only-tag {
+  display: inline-block !important; 
+  text-align: left !important;
+  width: auto !important;
+  margin-bottom: 20px !important;
+}
+
 .subtitle-wrapper {
   display: flex;
   align-items: center;
@@ -49,9 +67,12 @@
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
 }
 
+/* CORRIGIDO: Move o bloco inteiro para a direita de forma simétrica e força o alinhamento na esquerda */
 .hero-content {
   flex: 1;
-  text-align: left;
+  text-align: left !important;
+  padding-left: 12% !important; /* Afasta o bloco da foto e centraliza o conjunto no espaço disponível */
+  display: block !important;    /* Reseta comportamentos flex antigos */
 }
 
 .subtitle-tag {
@@ -70,19 +91,31 @@
   margin-top: 10px;
 }
 
+/* CORRIGIDO: Remove propriedades centralizadoras conflitantes */
 .hero-content h1 {
   font-size: 3.5rem;
   line-height: 1.1;
   font-weight: 800;
   margin-bottom: 20px;
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: left !important;
+  width: auto !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
+/* CORRIGIDO: Remove larguras máximas forçadas que quebravam o layout */
 .description {
   font-size: 1.2rem;
   color: #bac6cd;
   margin-bottom: 35px;
   line-height: 1.5;
+  text-align: left !important;
+  width: auto !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 .btn-primary {
@@ -100,6 +133,14 @@
 .btn-primary:hover {
   transform: translateY(-3px);
   background: #00c6ff;
+}
+
+/* CORRIGIDO: Segue o alinhamento estrito à esquerda logo abaixo da descrição */
+.hero-buttons {
+  display: block !important;
+  text-align: left !important;
+  width: auto !important;
+  margin-top: 10px !important;
 }
 
 /* =========================================================
@@ -232,7 +273,7 @@ body.dark-theme .badge-vendedor-item {
 
 
 /* =========================================================
-   --- AJUSTE EXCLUSIVO PARA CELULAR (MOBILE TRAVADO NO PADRÃO) ---
+   --- AJUSTE EXCLUSIVO PARA CELULAR (MOBILE COMPLETO) ---
    ========================================================= */
 @media (max-width: 768px) {
   .hero-section {
@@ -259,34 +300,47 @@ body.dark-theme .badge-vendedor-item {
     box-sizing: border-box !important;
   }
 
-  /* --- BLOCO DO TOPO: Foto e Tag Lado a Lado --- */
-/* --- AJUSTE DE ALTURA E ALINHAMENTO DO BLOCO DE TOPO --- */
+  /* --- CLASSE ADICIONADA: Desativa a quebra forçada do desktop no celular --- */
+  .desktop-only-br {
+    display: none !important;
+  }
+
+  /* --- CONTROLE DE EXIBIÇÃO DAS TAGS NO MOBILE --- */
+  .web-only-tag {
+    display: none !important;
+  }
+
+  .mobile-only-tag {
+    display: block !important;
+  }
+
+  /* --- AJUSTE DE ALTURA E ALINHAMENTO DO BLOCO DE TOPO --- */
   .hero-header-mobile-block {
     display: flex !important;
-    flex-direction: row !important; /* Mantém lado a lado */
-    align-items: center !important; /* Alinha o centro do texto perfeitamente com o centro do círculo */
-    gap: 18px !important; /* Espaçamento simétrico e calibrado */
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 18px !important;
     width: 100% !important;
     margin-bottom: 15px !important;
   }
 
-  /* --- MÁGICA DA BOLA PERFEITA: Estilo Perfil Premium de Aplicativo --- */
+  /* --- MÁGICA DA BOLA PERFEITA --- */
   .hero-person-img {
-    width: 110px !important; /* Tamanho robusto que impõe respeito na tela */
-    height: 110px !important; /* Altura idêntica à largura para garantir a circunferência exata */
-    object-fit: cover !important; /* O segredo: preenche o círculo focando no busto, sem achatar ou esticar */
-    object-position: center 20% !important; /* Enquadramento perfeito com foco no rosto e postura */
-    border-radius: 50% !important; /* Cria a bola perfeita e simétrica */
+    width: 110px !important;
+    height: 110px !important;
+    object-fit: cover !important;
+    object-position: center 20% !important;
+    border-radius: 50% !important;
     margin-left: 0 !important;
-    border: none !important; /* Mantém limpo, sem moldura artificial */
-    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45)) !important; /* Sombra suave para dar profundidade no fundo */
+    border: none !important;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45)) !important;
   }
 
-  /* --- TAG AJUSTADA PARA CASAR COM O PESO DA IMAGEM --- */
-  .subtitle-tag {
+  /* --- TAG MOBILE --- */
+  .subtitle-tag.mobile-only-tag {
     text-align: left !important;
     width: auto !important;
-    font-size: 1.25rem !important; /* Tamanho ideal para alinhar com o diâmetro da bola */
+    font-size: 1.25rem !important;
     font-weight: 800 !important;
     letter-spacing: 2px !important;
     color: #00c6ff !important;
@@ -294,12 +348,13 @@ body.dark-theme .badge-vendedor-item {
     text-transform: uppercase !important;
   }
 
-  /* --- CONTEÚDO FLUIDO LOGO ABAIXO --- */
+  /* --- CONTEÚDO NO MOBILE --- */
   .hero-content {
     order: unset !important;
     width: 100% !important;
     text-align: left !important;
     padding: 0 !important;
+    display: block !important;
   }
 
   .hero-content h1 {
@@ -308,6 +363,8 @@ body.dark-theme .badge-vendedor-item {
     margin-bottom: 12px !important;
     font-weight: 800 !important;
     color: #ffffff !important;
+    max-width: 100% !important;
+    text-align: left !important;
   }
 
   .description {
@@ -315,11 +372,13 @@ body.dark-theme .badge-vendedor-item {
     color: #e2e8f0 !important;
     margin-bottom: 25px !important;
     line-height: 1.5 !important;
+    max-width: 100% !important;
+    text-align: left !important;
   }
 
   .hero-buttons {
     display: flex !important;
-    justify-content: flex-start !important;
+    justify-content: flex-start !important; 
     width: 100% !important;
   }
 
@@ -330,7 +389,156 @@ body.dark-theme .badge-vendedor-item {
     display: inline-block !important;
   }
 
-  /* --- SEÇÃO DO VENDEDOR RESIDUAL --- */
+  /* --- SEÇÃO SOBRE MIM NO MOBILE --- */
+  .vendedor-section {
+    padding: 50px 20px 45px !important;
+  }
+  
+  .vendedor-container-clean h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  .vendedor-texto-trajetoria p {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+  
+  .p-destaque-vendedor {
+    font-size: 1.05rem !important;
+  }
+
+  .badge-vendedor-item {
+    padding: 6px 14px !important;
+    font-size: 0.7rem !important;
+  }
+}
+
+/* =========================================================
+   --- ROLAGEM SUAVE DO NAVBAR ---
+   ========================================================= */
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* =========================================================
+   --- AJUSTE EXCLUSIVO PARA CELULAR (MOBILE COMPLETO) ---
+   ========================================================= */
+@media (max-width: 768px) {
+  .hero-section {
+    display: flex !important;
+    align-items: flex-start !important;
+    min-height: 100vh !important;
+    background-attachment: scroll !important;
+    padding-top: 64px !important;
+    
+    background:
+      linear-gradient(rgba(11, 26, 49, 0.88), rgba(11, 26, 49, 0.78)),
+      url("/fotos/home/image.png") no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
+  .hero-container-flex {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 30px 20px 30px !important;
+    margin-top: 0 !important;
+    gap: 25px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* --- CLASSE DE SUPORTE: Desativa a quebra forçada do desktop no celular --- */
+  .desktop-only-br {
+    display: none !important;
+  }
+
+  /* --- CONTROLE DE EXIBIÇÃO DAS TAGS NO MOBILE --- */
+  .web-only-tag {
+    display: none !important;
+  }
+
+  .mobile-only-tag {
+    display: block !important;
+  }
+
+  /* --- AJUSTE DE ALTURA E ALINHAMENTO DO BLOCO DE TOPO --- */
+  .hero-header-mobile-block {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 18px !important;
+    width: 100% !important;
+    margin-bottom: 15px !important;
+  }
+
+  /* --- MÁGICA DA BOLA PERFEITA --- */
+  .hero-person-img {
+    width: 110px !important;
+    height: 110px !important;
+    object-fit: cover !important;
+    object-position: center 20% !important;
+    border-radius: 50% !important;
+    margin-left: 0 !important;
+    border: none !important;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45)) !important;
+  }
+
+  /* --- TAG MOBILE --- */
+  .subtitle-tag.mobile-only-tag {
+    text-align: left !important;
+    width: auto !important;
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 2px !important;
+    color: #00c6ff !important;
+    margin-bottom: 0 !important;
+    text-transform: uppercase !important;
+  }
+
+  /* --- CONTEÚDO NO MOBILE --- */
+  .hero-content {
+    order: unset !important;
+    width: 100% !important;
+    text-align: left !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 12px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    max-width: 100% !important;
+    text-align: left !important;
+  }
+
+  .description {
+    font-size: 0.98rem !important;
+    color: #e2e8f0 !important;
+    margin-bottom: 25px !important;
+    line-height: 1.5 !important;
+    max-width: 100% !important;
+    text-align: left !important;
+  }
+
+  .hero-buttons {
+    display: flex !important;
+    justify-content: flex-start !important; 
+    width: 100% !important;
+  }
+
+  .btn-primary {
+    padding: 13px 32px !important;
+    font-size: 0.95rem !important;
+    border-radius: 50px !important;
+    display: inline-block !important;
+  }
+
+  /* --- SEÇÃO SOBRE MIM NO MOBILE --- */
   .vendedor-section {
     padding: 50px 20px 45px !important;
   }

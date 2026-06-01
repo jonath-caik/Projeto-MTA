@@ -11,7 +11,7 @@ function Home({ setPagina, setLinkAtivo, navegarParaProduto }) {
       <section className="hero-section">
         <div className="hero-container-flex">
 
-          {/* NOVO BLOCO UNIFICADO: Agrupa imagem e tag para trabalharem juntos no mobile */}
+          {/* BLOCO DO TOPO MOBILE: A tag com 'mobile-only-tag' só vai aparecer no celular */}
           <div className="hero-header-mobile-block">
             <div className="hero-image-container">
               <img
@@ -20,15 +20,26 @@ function Home({ setPagina, setLinkAtivo, navegarParaProduto }) {
                 className="hero-person-img"
               />
             </div>
-            <p className="subtitle-tag">NeaBemEstar</p>
+            <p className="subtitle-tag mobile-only-tag">NeaBemEstar</p>
           </div>
 
-          {/* CONTEÚDO PRINCIPAL (Ficará abaixo da foto+tag no mobile) */}
+          {/* CONTEÚDO PRINCIPAL (CORRIGIDO PARA SE ENCAIXAR IGUAL À IMAGEM) */}
           <div className="hero-content">
-            <h1>Cuidar de si é o primeiro passo para viver melhor.</h1>
+            {/* TAG WEB: Ela volta a aparecer exatamente em cima da frase no desktop */}
+            <p className="subtitle-tag web-only-tag">NeaBemEstar</p>
+            
+            {/* TÍTULO: Com as quebras de linha controladas para o Desktop */}
+            <h1>
+              Cuidar de si é o <br className="desktop-only-br" />
+              primeiro passo <br />
+              para viver melhor.
+            </h1>
+            
+            {/* DESCRIÇÃO: Alinhada para quebrar de forma simétrica no computador */}
             <p className="description">
-              Descubra a essence do bem-estar com nossos produtos naturais e exclusivos.
+              Descubra a essência do bem-estar com nossos produtos naturais e <br className="desktop-only-br" /> exclusivos.
             </p>
+            
             <div className="hero-buttons">
               <a href="#produtos" className="btn-primary">Ver Produtos</a>
             </div>
