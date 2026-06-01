@@ -30,6 +30,11 @@
   margin-top: 50px;
 }
 
+/* No desktop o bloco se comporta como uma div invisível comum */
+.hero-header-mobile-block {
+  display: contents;
+}
+
 .subtitle-wrapper {
   display: flex;
   align-items: center;
@@ -53,7 +58,7 @@
   color: #00c6ff;
   font-weight: 600;
   letter-spacing: 3px;
-  font-size: 10rem;
+  font-size: 1.1rem;
   margin-bottom: 0;
   text-transform: uppercase;
 }
@@ -98,10 +103,10 @@
 }
 
 /* =========================================================
-   --- ESTILO DA SEÇÃO DO VENDEDOR (SUBTÍTULO EM FORMATO DE PÍLULA) ---
+   --- ESTILO DA SEÇÃO DO VENDEDOR (SOBRE MIM) ---
    ========================================================= */
 .vendedor-section {
-  padding: 50px 8% 45px; /* Seção compacta verticalmente */
+  padding: 50px 8% 45px;
   background: linear-gradient(to right, #ffffff 0%, #bac6cd 40%, #00c6ff 100%) !important;
   width: 100%;
   box-sizing: border-box;
@@ -118,18 +123,17 @@
   text-align: center;
 }
 
-/* ATUALIZADO: "Consultoria & Atendimento" idêntico à pílula da imagem image_f8dc3b.png */
 .vendedor-tag-sub {
   font-size: 0.72rem;
-  padding: 6px 14px; /* Espaçamento interno da pílula */
-  border-radius: 50px; /* Cantos arredondados de botão */
-  background-color: #000000 !important; /* Fundo azul oficial */
-  color: #ffffff !important; /* Texto branco por dentro */
+  padding: 6px 14px;
+  border-radius: 50px;
+  background-color: #000000 !important;
+  color: #ffffff !important;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  display: inline-block; /* Garante o comportamento correto do bloco arredondado */
-  margin-bottom: 15px; /* Espaço até o h2 */
+  display: inline-block;
+  margin-bottom: 15px;
   box-shadow: 0 4px 10px rgba(0, 114, 255, 0.15);
 }
 
@@ -192,7 +196,7 @@
 }
 
 /* =========================================================
-   --- ADAPTAÇÃO PARA MODO DARK (MANTIDO PRETO PURO ORIGINAL) ---
+   --- ADAPTAÇÃO PARA MODO DARK ---
    ========================================================= */
 body.dark-theme .vendedor-section {
   background: linear-gradient(to right, #313131 0%, #000000 100%) !important;
@@ -215,7 +219,6 @@ body.dark-theme .p-destaque-vendedor {
   color: #e2e8f0 !important;
 }
 
-/* No Dark, todas as pílulas azuis mantêm a mesma identidade de destaque */
 body.dark-theme .vendedor-tag-sub {
   background-color: #0072ff !important;
   color: #ffffff !important;
@@ -227,113 +230,127 @@ body.dark-theme .badge-vendedor-item {
   box-shadow: 0 4px 12px rgba(0, 114, 255, 0.35);
 }
 
-/* --- RESPONSIVIDADE CELL --- */
-@media (max-width: 768px) {
-  .vendedor-section { padding: 40px 6% 35px; } /* Super enxuto no mobile */
-  .vendedor-container-clean h2 { font-size: 1.6rem; }
-  .vendedor-texto-trajetoria p { font-size: 0.9rem; line-height: 1.5; }
-  .p-destaque-vendedor { font-size: 1rem; }
-}
 
 /* =========================================================
-   --- AJUSTE PARA CELULAR (MOBILE) ---
+   --- AJUSTE EXCLUSIVO PARA CELULAR (MOBILE TRAVADO NO PADRÃO) ---
    ========================================================= */
-
 @media (max-width: 768px) {
   .hero-section {
     display: flex !important;
     align-items: flex-start !important;
     min-height: 100vh !important;
     background-attachment: scroll !important;
-    padding-top: 64px;
+    padding-top: 64px !important;
+    
+    background:
+      linear-gradient(rgba(11, 26, 49, 0.88), rgba(11, 26, 49, 0.78)),
+      url("/fotos/home/image.png") no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
   }
 
   .hero-container-flex {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 170px 1px 40px;
-    margin-top: 0;
-    gap: 6px;
-    width: 100%;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 30px 20px 30px !important;
+    margin-top: 0 !important;
+    gap: 25px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
+  /* --- BLOCO DO TOPO: Foto e Tag Lado a Lado --- */
+/* --- AJUSTE DE ALTURA E ALINHAMENTO DO BLOCO DE TOPO --- */
+  .hero-header-mobile-block {
+    display: flex !important;
+    flex-direction: row !important; /* Mantém lado a lado */
+    align-items: center !important; /* Alinha o centro do texto perfeitamente com o centro do círculo */
+    gap: 18px !important; /* Espaçamento simétrico e calibrado */
+    width: 100% !important;
+    margin-bottom: 15px !important;
+  }
+
+  /* --- MÁGICA DA BOLA PERFEITA: Estilo Perfil Premium de Aplicativo --- */
+  .hero-person-img {
+    width: 110px !important; /* Tamanho robusto que impõe respeito na tela */
+    height: 110px !important; /* Altura idêntica à largura para garantir a circunferência exata */
+    object-fit: cover !important; /* O segredo: preenche o círculo focando no busto, sem achatar ou esticar */
+    object-position: center 20% !important; /* Enquadramento perfeito com foco no rosto e postura */
+    border-radius: 50% !important; /* Cria a bola perfeita e simétrica */
+    margin-left: 0 !important;
+    border: none !important; /* Mantém limpo, sem moldura artificial */
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45)) !important; /* Sombra suave para dar profundidade no fundo */
+  }
+
+  /* --- TAG AJUSTADA PARA CASAR COM O PESO DA IMAGEM --- */
+  .subtitle-tag {
+    text-align: left !important;
+    width: auto !important;
+    font-size: 1.25rem !important; /* Tamanho ideal para alinhar com o diâmetro da bola */
+    font-weight: 800 !important;
+    letter-spacing: 2px !important;
+    color: #00c6ff !important;
+    margin-bottom: 0 !important;
+    text-transform: uppercase !important;
+  }
+
+  /* --- CONTEÚDO FLUIDO LOGO ABAIXO --- */
   .hero-content {
-    order: 1;
-    position: static !important;
-    top: auto !important;
-    left: auto !important;
-    transform: none !important;
+    order: unset !important;
     width: 100% !important;
     text-align: left !important;
-    padding: 0;
-  }
-
-  .subtitle-wrapper {
-    justify-content: flex-start;
-  }
-
-  .subtitle-tag {
-    text-align: center;
-    width: 100%;
-    font-size: 4rem; 
+    padding: 0 !important;
   }
 
   .hero-content h1 {
-    font-size: 1.75rem !important;
-    line-height: 1.2;
-    margin-bottom: 14px;
+    font-size: 1.8rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 12px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
   }
 
   .description {
-    font-size: 0.95rem;
-    margin-bottom: 20px;
+    font-size: 0.98rem !important;
+    color: #e2e8f0 !important;
+    margin-bottom: 25px !important;
+    line-height: 1.5 !important;
   }
 
   .hero-buttons {
-    display: flex;
-    justify-content: flex-end;
+    display: flex !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
   }
 
   .btn-primary {
-    padding: 11px 26px !important;
-    font-size: 0.9rem !important;
+    padding: 13px 32px !important;
+    font-size: 0.95rem !important;
+    border-radius: 50px !important;
+    display: inline-block !important;
   }
 
-  .hero-image-container {
-    order: 2;
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    margin-top: 0;
-    padding-left: 0;
-  }
-
-  .hero-person-img {
-    width: 52%;
-    max-width: 210px;
-    margin-left: 0;
-  }
-
+  /* --- SEÇÃO DO VENDEDOR RESIDUAL --- */
   .vendedor-section {
-    padding: 60px 6% 50px;
+    padding: 50px 20px 45px !important;
   }
   
   .vendedor-container-clean h2 {
-    font-size: 1.9rem;
+    font-size: 1.75rem !important;
   }
   
   .vendedor-texto-trajetoria p {
-    font-size: 0.95rem;
-    line-height: 1.65;
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
   }
   
   .p-destaque-vendedor {
-    font-size: 1.1rem;
+    font-size: 1.05rem !important;
   }
 
   .badge-vendedor-item {
-    padding: 6px 14px;
-    font-size: 0.7rem;
+    padding: 6px 14px !important;
+    font-size: 0.7rem !important;
   }
 }
 

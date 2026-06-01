@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./SandaliasPage.css";
 import { sandalias } from "../../dados/produtos";
 
-
 const produtosOrtopedicos = sandalias.filter((s) => s.categoria === "Sandalia Ortopedica");
 const produtosMagneticos  = sandalias.filter((s) => s.categoria === "Sandalia Magnetica");
 
@@ -56,11 +55,10 @@ function SandaliasPage({ setPagina, navegarParaProduto, adicionarAoCarrinho, irP
   return (
     <div className="sandalias-page">
 
-    
       <section
-  className="sandalias-hero"
-  style={{ backgroundImage: `url('/public/sandalia2.jpg')` }}
->
+        className="sandalias-hero"
+        style={{ backgroundImage: `url('/public/sandalia2.jpg')` }}
+      >
         <div className="sandalias-hero-content">
           <p className="subtitle-tag">NeaBemEstar</p>
           <h1>Nossas Sandálias</h1>
@@ -146,6 +144,9 @@ function SandaliasPage({ setPagina, navegarParaProduto, adicionarAoCarrinho, irP
           </div>
         </div>
       </section>
+
+      {/* APENAS O ESPAÇO INVISÍVEL PARA EMPURRAR O RODAPÉ */}
+      <div className="sandalias-espacador-footer" />
 
     </div>
   );

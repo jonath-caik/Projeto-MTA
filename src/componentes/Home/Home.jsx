@@ -11,16 +11,20 @@ function Home({ setPagina, setLinkAtivo, navegarParaProduto }) {
       <section className="hero-section">
         <div className="hero-container-flex">
 
-          <div className="hero-image-container">
-            <img
-              src="/fotos/logos/NEABEMESTAR.png"
-              alt="Destaque NeaBemEstar"
-              className="hero-person-img"
-            />
+          {/* NOVO BLOCO UNIFICADO: Agrupa imagem e tag para trabalharem juntos no mobile */}
+          <div className="hero-header-mobile-block">
+            <div className="hero-image-container">
+              <img
+                src="/fotos/logos/NEABEMESTAR.png"
+                alt="Destaque NeaBemEstar"
+                className="hero-person-img"
+              />
+            </div>
+            <p className="subtitle-tag">NeaBemEstar</p>
           </div>
 
+          {/* CONTEÚDO PRINCIPAL (Ficará abaixo da foto+tag no mobile) */}
           <div className="hero-content">
-            <p className="subtitle-tag">NeaBemEstar</p>
             <h1>Cuidar de si é o primeiro passo para viver melhor.</h1>
             <p className="description">
               Descubra a essence do bem-estar com nossos produtos naturais e exclusivos.
@@ -45,7 +49,7 @@ function Home({ setPagina, setLinkAtivo, navegarParaProduto }) {
             </p>
             
             <p>
-              Minha missão é garantir uma transformação real na sua rotina através de escolhas conscientes. Por isso, faço uma curadoria rigorosa de tudo o que oferecemos: desde a pureza extrema dos óleos dōTERRA e a ciência postural das nossas sandálias, até a máxima eficiência dos purificadores de água. Estou aqui para entregar a segurança e o suporte de quem entende de verdade o que vende.
+              Minha missão é garantir uma transformation real na sua rotina através de escolhas conscientes. Por isso, faço uma curadoria rigorosa de tudo o que oferecemos: desde a pureza extrema dos óleos dōTERRA e a ciência postural das nossas sandálias, até a máxima eficiência dos purificadores de água. Estou aqui para entregar a segurança e o suporte de quem entende de verdade o que vende.
             </p>
           </div>
 
