@@ -181,7 +181,7 @@ function App() {
     return null;
   };
 
-  return (
+ return (
     <div className="App">
       <Navbar
         paginaAtual={pagina}
@@ -192,7 +192,10 @@ function App() {
         irParaCarrinho={irParaCarrinho}
       />
       <main>{renderPagina()}</main>
-      <Footer />
+      
+      {/* CORRIGIDO: Agora o Footer está conectado ao sistema de navegação */}
+      <Footer setPagina={navegar} setLinkAtivo={setLinkAtivo} />
+      
       <WhatsAppButton />
     </div>
   );

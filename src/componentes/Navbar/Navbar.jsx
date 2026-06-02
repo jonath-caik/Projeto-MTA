@@ -106,7 +106,7 @@ function Navbar({ paginaAtual, setPagina, linkAtivo, setLinkAtivo, totalItens = 
 
   <li>
     <a href="#" className={linkAtivo === "filtros" ? "ativo" : ""} onClick={irParaFiltros}>
-      Purificadores
+      Purificadores 
     </a>
   </li>
 
