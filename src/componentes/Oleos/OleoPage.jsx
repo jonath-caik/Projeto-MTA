@@ -1,119 +1,15 @@
 import React, { useState } from "react";
 import "./OleoPage.css";
-
-const oleosDetalhes = {
-  1: {
-    nome: "Óleo Essencial Bergamota",
-    subtitulo: "Aroma cítrico e refrescante, ideal para equilíbrio emocional e bem-estar.",
-    preco: "R$ 89,90",
-    parcelas: "3x de R$ 29,96 sem juros",
-    img: "/fotos/oleos/aromas_naturais/bergamot.png",
-    tags: ["doTERRA", "100% Puro", "Cítrico"],
-    beneficios: [
-      "Reduz ansiedade e estresse",
-      "Promove sensação de calma e alegria",
-      "Purifica e limpa a pele",
-      "Ideal para aromaterapia e difusores",
-    ],
-    comoUsar: [
-      { icon: "💨", titulo: "Difusor", desc: "3–4 gotas no difusor para ambientar qualquer espaço." },
-      { icon: "🖐️", titulo: "Tópico", desc: "Dilua com óleo carreador e aplique na pele." },
-      { icon: "🛁", titulo: "Banho", desc: "Adicione gotas no banho para relaxamento profundo." },
-      { icon: "🌿", titulo: "Inalação", desc: "Respire diretamente do frasco para alívio imediato." },
-    ],
-  },
-  2: {
-    nome: "Óleo Essencial Pimenta Preta",
-    subtitulo: "Estimulante e aquecedor, perfeito para circulação e desconforto muscular.",
-    preco: "R$ 94,90",
-    parcelas: "3x de R$ 31,63 sem juros",
-    img: "/fotos/oleos/aromas_naturais/black_pepper.png",
-    tags: ["doTERRA", "100% Puro", "Estimulante"],
-    beneficios: [
-      "Estimula a circulação sanguínea",
-      "Alivia tensão e desconforto muscular",
-      "Apoia a digestão saudável",
-      "Aroma quente e levemente picante",
-    ],
-    comoUsar: [
-      { icon: "💨", titulo: "Difusor", desc: "2–3 gotas para um ambiente aquecedor e energizante." },
-      { icon: "🖐️", titulo: "Massagem", desc: "Dilua e massageie em áreas de tensão muscular." },
-      { icon: "🍽️", titulo: "Culinário", desc: "1 gota em receitas para sabor e digestão." },
-      { icon: "🌿", titulo: "Inalação", desc: "Inalação direta para foco e energia." },
-    ],
-  },
-  3: {
-    nome: "Óleo Essencial Brasil",
-    subtitulo: "Blend exclusivo inspirado na riqueza natural da flora brasileira.",
-    preco: "R$ 99,90",
-    parcelas: "3x de R$ 33,30 sem juros",
-    img: "/fotos/oleos/aromas_naturais/brasil.png",
-    tags: ["doTERRA", "Blend Exclusivo", "Flora Brasileira"],
-    beneficios: [
-      "Aroma único inspirado no Brasil",
-      "Promove bem-estar e equilíbrio",
-      "Combina óleos nativos brasileiros",
-      "Perfeito para meditação e relaxamento",
-    ],
-    comoUsar: [
-      { icon: "💨", titulo: "Difusor", desc: "4 gotas para um ambiente tropical e envolvente." },
-      { icon: "🧘", titulo: "Meditação", desc: "Use durante práticas de meditação e yoga." },
-      { icon: "🛁", titulo: "Banho", desc: "Adicione ao banho para uma experiência sensorial única." },
-      { icon: "🌿", titulo: "Ambiente", desc: "Pulverize diluído como aromatizador natural." },
-    ],
-  },
-  4: {
-    nome: "Óleo Essencial Cardamomo",
-    subtitulo: "Doce e especiado, excelente para digestão e respiração saudável.",
-    preco: "R$ 109,90",
-    parcelas: "3x de R$ 36,63 sem juros",
-    img: "/fotos/oleos/aromas_naturais/cardamom.png",
-    tags: ["doTERRA", "100% Puro", "Digestivo"],
-    beneficios: [
-      "Apoia a saúde digestiva",
-      "Promove respiração limpa e fácil",
-      "Aroma doce, quente e especiado",
-      "Propriedades anti-inflamatórias naturais",
-    ],
-    comoUsar: [
-      { icon: "💨", titulo: "Difusor", desc: "3 gotas para um aroma quente e acolhedor." },
-      { icon: "🍽️", titulo: "Culinário", desc: "1 gota em chás, cafés e sobremesas." },
-      { icon: "🖐️", titulo: "Tópico", desc: "Aplique diluído no abdômen para suporte digestivo." },
-      { icon: "🌿", titulo: "Inalação", desc: "Inalação direta para clareza respiratória." },
-    ],
-  },
-  5: {
-    nome: "Óleo Essencial Cassia",
-    subtitulo: "Similar à canela, com propriedades quentes e estimulantes do bem-estar.",
-    preco: "R$ 79,90",
-    parcelas: "3x de R$ 26,63 sem juros",
-    img: "/fotos/oleos/aromas_naturais/cassia.png",
-    tags: ["doTERRA", "100% Puro", "Aquecedor"],
-    beneficios: [
-      "Propriedades quentes e reconfortantes",
-      "Apoia a resposta imunológica natural",
-      "Aroma doce e picante semelhante à canela",
-      "Estimula a circulação",
-    ],
-    comoUsar: [
-      { icon: "💨", titulo: "Difusor", desc: "2 gotas para um ambiente aconchegante no inverno." },
-      { icon: "🍽️", titulo: "Culinário", desc: "1 gota em receitas que pedem canela." },
-      { icon: "🖐️", titulo: "Tópico", desc: "Dilua bastante antes de aplicar na pele." },
-      { icon: "🛁", titulo: "Banho", desc: "2 gotas no banho para aquecimento corporal." },
-    ],
-  },
-};
-
-const oleoDefault = oleosDetalhes[1];
+import { oleos } from "../../dados/produtos";
 
 function OleoPage({ setPagina, produtoSelecionado, adicionarAoCarrinho, irParaCarrinho }) {
-  const oleo = (produtoSelecionado && oleosDetalhes[produtoSelecionado.id]) || oleoDefault;
+  const oleo = oleos.find((o) => o.id === produtoSelecionado?.id) || oleos[0];
   const [quantidade, setQuantidade] = useState(1);
   const [adicionado, setAdicionado] = useState(false);
 
   const handleAddCarrinho = () => {
     adicionarAoCarrinho(
-      { id: produtoSelecionado?.id || 1, nome: oleo.nome, preco: oleo.preco, img: oleo.img, categoria: "Óleo Essencial" },
+      { id: oleo.id, nome: oleo.nome, preco: oleo.preco, img: oleo.img, categoria: oleo.categoria },
       quantidade
     );
     setAdicionado(true);
@@ -122,7 +18,7 @@ function OleoPage({ setPagina, produtoSelecionado, adicionarAoCarrinho, irParaCa
 
   const handleComprar = () => {
     adicionarAoCarrinho(
-      { id: produtoSelecionado?.id || 1, nome: oleo.nome, preco: oleo.preco, img: oleo.img, categoria: "Óleo Essencial" },
+      { id: oleo.id, nome: oleo.nome, preco: oleo.preco, img: oleo.img, categoria: oleo.categoria },
       quantidade
     );
     irParaCarrinho();
@@ -142,10 +38,8 @@ function OleoPage({ setPagina, produtoSelecionado, adicionarAoCarrinho, irParaCa
       </section>
 
       <section className="oleo-main">
-        {/* CONTAINER FLEX PAI */}
         <div className="oleo-detalhe">
-          
-          {/* COLUNA ESQUERDA: ENCAPSULA A IMAGEM E AS TAGS LOGO ABAIXO (IGUAL À SANDÁLIA) */}
+
           <div className="oleo-coluna-esquerda">
             <div className="oleo-imagem-wrapper">
               <img src={oleo.img} alt={oleo.nome} />
@@ -157,7 +51,6 @@ function OleoPage({ setPagina, produtoSelecionado, adicionarAoCarrinho, irParaCa
             </div>
           </div>
 
-          {/* COLUNA DIREITA: CONCENTRA TODAS AS INFORMAÇÕES DE COMPRA LADO A LADO */}
           <div className="oleo-info">
             <h2>{oleo.nome}</h2>
             <p className="oleo-subtitulo">{oleo.subtitulo}</p>
@@ -165,7 +58,7 @@ function OleoPage({ setPagina, produtoSelecionado, adicionarAoCarrinho, irParaCa
 
             <div className="oleo-preco-bloco">
               <span className="oleo-preco">{oleo.preco}</span>
-              <span className="oleo-preco-parcelado">{oleo.parcelas}</span>
+              <span className="oleo-preco-parcelado">{oleo.parcelamento}</span>
             </div>
             <div className="oleo-divider" />
 
@@ -198,7 +91,6 @@ function OleoPage({ setPagina, produtoSelecionado, adicionarAoCarrinho, irParaCa
 
         </div>
 
-        {/* SEÇÃO INFERIOR: COMO UTILIZAR EM GRID */}
         <div className="oleo-como-usar">
           <h3>Como Utilizar</h3>
           <div className="oleo-uso-grid">

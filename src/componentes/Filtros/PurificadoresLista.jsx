@@ -1,48 +1,6 @@
 import React from "react";
 import "./FiltroPage.css";
-
-const purificadores = [
-  {
-    id: 1,
-    nome: "Purificador Água Natural Azul",
-    subtitulo: "Purificador compacto com 1 filtro, ideal para uso doméstico diário.",
-    preco: "R$ 349,90",
-    img: "/fotos/purificador/purificador_agua_natural/purificador3.png",
-    tags: ["1 Filtro", "Azul", "Compacto"],
-  },
-  {
-    id: 2,
-    nome: "Purificador Água Preto 2 Filtros",
-    subtitulo: "Máxima purificação com duplo filtro para famílias que exigem mais qualidade.",
-    preco: "R$ 499,90",
-    img: "/fotos/purificador/purificador_bebedouro/purificador4.png",
-    tags: ["2 Filtros", "Preto", "Premium"],
-  },
-  {
-    id: 3,
-    nome: "Purificador Água Branco 2 Filtros",
-    subtitulo: "Elegância em branco com duplo filtro para uma purificação superior.",
-    preco: "R$ 479,90",
-    img: "/fotos/purificador/purificador_agua_natural/purificador5.png",
-    tags: ["2 Filtros", "Branco", "Elegante"],
-  },
-  {
-    id: 4,
-    nome: "Purificador Água Preto 1 Filtro",
-    subtitulo: "Compacto e eficiente com design preto moderno para sua torneira.",
-    preco: "R$ 329,90",
-    img: "/fotos/purificador/purificador_agua_natural/purificador4.png",
-    tags: ["1 Filtro", "Preto", "Moderno"],
-  },
-  {
-    id: 5,
-    nome: "Purificador Água Branco 1 Filtro",
-    subtitulo: "Clássico e eficiente, ideal para quem busca praticidade no dia a dia.",
-    preco: "R$ 299,90",
-    img: "/fotos/purificador/purificador_agua_natural/purificador2.png",
-    tags: ["1 Filtro", "Branco", "Clássico"],
-  },
-];
+import { purificadores } from "../../dados/produtos";
 
 function PurificadoresLista({ navegarParaFiltro, setPagina }) {
   return (

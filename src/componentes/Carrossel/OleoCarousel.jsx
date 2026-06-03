@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import './ProductCarousel.css';
 import { oleos } from '../../dados/produtos';
 
-const OleoCarousel = ({ navegarParaProduto }) => {
+const OleoCarousel = ({ navegarParaOleo }) => {
   return (
     <section className="carousel-section" id="oleo">
       <h2 className="carousel-title">Nossos Óleos Essenciais</h2>
@@ -41,7 +41,7 @@ const OleoCarousel = ({ navegarParaProduto }) => {
                 <h3>{oleo.nome}</h3>
                 <button
                   className="btn-buy"
-                  onClick={() => navegarParaProduto(oleo)}
+                  onClick={() => navegarParaOleo(oleo)}
                 >
                   Ver Detalhes
                 </button>

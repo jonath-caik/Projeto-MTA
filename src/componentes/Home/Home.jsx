@@ -5,7 +5,7 @@ import OleoCarousel from '../Carrossel/OleoCarousel';
 import FiltroCarousel from '../Carrossel/FiltroCarrossel'; 
 import SandaliasCarrossel from '../Carrossel/SandaliasCarrossel'; // Ajustado para dois 's'
 
-function Home({ setPagina, setLinkAtivo, navegarParaProduto }) {
+function Home({ setPagina, setLinkAtivo, navegarParaProduto, navegarParaOleo, navegarParaFiltro }) {
   return (
     <div className="home-container">
       <section className="hero-section">
@@ -76,10 +76,10 @@ function Home({ setPagina, setLinkAtivo, navegarParaProduto }) {
       <ProductCarousel setPagina={setPagina} navegarParaProduto={navegarParaProduto} />
 
       {/* O novo Carrossel de Óleos Essenciais */}
-      <OleoCarousel navegarParaProduto={navegarParaProduto} />
+      <OleoCarousel navegarParaOleo={navegarParaOleo} />
 
       {/* O Carrossel de Filtros Purificadores de Água */}
-      <FiltroCarousel navegarParaProduto={navegarParaProduto} />
+      <FiltroCarousel navegarParaFiltro={navegarParaFiltro} />
 
       {/* O Carrossel de Sandálias */}
       <SandaliasCarrossel navegarParaProduto={navegarParaProduto} />

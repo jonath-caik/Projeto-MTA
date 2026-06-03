@@ -9,6 +9,10 @@ function ProdutoCard({ produto, navegarParaProduto, adicionarAoCarrinho, irParaC
   const [adicionado, setAdicionado] = useState(false);
 
   const handleAddCarrinho = () => {
+    if (produto.tamanhos) {
+      navegarParaProduto(produto);
+      return;
+    }
     adicionarAoCarrinho(produto, 1);
     setAdicionado(true);
     setTimeout(() => setAdicionado(false), 2000);

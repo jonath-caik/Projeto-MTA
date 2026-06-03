@@ -10,12 +10,14 @@
   position: relative;
   overflow: hidden;
   color: white;
-  background:
+  background-image:
     linear-gradient(rgba(11, 26, 49, 0.8), rgba(11, 26, 49, 0.7)),
-    url("/fotos/home/image.png") no-repeat;
+    url("/fotos/home/image.png");
+  background-color: #0b1a31;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
 }
 
 .hero-container-flex {

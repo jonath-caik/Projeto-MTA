@@ -1,48 +1,6 @@
 import React from "react";
 import "./OleoPage.css";
-
-const oleos = [
-  {
-    id: 1,
-    nome: "Óleo Essencial Bergamota",
-    subtitulo: "Aroma cítrico e refrescante, ideal para equilíbrio emocional e bem-estar.",
-    preco: "R$ 89,90",
-    img: "/fotos/oleos/aromas_naturais/bergamot.png",
-    tags: ["doTERRA", "100% Puro", "Cítrico"],
-  },
-  {
-    id: 2,
-    nome: "Óleo Essencial Pimenta Preta",
-    subtitulo: "Estimulante e aquecedor, perfeito para circulação e desconforto muscular.",
-    preco: "R$ 94,90",
-    img: "/fotos/oleos/aromas_naturais/black_pepper.png",
-    tags: ["doTERRA", "100% Puro", "Estimulante"],
-  },
-  {
-    id: 3,
-    nome: "Óleo Essencial Brasil",
-    subtitulo: "Blend exclusivo inspirado na riqueza natural da flora brasileira.",
-    preco: "R$ 99,90",
-    img: "/fotos/oleos/aromas_naturais/brasil.png",
-    tags: ["doTERRA", "Blend Exclusivo", "Flora Brasileira"],
-  },
-  {
-    id: 4,
-    nome: "Óleo Essencial Cardamomo",
-    subtitulo: "Doce e especiado, excelente para digestão e respiração saudável.",
-    preco: "R$ 109,90",
-    img: "/fotos/oleos/aromas_naturais/cardamom.png",
-    tags: ["doTERRA", "100% Puro", "Digestivo"],
-  },
-  {
-    id: 5,
-    nome: "Óleo Essencial Cassia",
-    subtitulo: "Similar à canela, com propriedades quentes e estimulantes do bem-estar.",
-    preco: "R$ 79,90",
-    img: "/fotos/oleos/aromas_naturais/cassia.png",
-    tags: ["doTERRA", "100% Puro", "Aquecedor"],
-  },
-];
+import { oleos } from "../../dados/produtos";
 
 function OleosLista({ navegarParaOleo, setPagina }) {
   return (

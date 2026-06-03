@@ -5,20 +5,21 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './ProductCarousel.css';
-import { outrosProdutos } from '../../dados/produtos';
+import { outrosProdutos, purificadores, sandalias } from '../../dados/produtos';
 
+const filtroPurific    = outrosProdutos.find((p) => p.slug === 'filtro-purific');
+const kitDoTERRA       = outrosProdutos.find((p) => p.slug === 'kit-bem-estar-doterra');
+const purificadorPreto = purificadores.find((p) => p.slug === 'purificador-preto-um-filtro');
+const sandaliasCouro   = sandalias.find((p) => p.slug === 'sandalia-ortopedica-couro');
+const sandaliasVazada  = sandalias.find((p) => p.slug === 'sandalia-ortopedica-vazada');
 
-
-const filtroPurific = outrosProdutos.find((p) => p.slug === 'filtro-purific');
-const kitDoTERRA = outrosProdutos.find((p) => p.slug === 'kit-bem-estar-doterra');
-
-const ProductCarousel = ({ setPagina, navegarParaProduto }) => {
+const ProductCarousel = ({ navegarParaProduto }) => {
   const products = [
-    { id: 1, title: filtroPurific.nome, img: filtroPurific.img, acao: () => navegarParaProduto(filtroPurific) },
-    { id: 2, title: 'Sandália Ortopédica "couro"',  img: '/fotos/sandalias/sandalia_couro.jpg',                          acao: () => setPagina('sandalias') },
-    { id: 3, title: 'Sandália Ortopédica "vazada"', img: '/fotos/sandalias/sandaliavazada.jpeg',                          acao: () => setPagina('sandalias') },
-    { id: 4, title: 'Filtro Purific - Preto',        img: '/fotos/purificador/purificador_agua_natural/purificador3.png', acao: () => navegarParaProduto(filtroPurific) },
-    { id: 5, title: kitDoTERRA.nome,                 img: kitDoTERRA.img,                     acao: () => navegarParaProduto(kitDoTERRA) },
+    { id: 1, title: filtroPurific.nome,    img: filtroPurific.img,    acao: () => navegarParaProduto(filtroPurific) },
+    { id: 2, title: sandaliasCouro.nome,   img: sandaliasCouro.img,   acao: () => navegarParaProduto(sandaliasCouro) },
+    { id: 3, title: sandaliasVazada.nome,  img: sandaliasVazada.img,  acao: () => navegarParaProduto(sandaliasVazada) },
+    { id: 4, title: purificadorPreto.nome, img: purificadorPreto.img, acao: () => navegarParaProduto(purificadorPreto) },
+    { id: 5, title: kitDoTERRA.nome,       img: kitDoTERRA.img,       acao: () => navegarParaProduto(kitDoTERRA) },
   ];
 
   return (
