@@ -9,7 +9,7 @@ import { outrosProdutos, purificadores, sandalias } from '../../dados/produtos';
 
 const filtroPurific    = outrosProdutos.find((p) => p.slug === 'filtro-purific');
 const kitDoTERRA       = outrosProdutos.find((p) => p.slug === 'kit-bem-estar-doterra');
-const purificadorPreto = purificadores.find((p) => p.slug === 'purificador-preto-um-filtro');
+const purificadorPreto = purificadores.find((p) => p.slug === 'purificador-alcalinum-6l-bancada');
 const sandaliasCouro   = sandalias.find((p) => p.slug === 'sandalia-ortopedica-couro');
 const sandaliasVazada  = sandalias.find((p) => p.slug === 'sandalia-ortopedica-vazada');
 

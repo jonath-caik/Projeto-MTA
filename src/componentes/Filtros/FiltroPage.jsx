@@ -58,7 +58,8 @@ function FiltroPage({ setPagina, produtoSelecionado, adicionarAoCarrinho, irPara
 
             <div className="filtro-preco-bloco">
               <span className="filtro-preco">{filtro.preco}</span>
-              <span className="filtro-preco-parcelado">{filtro.parcelamento}</span>
+              {filtro.precoPix && <span className="filtro-preco-pix">{filtro.precoPix}</span>}
+              <span className="filtro-preco-parcelado">ou {filtro.parcelamento} sem juros</span>
             </div>
             <div className="filtro-divider" />
 

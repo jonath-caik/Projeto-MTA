@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CarrinhoPage.css";
+import { todosProdutos } from "../../dados/produtos";
 
 const WHATSAPP_NUM = "5571981238344";
+const DESCONTO_PIX = 0.05;
+
+const getMaxParcelas = (produtoId) => {
+  const produto = todosProdutos.find((p) => p.id === produtoId);
+  if (!produto?.parcelamento) return 12;
+  const match = produto.parcelamento.match(/^(\d+)x/);
+  return match ? parseInt(match[1]) : 12;
+};
 
 const parsePreco = (str) =>
   parseFloat(str.replace("R$", "").trim().replace(/\./g, "").replace(",", ".")) || 0;
@@ -9,19 +18,20 @@ const parsePreco = (str) =>
 const formatPreco = (valor) =>
   valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
-const buildWhatsAppMessage = (carrinho) => {
+const buildWhatsAppMessage = (carrinho, metodoPagamento, totalFinal, parcelas) => {
+  let metodoLabel = metodoPagamento === "debito" ? "Débito"
+    : metodoPagamento === "pix" ? "PIX (-5%)"
+    : `Crédito — ${parcelas}x de ${formatPreco(totalFinal / parcelas)}`;
+
   let msg = "🛒 *Pedido NeaBemEstar*\n\n";
   carrinho.forEach((item, i) => {
     msg += `${i + 1}. *${item.nome}*\n`;
     if (item.tamanho) msg += `   Tamanho: ${item.tamanho}\n`;
     msg += `   Qtd: ${item.quantidade}x — ${item.preco} cada\n\n`;
   });
-  const total = carrinho.reduce(
-    (sum, item) => sum + parsePreco(item.preco) * item.quantidade,
-    0
-  );
-  msg += `*Total estimado: ${formatPreco(total)}*\n\n`;
-  msg += "Olá! Gostaria de finalizar este pedido. Por favor, me informe sobre disponibilidade e formas de pagamento!";
+  msg += `💳 *Pagamento: ${metodoLabel}*\n`;
+  msg += `*Total: ${formatPreco(totalFinal)}*\n\n`;
+  msg += "Olá! Gostaria de finalizar este pedido.";
   return encodeURIComponent(msg);
 };
 
@@ -33,13 +43,35 @@ function CarrinhoPage({
   setPagina,
   setLinkAtivo,
 }) {
-  const total = carrinho.reduce(
+  const [metodoPagamento, setMetodoPagamento] = useState(null);
+  const [parcelasSelecionadas, setParcelasSelecionadas] = useState(null);
+  const [erroMetodo, setErroMetodo] = useState(false);
+
+  const subtotal = carrinho.reduce(
     (sum, item) => sum + parsePreco(item.preco) * item.quantidade,
     0
   );
 
+  const desconto = metodoPagamento === "pix" ? subtotal * DESCONTO_PIX : 0;
+  const total = subtotal - desconto;
+
+  // Menor número de parcelas disponível entre todos os itens do carrinho
+  const minParcelas = carrinho.length > 0
+    ? Math.min(...carrinho.map((item) => getMaxParcelas(item.produtoId)))
+    : 12;
+
+  const valorParcela = parcelasSelecionadas ? total / parcelasSelecionadas : null;
+
+  const selecionarMetodo = (metodo) => {
+    setMetodoPagamento(metodo);
+    setParcelasSelecionadas(null);
+    setErroMetodo(false);
+  };
+
   const finalizarPedido = () => {
-    const msg = buildWhatsAppMessage(carrinho);
+    if (!metodoPagamento) { setErroMetodo(true); return; }
+    if (metodoPagamento === "credito" && !parcelasSelecionadas) { setErroMetodo(true); return; }
+    const msg = buildWhatsAppMessage(carrinho, metodoPagamento, total, parcelasSelecionadas);
     window.open(`https://wa.me/${WHATSAPP_NUM}?text=${msg}`, "_blank");
   };
 
@@ -128,17 +160,78 @@ function CarrinhoPage({
               <h2>Resumo do pedido</h2>
               <div className="resumo-linha">
                 <span>Subtotal</span>
-                <span>{formatPreco(total)}</span>
+                <span>{formatPreco(subtotal)}</span>
               </div>
               <div className="resumo-linha resumo-frete">
                 <span>Frete</span>
                 <span>A combinar</span>
               </div>
+
+              {/* Seletor de pagamento */}
               <div className="resumo-divider" />
+              <p className="pagamento-titulo">Forma de pagamento</p>
+              <div className="pagamento-opcoes">
+                <button
+                  className={`pagamento-btn ${metodoPagamento === "debito" ? "ativo" : ""}`}
+                  onClick={() => selecionarMetodo("debito")}
+                >
+                  Débito
+                </button>
+                <button
+                  className={`pagamento-btn ${metodoPagamento === "credito" ? "ativo" : ""}`}
+                  onClick={() => selecionarMetodo("credito")}
+                >
+                  Crédito
+                </button>
+                <button
+                  className={`pagamento-btn pagamento-pix ${metodoPagamento === "pix" ? "ativo" : ""}`}
+                  onClick={() => selecionarMetodo("pix")}
+                >
+                  PIX <span className="pix-badge">-5%</span>
+                </button>
+              </div>
+              {metodoPagamento === "credito" && (
+                <div className="parcelas-bloco">
+                  <p className="pagamento-titulo" style={{ marginTop: "14px" }}>Parcelas</p>
+                  <div className="parcelas-opcoes">
+                    {Array.from({ length: minParcelas }, (_, i) => i + 1).map((n) => (
+                      <button
+                        key={n}
+                        className={`parcela-btn ${parcelasSelecionadas === n ? "ativo" : ""}`}
+                        onClick={() => { setParcelasSelecionadas(n); setErroMetodo(false); }}
+                      >
+                        <span className="parcela-num">{n}x</span>
+                        <span className="parcela-valor">{formatPreco(total / n)}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {erroMetodo && (
+                <p className="pagamento-erro">
+                  {metodoPagamento === "credito"
+                    ? "Selecione o número de parcelas"
+                    : "Selecione uma forma de pagamento"}
+                </p>
+              )}
+
+              <div className="resumo-divider" />
+              {desconto > 0 && (
+                <div className="resumo-linha resumo-desconto">
+                  <span>Desconto PIX (-5%)</span>
+                  <span>− {formatPreco(desconto)}</span>
+                </div>
+              )}
               <div className="resumo-linha resumo-total">
                 <span>Total estimado</span>
                 <span>{formatPreco(total)}</span>
               </div>
+              {valorParcela && parcelasSelecionadas > 1 && (
+                <p className="parcelas-resumo">
+                  {parcelasSelecionadas}x de {formatPreco(valorParcela)} sem juros
+                </p>
+              )}
 
               <button className="btn-finalizar" onClick={finalizarPedido}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">

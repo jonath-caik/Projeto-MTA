@@ -173,8 +173,15 @@
 .lista-card-footer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   margin-top: auto;
+  gap: 16px;
+}
+
+.lista-preco-bloco {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .lista-preco {
@@ -296,9 +303,29 @@
   color: #0b1a31 !important;
 }
 
+.filtro-preco-pix {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  color: #1a6c3a !important;
+  background-color: #e6f7ed !important;
+  padding: 3px 10px !important;
+  border-radius: 6px !important;
+  margin-top: 2px !important;
+}
+
 .filtro-preco-parcelado {
   font-size: 0.9rem !important;
   color: #666 !important;
+}
+
+.lista-preco-pix {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #1a6c3a;
+  background-color: #e6f7ed;
+  padding: 1px 7px;
+  border-radius: 5px;
+  width: fit-content;
 }
 
 /* Especificações */

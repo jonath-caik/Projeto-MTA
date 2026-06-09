@@ -34,7 +34,10 @@ function PurificadoresLista({ navegarParaFiltro, setPagina }) {
                 <h3>{p.nome}</h3>
                 <p>{p.subtitulo}</p>
                 <div className="lista-card-footer">
-                  <span className="lista-preco">{p.preco}</span>
+                  <div className="lista-preco-bloco">
+                    <span className="lista-preco">{p.preco}</span>
+                    {p.precoPix && <span className="lista-preco-pix">{p.precoPix}</span>}
+                  </div>
                   <button
                     className="btn-carrinho"
                     onClick={() => navegarParaFiltro(p)}
