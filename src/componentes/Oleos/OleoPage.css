@@ -182,6 +182,22 @@
   margin-top: auto;
 }
 
+.lista-preco-bloco {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lista-tamanho {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #1a3a6c;
+  padding: 1px 8px;
+  border-radius: 20px;
+  width: fit-content;
+}
+
 .lista-preco {
   font-size: 1.3rem;
   font-weight: 800;
@@ -293,6 +309,16 @@
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
+}
+
+.oleo-tamanho {
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  background-color: #1a3a6c !important;
+  padding: 2px 10px !important;
+  border-radius: 20px !important;
+  margin-bottom: 6px !important;
 }
 
 .oleo-preco {

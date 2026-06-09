@@ -34,7 +34,10 @@ function OleosLista({ navegarParaOleo, setPagina }) {
                 <h3>{oleo.nome}</h3>
                 <p>{oleo.subtitulo}</p>
                 <div className="lista-card-footer">
-                  <span className="lista-preco">{oleo.preco}</span>
+                  <div className="lista-preco-bloco">
+                    {oleo.tamanho && <span className="lista-tamanho">{oleo.tamanho}</span>}
+                    <span className="lista-preco">{oleo.preco}</span>
+                  </div>
                   <button
                     className="btn-carrinho"
                     onClick={() => navegarParaOleo(oleo)}

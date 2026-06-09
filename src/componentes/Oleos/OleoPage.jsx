@@ -57,6 +57,7 @@ function OleoPage({ setPagina, produtoSelecionado, adicionarAoCarrinho, irParaCa
             <div className="oleo-divider" />
 
             <div className="oleo-preco-bloco">
+              {oleo.tamanho && <span className="oleo-tamanho">{oleo.tamanho}</span>}
               <span className="oleo-preco">{oleo.preco}</span>
               <span className="oleo-preco-parcelado">{oleo.parcelamento}</span>
             </div>

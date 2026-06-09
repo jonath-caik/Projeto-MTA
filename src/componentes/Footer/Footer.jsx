@@ -70,7 +70,7 @@ const Footer = ({ setPagina, setLinkAtivo }) => {
         <div className="footer-section contact">
           <h3>Fale Conosco</h3>
           <p><span>📍</span> Salvador | Dias D'ávila, Bahia - Brasil</p>
-          <p><span>📞</span> <a href="https://wa.me/5571981238344" target="_blank" rel="noopener noreferrer"> Click Aqui Contato NeaBemEstar</a></p>
+          <p><span>📞</span> <a href="https://wa.me/5571981238344" target="_blank" rel="noopener noreferrer"> Clique Aqui Contato NeaBemEstar</a></p>
           <p><span>✉️</span> @NeaBemestar.com.br</p>
         </div>
         
