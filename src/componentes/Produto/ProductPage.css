@@ -342,13 +342,13 @@ body.dark-theme .pp-qty-btn:hover {
 
 /* Botões de Ação no Dark */
 body.dark-theme .pp-btn-carrinho {
-  border-color: #ffffff;
-  color: #ffffff;
+  border-color: #0072ff;
+  color: #0072ff;
 }
 
 body.dark-theme .pp-btn-carrinho:hover {
-  background-color: #ffffff;
-  color: #080707;
+  background-color: rgba(0, 114, 255, 0.1);
+  color: #0072ff;
 }
 
 body.dark-theme .pp-btn-comprar {

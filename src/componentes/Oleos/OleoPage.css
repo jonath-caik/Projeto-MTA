@@ -205,9 +205,9 @@
 }
 
 .btn-carrinho {
-  background: #0b1a31;
-  color: white;
-  border: none;
+  background: transparent;
+  color: #0b1a31;
+  border: 2px solid #0b1a31;
   padding: 11px 24px;
   border-radius: 50px;
   font-size: 0.85rem;
@@ -217,10 +217,10 @@
   font-family: inherit;
 }
 
-.btn-carrinho:hover { 
-  background: #0072ff; 
-  transform: translateY(-2px); 
-  box-shadow: 0 10px 25px rgba(0,114,255,0.3); 
+.btn-carrinho:hover {
+  background: #0b1a31;
+  color: white;
+  transform: translateY(-2px);
 }
 
 
@@ -409,12 +409,13 @@
 
 .oleo-acoes .btn-carrinho {
   background: transparent !important;
-  border: 2px solid #0072ff !important;
-  color: #0072ff !important;
+  border: 2px solid #0b1a31 !important;
+  color: #0b1a31 !important;
 }
 
 .oleo-acoes .btn-carrinho:hover {
-  background: rgba(0, 114, 255, 0.05) !important;
+  background: #0b1a31 !important;
+  color: white !important;
   transform: translateY(-2px) !important;
 }
 
@@ -525,7 +526,24 @@ body.dark-theme .oleo-uso-card p {
 }
 
 body.dark-theme .btn-carrinho {
-  background: #0072ff;
+  background: transparent !important;
+  border-color: #0072ff !important;
+  color: #0072ff !important;
+}
+
+body.dark-theme .btn-carrinho:hover {
+  background: rgba(0, 114, 255, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+body.dark-theme .oleo-acoes .btn-carrinho {
+  background: transparent !important;
+  border-color: #0072ff !important;
+  color: #0072ff !important;
+}
+
+body.dark-theme .oleo-acoes .btn-carrinho:hover {
+  background: rgba(0, 114, 255, 0.1) !important;
 }
 
 body.dark-theme .oleo-tag {
