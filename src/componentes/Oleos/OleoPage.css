@@ -157,10 +157,10 @@
   margin: 0 0 20px;
 }
 
-.oleo-tags { 
-  display: flex; 
-  flex-wrap: wrap; 
-  gap: 8px; 
+.oleo-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
 }
 
 .oleo-tag {
@@ -269,7 +269,7 @@
 
 .oleo-coluna-esquerda .oleo-tags {
   display: flex !important;
-  gap: 8px !important;
+  gap: 8px 12px !important;
   margin-top: 20px !important;
   justify-content: center !important;
   flex-wrap: wrap !important;

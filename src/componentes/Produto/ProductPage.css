@@ -99,6 +99,12 @@
   gap: 20px;
 }
 
+.pp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
 .pp-tag {
   font-size: 0.72rem;
   padding: 5px 12px;
@@ -151,6 +157,56 @@
 .pp-parcelamento {
   font-size: 0.9rem;
   color: #888;
+}
+
+/* ===== COLOR SELECTOR ===== */
+.pp-cores {
+  margin-bottom: 20px;
+}
+
+.pp-cores h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0b1a31;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.pp-cor-nome {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #555;
+}
+
+.pp-cores-opcoes {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pp-cor-btn {
+  padding: 7px 20px;
+  border-radius: 50px;
+  border: 2px solid #ccc;
+  background: transparent;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+  color: #444;
+}
+
+.pp-cor-btn.selecionada {
+  border-color: #0b1a31;
+  background: #0b1a31;
+  color: #fff;
+}
+
+.pp-cor-btn:hover:not(.selecionada) {
+  border-color: #0b1a31;
+  color: #0b1a31;
 }
 
 /* ===== BENEFITS & SIZES TITLES ===== */
@@ -307,6 +363,28 @@ body.dark-theme .pp-parcelamento {
 body.dark-theme .pp-image-wrapper {
   background-color: #141414;
   border-color: #333;
+}
+
+/* Seletor de Cor no Dark */
+body.dark-theme .pp-cores h4,
+body.dark-theme .pp-cor-nome {
+  color: #cccccc;
+}
+
+body.dark-theme .pp-cor-btn {
+  border-color: #555;
+  color: #ccc;
+}
+
+body.dark-theme .pp-cor-btn.selecionada {
+  border-color: #0072ff;
+  background: #0072ff;
+  color: #fff;
+}
+
+body.dark-theme .pp-cor-btn:hover:not(.selecionada) {
+  border-color: #0072ff;
+  color: #0072ff;
 }
 
 /* Seletores de Tamanho no Dark */

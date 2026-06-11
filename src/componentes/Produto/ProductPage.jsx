@@ -5,18 +5,29 @@ function ProductPage({ product, voltarFn, voltarTexto = "← Voltar", adicionarA
   const [quantidade, setQuantidade] = useState(1);
   const [adicionado, setAdicionado] = useState(false);
   const [tamanhoSelecionado, setTamanhoSelecionado] = useState(null);
+  const [corSelecionada, setCorSelecionada] = useState(
+    product?.cores ? product.cores[0] : null
+  );
+
+  const imgAtual = corSelecionada ? corSelecionada.img : product?.img;
+  const tamanhosDoCor = corSelecionada ? corSelecionada.tamanhos : product?.tamanhos;
 
   const handleAdicionar = () => {
-    if (product.tamanhos && !tamanhoSelecionado) return;
-    adicionarAoCarrinho(product, quantidade, tamanhoSelecionado);
+    if (tamanhosDoCor && !tamanhoSelecionado) return;
+    adicionarAoCarrinho({ ...product, img: imgAtual, corEscolhida: corSelecionada?.nome }, quantidade, tamanhoSelecionado);
     setAdicionado(true);
     setTimeout(() => setAdicionado(false), 2000);
   };
 
   const handleComprar = () => {
-    if (product.tamanhos && !tamanhoSelecionado) return;
-    adicionarAoCarrinho(product, quantidade, tamanhoSelecionado);
+    if (tamanhosDoCor && !tamanhoSelecionado) return;
+    adicionarAoCarrinho({ ...product, img: imgAtual, corEscolhida: corSelecionada?.nome }, quantidade, tamanhoSelecionado);
     irParaCarrinho();
+  };
+
+  const handleTrocarCor = (cor) => {
+    setCorSelecionada(cor);
+    setTamanhoSelecionado(null);
   };
 
   const diminuir = () => setQuantidade((q) => Math.max(1, q - 1));
@@ -41,7 +52,7 @@ function ProductPage({ product, voltarFn, voltarTexto = "← Voltar", adicionarA
         <div className="pp-container">
 
           <div className="pp-image-wrapper">
-            <img src={product.img} alt={product.nome} className="pp-image" />
+            <img src={imgAtual} alt={product.nome} className="pp-image" />
           </div>
 
           <div className="pp-info">
@@ -73,11 +84,28 @@ function ProductPage({ product, voltarFn, voltarTexto = "← Voltar", adicionarA
               </ul>
             </div>
 
-            {product.tamanhos && (
+            {product.cores && (
+              <div className="pp-cores">
+                <h4>Cor: <span className="pp-cor-nome">{corSelecionada?.nome}</span></h4>
+                <div className="pp-cores-opcoes">
+                  {product.cores.map((cor) => (
+                    <button
+                      key={cor.nome}
+                      className={`pp-cor-btn ${corSelecionada?.nome === cor.nome ? 'selecionada' : ''}`}
+                      onClick={() => handleTrocarCor(cor)}
+                    >
+                      {cor.nome}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {tamanhosDoCor && (
               <div className="pp-tamanhos">
                 <h4>Tamanho:</h4>
                 <div className="pp-tamanhos-grid">
-                  {product.tamanhos.map((tam) => (
+                  {tamanhosDoCor.map((tam) => (
                     <button
                       key={tam}
                       className={`pp-tam-btn ${tamanhoSelecionado === tam ? 'selecionado' : ''}`}
@@ -106,16 +134,16 @@ function ProductPage({ product, voltarFn, voltarTexto = "← Voltar", adicionarA
               <button
                 className={`pp-btn-carrinho ${adicionado ? 'adicionado' : ''}`}
                 onClick={handleAdicionar}
-                disabled={product.tamanhos && !tamanhoSelecionado}
-                style={{ opacity: product.tamanhos && !tamanhoSelecionado ? 0.5 : 1 }}
+                disabled={tamanhosDoCor && !tamanhoSelecionado}
+                style={{ opacity: tamanhosDoCor && !tamanhoSelecionado ? 0.5 : 1 }}
               >
                 {adicionado ? '✓ Adicionado!' : 'Adicionar ao Carrinho'}
               </button>
               <button
                 className="pp-btn-comprar"
                 onClick={handleComprar}
-                disabled={product.tamanhos && !tamanhoSelecionado}
-                style={{ opacity: product.tamanhos && !tamanhoSelecionado ? 0.5 : 1 }}
+                disabled={tamanhosDoCor && !tamanhoSelecionado}
+                style={{ opacity: tamanhosDoCor && !tamanhoSelecionado ? 0.5 : 1 }}
               >
                 Comprar Agora
               </button>

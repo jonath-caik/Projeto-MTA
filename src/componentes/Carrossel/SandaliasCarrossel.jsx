@@ -12,7 +12,7 @@ import { sandaliasCarrossel } from '../../dados/produtos';
 const SandaliasCarrossel = ({ navegarParaProduto }) => {
   return (
     <section className="carousel-section" id="sandalias">
-      <h2 className="carousel-title">Nossas Sandálias Ortopédicas</h2>
+      <h2 className="carousel-title">Nossas Sandálias Ortopédicas e Magnéticas</h2>
 
       
 

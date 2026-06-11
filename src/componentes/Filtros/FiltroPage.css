@@ -157,6 +157,13 @@
   margin: 0 0 20px;
 }
 
+.filtro-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin-bottom: 6px;
+}
+
 .filtro-tag {
   font-size: 0.72rem;
   padding: 5px 12px;
@@ -255,7 +262,7 @@
 
 .filtro-coluna-esquerda .filtro-tags {
   display: flex !important;
-  gap: 8px !important;
+  gap: 8px 12px !important;
   margin-top: 20px !important;
   justify-content: center !important;
   flex-wrap: wrap !important;

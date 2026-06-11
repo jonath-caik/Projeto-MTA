@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import "./SandaliasPage.css";
 import { sandalias } from "../../dados/produtos";
 
-const produtosOrtopedicos = sandalias.filter((s) => s.categoria === "Sandalia Ortopedica");
-const produtosMagneticos  = sandalias.filter((s) => s.categoria === "Sandalia Magnetica");
-
-function ProdutoCard({ produto, navegarParaProduto, adicionarAoCarrinho, irParaCarrinho }) {
+function ProdutoCard({ produto, navegarParaProduto, adicionarAoCarrinho }) {
   const [adicionado, setAdicionado] = useState(false);
+  const [corSelecionada, setCorSelecionada] = useState(
+    produto.cores ? produto.cores[0] : null
+  );
+
+  const imgAtual = corSelecionada ? corSelecionada.img : produto.img;
 
   const handleAddCarrinho = () => {
-    if (produto.tamanhos) {
-      navegarParaProduto(produto);
+    if (produto.tamanhos || produto.cores) {
+      navegarParaProduto({ ...produto, ...(corSelecionada || {}) });
       return;
     }
     adicionarAoCarrinho(produto, 1);
@@ -21,7 +23,7 @@ function ProdutoCard({ produto, navegarParaProduto, adicionarAoCarrinho, irParaC
   return (
     <div className="sandalia-card">
       <div className="sandalia-card-img">
-        <img src={produto.img} alt={produto.nome} />
+        <img src={imgAtual} alt={produto.nome} />
       </div>
       <div className="sandalia-card-info">
         <div className="sandalia-tags">
@@ -31,12 +33,30 @@ function ProdutoCard({ produto, navegarParaProduto, adicionarAoCarrinho, irParaC
         </div>
         <h3>{produto.nome}</h3>
         <p>{produto.descricao}</p>
+
+        {produto.cores && (
+          <div className="sandalia-cores">
+            <span className="sandalia-cores-label">Cor:</span>
+            <div className="sandalia-cores-opcoes">
+              {produto.cores.map((cor) => (
+                <button
+                  key={cor.nome}
+                  className={`sandalia-cor-btn ${corSelecionada?.nome === cor.nome ? "ativa" : ""}`}
+                  onClick={() => setCorSelecionada(cor)}
+                >
+                  {cor.nome}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="sandalia-card-footer">
           <span className="sandalia-preco">{produto.preco}</span>
           <div className="sandalia-card-btns">
             <button
               className="btn-sandalia btn-detalhes"
-              onClick={() => navegarParaProduto(produto)}
+              onClick={() => navegarParaProduto({ ...produto, ...(corSelecionada || {}) })}
             >
               Ver Detalhes
             </button>
@@ -54,8 +74,6 @@ function ProdutoCard({ produto, navegarParaProduto, adicionarAoCarrinho, irParaC
 }
 
 function SandaliasPage({ setPagina, navegarParaProduto, adicionarAoCarrinho, irParaCarrinho }) {
-  const [abaAtiva, setAbaAtiva] = useState("ortopedica");
-
   return (
     <div className="sandalias-page">
 
@@ -69,60 +87,35 @@ function SandaliasPage({ setPagina, navegarParaProduto, adicionarAoCarrinho, irP
           <p className="sandalias-hero-desc">
             Conforto e bem-estar para cada passo do seu dia.
           </p>
-          {/* Botão para voltar à Home */}
           <button className="btn-voltar" onClick={() => setPagina("home")}>
             ← Voltar ao início
           </button>
         </div>
       </section>
 
-      {/* ABAS */}
       <section className="sandalias-main">
-        <div className="sandalias-abas">
-          <button
-            className={`aba-btn ${abaAtiva === "ortopedica" ? "ativa" : ""}`}
-            onClick={() => setAbaAtiva("ortopedica")}
-          >
-            Ortopédica
-          </button>
-          <button
-            className={`aba-btn ${abaAtiva === "magnetica" ? "ativa" : ""}`}
-            onClick={() => setAbaAtiva("magnetica")}
-          >
-            Magnética
-          </button>
-        </div>
-
-        {/* DESCRIÇÃO DA ABA */}
         <div className="aba-descricao">
-          {abaAtiva === "ortopedica" ? (
-            <>
-              <h2>Sandálias Ortopédicas</h2>
-              <p>
-                Desenvolvidas para corrigir a postura, aliviar dores nos pés,
-                joelhos e coluna. Combinam saúde com estilo para o seu cotidiano.
-              </p>
-            </>
-          ) : (
-            <>
-              <h2>Sandálias Magnéticas</h2>
-              <p>
-                Tecnologia de imãs terapêuticos que estimulam a circulação
-                sanguínea, reduzem inflamações e promovem equilíbrio energético.
-              </p>
-            </>
-          )}
+          <h2>Sandálias Ortopédicas e Magnéticas</h2>
+          <p>
+            Todas as nossas sandálias combinam tecnologia ortopédica e imãs terapêuticos
+            em um único produto. Correção postural, alívio de dores e estimulação da
+            circulação sanguínea a cada passo.
+          </p>
         </div>
 
-        {/* GRID */}
         <div className="sandalias-grid">
-          {(abaAtiva === "ortopedica" ? produtosOrtopedicos : produtosMagneticos).map(
-            (produto) => <ProdutoCard key={produto.id} produto={produto} navegarParaProduto={navegarParaProduto} adicionarAoCarrinho={adicionarAoCarrinho} irParaCarrinho={irParaCarrinho} />
-          )}
+          {sandalias.map((produto) => (
+            <ProdutoCard
+              key={produto.id}
+              produto={produto}
+              navegarParaProduto={navegarParaProduto}
+              adicionarAoCarrinho={adicionarAoCarrinho}
+              irParaCarrinho={irParaCarrinho}
+            />
+          ))}
         </div>
       </section>
 
-      {/* BENEFÍCIOS */}
       <section className="sandalias-beneficios">
         <h2>Por que escolher a NeaBemEstar?</h2>
         <div className="beneficios-grid">
@@ -149,7 +142,6 @@ function SandaliasPage({ setPagina, navegarParaProduto, adicionarAoCarrinho, irP
         </div>
       </section>
 
-      {/* APENAS O ESPAÇO INVISÍVEL PARA EMPURRAR O RODAPÉ */}
       <div className="sandalias-espacador-footer" />
 
     </div>

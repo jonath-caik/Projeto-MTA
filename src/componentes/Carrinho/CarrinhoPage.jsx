@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./CarrinhoPage.css";
-import { todosProdutos } from "../../dados/produtos";
+import { todosProdutos, purificadores } from "../../dados/produtos";
 
 const WHATSAPP_NUM = "5571981238344";
 const DESCONTO_PIX = 0.05;
@@ -47,12 +47,16 @@ function CarrinhoPage({
   const [parcelasSelecionadas, setParcelasSelecionadas] = useState(null);
   const [erroMetodo, setErroMetodo] = useState(false);
 
+  const idsPurificadores = new Set(purificadores.map((p) => p.id));
+  const temPurificador = carrinho.some((item) => idsPurificadores.has(item.produtoId));
+
   const subtotal = carrinho.reduce(
     (sum, item) => sum + parsePreco(item.preco) * item.quantidade,
     0
   );
 
-  const desconto = metodoPagamento === "pix" ? subtotal * DESCONTO_PIX : 0;
+  const pixAtivo = metodoPagamento === "pix" && temPurificador;
+  const desconto = pixAtivo ? subtotal * DESCONTO_PIX : 0;
   const total = subtotal - desconto;
 
   // Menor número de parcelas disponível entre todos os itens do carrinho
@@ -71,7 +75,8 @@ function CarrinhoPage({
   const finalizarPedido = () => {
     if (!metodoPagamento) { setErroMetodo(true); return; }
     if (metodoPagamento === "credito" && !parcelasSelecionadas) { setErroMetodo(true); return; }
-    const msg = buildWhatsAppMessage(carrinho, metodoPagamento, total, parcelasSelecionadas);
+    const metodoFinal = pixAtivo ? "pix" : metodoPagamento;
+    const msg = buildWhatsAppMessage(carrinho, metodoFinal, total, parcelasSelecionadas);
     window.open(`https://wa.me/${WHATSAPP_NUM}?text=${msg}`, "_blank");
   };
 
@@ -183,12 +188,14 @@ function CarrinhoPage({
                 >
                   Crédito
                 </button>
-                <button
-                  className={`pagamento-btn pagamento-pix ${metodoPagamento === "pix" ? "ativo" : ""}`}
-                  onClick={() => selecionarMetodo("pix")}
-                >
-                  PIX <span className="pix-badge">-5%</span>
-                </button>
+                {temPurificador && (
+                  <button
+                    className={`pagamento-btn pagamento-pix ${metodoPagamento === "pix" ? "ativo" : ""}`}
+                    onClick={() => selecionarMetodo("pix")}
+                  >
+                    PIX <span className="pix-badge">-5%</span>
+                  </button>
+                )}
               </div>
               {metodoPagamento === "credito" && (
                 <div className="parcelas-bloco">

@@ -10,14 +10,14 @@ import { outrosProdutos, purificadores, sandalias } from '../../dados/produtos';
 const filtroPurific    = outrosProdutos.find((p) => p.slug === 'filtro-purific');
 const kitDoTERRA       = outrosProdutos.find((p) => p.slug === 'kit-bem-estar-doterra');
 const purificadorPreto = purificadores.find((p) => p.slug === 'purificador-alcalinum-6l-bancada');
-const sandaliasCouro   = sandalias.find((p) => p.slug === 'sandalia-ortopedica-couro');
-const sandaliasVazada  = sandalias.find((p) => p.slug === 'sandalia-ortopedica-vazada');
+const sandaliasAurora  = sandalias.find((p) => p.slug === 'sandalia-aurora');
+const sandaliasMere    = sandalias.find((p) => p.slug === 'sandalia-mere');
 
 const ProductCarousel = ({ navegarParaProduto }) => {
   const products = [
     { id: 1, title: filtroPurific.nome,    img: filtroPurific.img,    acao: () => navegarParaProduto(filtroPurific) },
-    { id: 2, title: sandaliasCouro.nome,   img: sandaliasCouro.img,   acao: () => navegarParaProduto(sandaliasCouro) },
-    { id: 3, title: sandaliasVazada.nome,  img: sandaliasVazada.img,  acao: () => navegarParaProduto(sandaliasVazada) },
+    { id: 2, title: sandaliasAurora.nome,  img: sandaliasAurora.img,  acao: () => navegarParaProduto(sandaliasAurora) },
+    { id: 3, title: sandaliasMere.nome,    img: sandaliasMere.img,    acao: () => navegarParaProduto(sandaliasMere) },
     { id: 4, title: purificadorPreto.nome, img: purificadorPreto.img, acao: () => navegarParaProduto(purificadorPreto) },
     { id: 5, title: kitDoTERRA.nome,       img: kitDoTERRA.img,       acao: () => navegarParaProduto(kitDoTERRA) },
   ];

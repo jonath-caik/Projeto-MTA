@@ -194,6 +194,13 @@
   flex: 1;
 }
 
+.sandalia-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin-bottom: 6px;
+}
+
 .sandalia-tag {
   font-size: 0.72rem;
   padding: 5px 12px;
@@ -323,6 +330,65 @@
   display: block !important;
 }
 
+
+/* ===== SELETOR DE COR (Helena) ===== */
+.sandalia-cores {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.sandalia-cores-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.sandalia-cores-opcoes {
+  display: flex;
+  gap: 8px;
+}
+
+.sandalia-cor-btn {
+  padding: 5px 14px;
+  border-radius: 50px;
+  border: 2px solid #ccc;
+  background: transparent;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+  color: #444;
+}
+
+.sandalia-cor-btn.ativa {
+  border-color: #0b1a31;
+  background: #0b1a31;
+  color: #fff;
+}
+
+.sandalia-cor-btn:hover:not(.ativa) {
+  border-color: #0b1a31;
+  color: #0b1a31;
+}
+
+body.dark-theme .sandalia-cor-btn {
+  border-color: #555;
+  color: #ccc;
+}
+
+body.dark-theme .sandalia-cor-btn.ativa {
+  border-color: #0072ff;
+  background: #0072ff;
+  color: #fff;
+}
+
+body.dark-theme .sandalia-cor-btn:hover:not(.ativa) {
+  border-color: #0072ff;
+  color: #0072ff;
+}
 
 /* ======================================================== */
 /* --- MÁGICA DO MODO DARK PADRONIZADO (DESKTOP) --- */
