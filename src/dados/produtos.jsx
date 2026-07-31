@@ -170,9 +170,9 @@ export const purificadores = [
     categoria: 'Refil / Elemento Filtrante',
     subtitulo: 'Elemento filtrante com 7 camadas de purificação para máxima eficiência.',
     descricao: 'O Refil Purific Camadas 6 Litros é um elemento filtrante com 7 camadas de purificação que remove cloro, sedimentos, metais pesados e contaminantes. Ideal para reposição em purificadores Purific de 6 litros.',
-    preco: 'R$ 577,00',
-    precoPix: 'R$ 548,15 no PIX (-5%)',
-    parcelamento: '8x de R$ 72,12',
+    preco: 'R$ 658,30',
+    precoPix: 'R$ 625.39 no PIX (-5%)',
+    parcelamento: '8x de R$ 82,28',
     img: '/fotos/purificador/purificador_agua_natural/purificador3.png',
     tags: ['Refil', '7 Camadas', 'Purific', '6 Litros'],
     specs: [
