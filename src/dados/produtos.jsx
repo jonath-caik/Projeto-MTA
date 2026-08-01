@@ -190,7 +190,7 @@ export const oleos = [
     preco: 'R$ 230,00',
     parcelamento: '3x de R$ 76,67 sem juros',
     tamanho: '15 ml',
-    img: '/fotos/oleos/oleo_individual/Breathe.png',
+    img: '/fotos/oleos/oleo_individual/breathe.png',
     beneficios: ['Promove a sensação de vias aéreas livres', 'Cria um ambiente restaurador na hora de dormir'],
     tags: ['Mentolado', 'fresco', 'arejado', 'doTERRA', 'Mix Essencial'],
     comoUsar: [
